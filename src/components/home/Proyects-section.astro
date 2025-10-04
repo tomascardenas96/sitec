@@ -1,0 +1,32 @@
+---
+import SectionTitle from "../common/Section-title.astro";
+import Check from "../../assets/icons/check.svg";
+import { highlightedProjects } from "../../data/projects.js";
+import ProjectCardHome from "./Proyect-card.astro";
+import MainButton from "./Main-button.astro";
+---
+
+<section class="py-10 px-5">
+  <SectionTitle
+    label="Proyectos Realizados"
+    subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
+  >
+    <Check class="text-[#35796F]" slot="icon" />
+  </SectionTitle>
+
+  <div class="mt-8 flex flex-col gap-4">
+    {
+      highlightedProjects.map((project) => (
+        <ProjectCardHome
+          image={project.image}
+          title={project.title}
+          subtitle={project.subtitle}
+        />
+      ))
+    }
+  </div>
+
+  <div class="flex justify-center h-36 items-center">
+    <MainButton text="más proyectos" />
+  </div>
+</section>

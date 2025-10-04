@@ -1,22 +1,45 @@
+---
+import Footer from "../components/common/Footer.astro";
+import Header from "../components/common/Header.astro";
+import Whatsapp from "../assets/icons/whatsapp.svg";
+import "../styles/globals.css";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>Sitec - Montajes electricos</title>
+  </head>
+  <body>
+    <div class="h-16"></div>
+    <Header />
+    <slot />
+    <div
+      class="bg-[#4FCE5D] w-max p-4 rounded-full fixed bottom-10 right-5 shadow-md z-40"
+    >
+      <Whatsapp class="w-8 h-8" />
+    </div>
+    <Footer />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>

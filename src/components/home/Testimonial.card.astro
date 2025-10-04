@@ -1,0 +1,17 @@
+---
+const { image, name, body } = Astro.props;
+import QuoteIcon from "../../assets/icons/quote.png";
+---
+
+<div
+  class="h-[26rem] flex flex-col justify-center items-center gap-4 bg-[#131C27] rounded-md shadow-md pb-3"
+>
+  <img src={QuoteIcon.src} alt="quote icon testimonials" class="w-14 h-14" />
+  <p class="text-white max-w-[35ch] text-center text-[.9rem] font-light leading-6">{body}</p>
+  <img
+    src={image.src}
+    alt={name}
+    class="h-[5.5rem] w-[5.5rem] rounded-full border-2 border-[#35796F] object-cover"
+  />
+  <h1 class="font-oswald text-[#35796F] text-2xl">{name.toUpperCase()}</h1>
+</div>

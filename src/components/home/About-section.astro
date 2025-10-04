@@ -1,0 +1,24 @@
+---
+import MainButton from "./Main-button.astro";
+
+const span = "font-bold text-black";
+---
+
+<section class="h-[31rem] flex flex-col items-center justify-center gap-7 px-5">
+  <h1 class="font-oswald text-[1.6rem] text-[#35796F]">
+    Energía que Inspira Confianza
+  </h1>
+
+  <p class="text-center text-[.9rem] leading-[1.6rem]">
+    En <span class={span}>SITEC</span> ofrecemos soluciones eléctricas integrales
+    a medida. Nos encargamos de la planificación y ejecución de proyectos eléctricos
+    y electromecánicos, priorizando <span class={span}>eficiencia</span>, <span
+      class={span}>seguridad</span
+    > y <span class={span}>cumplimiento normativo.</span>
+    <br />
+    <br /> Con un equipo experimentado y tecnología de vanguardia, garantizamos instalaciones
+    confiables y resultados que superan expectativas
+  </p>
+
+  <MainButton text="ver más" />
+</section>

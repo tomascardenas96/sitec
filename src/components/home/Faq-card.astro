@@ -1,0 +1,13 @@
+---
+const { question, answer } = Astro.props;
+import DownArrow from "../../assets/icons/down-arrow.svg";
+---
+
+<div
+  class="border border-[#35796F] h-16 rounded-sm flex items-center text-[.8rem] pl-5 pr-9 shadow-md relative"
+>
+  <p>{question}</p>
+  <div class="h-full absolute right-4 flex items-center">
+    <DownArrow class="h-4 w-4 text-[#35796F]" />
+  </div>
+</div>

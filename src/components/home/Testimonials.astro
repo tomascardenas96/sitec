@@ -1,0 +1,32 @@
+---
+import texture from "../../assets/images/textura.png";
+import SectionTitle from "../common/Section-title.astro";
+import Like from "../../assets/icons/like.svg";
+import { testimonials } from "../../data/testimonials";
+import Testimonial from "./Testimonial.card.astro";
+---
+
+<section
+  class="mt-2 py-10 px-5 bg-cover"
+  style={`background-image: url('${texture.src}')`}
+>
+  <SectionTitle
+    label="Testimonios de Clientes"
+    subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
+    color="white"
+  >
+    <Like slot="icon" />
+  </SectionTitle>
+
+  <div class="grid gap-6 mt-8">
+    {
+      testimonials.map((testimonial) => (
+        <Testimonial
+          image={testimonial.image}
+          name={testimonial.name}
+          body={testimonial.body}
+        />
+      ))
+    }
+  </div>
+</section>

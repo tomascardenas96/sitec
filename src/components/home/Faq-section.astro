@@ -1,0 +1,27 @@
+---
+import SectionTitle from "../common/Section-title.astro";
+import Question from "../../assets/icons/question.svg";
+import { faqList } from "../../data/faqs";
+import FaqCard from "./Faq-card.astro";
+---
+
+<section class="py-10 pb-24 px-5 bg-[#f0f0f0]">
+  <SectionTitle
+    label="Preguntas Frecuentes"
+    subtitle="Respondemos las consultas más frecuentes de nuestros clientes"
+  >
+    <Question class="text-[#35796F]" slot="icon" />
+  </SectionTitle>
+
+  <div class="mt-6 flex flex-col gap-4">
+    {
+      faqList.map((faq) => (
+        <FaqCard
+          key={`faq-${faq.id}`}
+          question={faq.question}
+          answer={faq.answer}
+        />
+      ))
+    }
+  </div>
+</section>

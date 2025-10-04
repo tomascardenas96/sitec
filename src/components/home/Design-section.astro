@@ -1,0 +1,28 @@
+---
+import texture from "../../assets/images/textura.png";
+import Rocket from "../../assets/icons/rocket.svg";
+import SectionTitle from "../common/Section-title.astro";
+import { shortFlow } from "../../data/design-flow.js";
+import DesignCard from "./Design-card.astro";
+---
+
+<section
+  class="mt-3 py-10 px-2"
+  style={`background-image: url('${texture.src}')`}
+>
+  <SectionTitle
+    label="Diseño de Proyectos"
+    subtitle="Transformando ideas en soluciones eléctricas confiables y eficientes"
+    color="white"
+  >
+    <Rocket slot="icon" />
+  </SectionTitle>
+
+  <div class="grid grid-cols-2 grid-rows-2 gap-y-6 mt-4 px-1">
+    {
+      shortFlow.map((item) => (
+        <DesignCard description={item.title} icon={item.icon} />
+      ))
+    }
+  </div>
+</section>

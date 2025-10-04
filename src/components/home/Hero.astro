@@ -1,0 +1,21 @@
+---
+import hero from "../../assets/images/f5d41eb7-25c9-48a8-8e4f-95947947fa13.png";
+import Wallet from "../../assets/icons/wallet.svg";
+---
+
+<section
+  class="h-96 relative flex items-center justify-center bg-cover bg-center flex-col gap-4"
+  style={`background-image: url('${hero.src}');`}
+>
+  <div class="absolute inset-0 bg-black/50"></div>
+  <h1
+    class="relative text-white text-[1.6rem] tracking-wide font-bold z-10 flex text-center font-oswald max-w-[20ch]"
+  >
+    SOLUCIONES ELECTRICAS E INDUSTRIALES
+  </h1>
+
+  <button
+    class="bg-[#F29E4C] relative z-10 text-xs flex h-12 items-center gap-2 w-48 justify-center rounded-md text-white shadow-xl font-oswald font-medium"
+    ><Wallet class="w-5 h-5 pb-[.15rem] font-semibold" />SOLICITAR PRESUPUESTO</button
+  >
+</section>
