@@ -5,7 +5,7 @@
 
 /* Tus estilos globales opcionales */
 body {
-  @apply font-openSans;
+  @apply font-openSans text-[#464646];
 }
 
 a {

@@ -1,0 +1,30 @@
+---
+import SectionTitle from "../common/Section-title.astro";
+import Diamond from "../../assets/icons/diamond.svg";
+import Success from "../../assets/icons/success.svg";
+import { values } from "../../data/values.js";
+---
+
+<section class="px-8 mt-10">
+  <SectionTitle label="Nuestros Valores">
+    <Diamond slot="icon" />
+  </SectionTitle>
+
+  <div class="border-t border-b py-7 flex flex-col gap-8 mt-6">
+    {
+      values.map((value) => (
+        <div class="flex gap-3">
+          <div>
+            <Success class="w-7 h-7" />
+          </div>
+          <div class="flex flex-col gap-1">
+            <h1 class="font-oswald text-[#35796F] text-[.9rem] font-semibold">
+              {value.title.toUpperCase()}
+            </h1>
+            <h2 class="text-sm">{value.subtitle}</h2>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

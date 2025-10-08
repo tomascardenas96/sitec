@@ -3,7 +3,7 @@ const { label, subtitle, color } = Astro.props;
 ---
 
 <div
-  class=`h-32 flex flex-col justify-center items-center gap-2 text-[${color}]`
+  class=`flex flex-col justify-center items-center gap-2 text-[${color}]`
 >
   <div class="flex gap-2 justify-center items-center">
     <div class=`w-6 h-6 ${color === "white" ? "text-white" : "text-[#35796F]"}`>
@@ -11,7 +11,7 @@ const { label, subtitle, color } = Astro.props;
     </div>
 
     <h1
-      class=`text-[1.5rem] font-oswald ${color === "white" ? "text-white" : "text-[#35796F]"}`
+      class=`text-2xl font-oswald font-normal ${color === "white" ? "text-white" : "text-[#35796F]"}`
     >
       {label}
     </h1>

@@ -1,0 +1,42 @@
+---
+import SectionTitle from "../common/Section-title.astro";
+import ProfessionalsIcon from "../../assets/icons/professionals.svg";
+import { professionals } from "../../data/professionals";
+---
+
+<section class="mx-8 mt-10">
+  <SectionTitle label="Nuestro Equipo de Profesionales">
+    <ProfessionalsIcon slot="icon" />
+  </SectionTitle>
+
+  <div class="mt-10 flex flex-col gap-8">
+    {
+      professionals.map((professional) => (
+        <div class="w-full h-[32rem] border grid grid-rows-[17rem_14.5rem] gap-2">
+          <div>
+            <img
+              src={professional.image.src}
+              alt={professional.name}
+              class="object-cover object-center h-[17rem] w-full"
+            />
+          </div>
+
+          <div class="h-full p-5 flex flex-col gap-1">
+            <h1 class="text-center font-oswald text-2xl">
+              {professional.name.toUpperCase()}
+            </h1>
+            <h2 class="text-center font-oswald text-[#35796F] text-xl">
+              {professional.role.toUpperCase()}
+            </h2>
+            <p class="text-sm text-center">{professional.description}</p>
+            <div class="flex gap-1 justify-center items-center h-full">
+              <div class="rounded-full h-6 w-6 bg-slate-200 shadow-md" />
+              <div class="rounded-full h-6 w-6 bg-slate-200 shadow-md" />
+              <div class="rounded-full h-6 w-6 bg-slate-200 shadow-md" />
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
