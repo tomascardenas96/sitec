@@ -1,0 +1,22 @@
+---
+import { longFlow } from "../../data/design-flow";
+---
+
+<section class="flex flex-col gap-6 py-12 px-8">
+  {
+    longFlow.map((item) => (
+      <div class="grid grid-cols-[6rem_1fr] gap-5">
+        <div class="rounded-full border border-[#6F6F6F] w-24 h-24 flex items-center justify-center">
+          <img src={item.icon} alt="" class="h-11 w-11" />
+        </div>
+
+        <div class="flex flex-col gap-2 py-2 ">
+          <h2 class="text-[#35796F] font-oswald text-[1.1rem] font-semibold">
+            {item.title}
+          </h2>
+          <p class="text-sm">{item.subtitle}</p>
+        </div>
+      </div>
+    ))
+  }
+</section>

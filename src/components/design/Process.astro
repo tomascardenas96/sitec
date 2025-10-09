@@ -1,0 +1,31 @@
+---
+import SectionTitle from "../common/Section-title.astro";
+import WorkFlowIcon from "../../assets/icons/workflow.svg";
+
+const buttonStyles = "font-oswald h-12 w-full rounded-md shadow-md";
+const highlighted = "text-[#35796F] font-bold"
+---
+
+<section class="px-8 h-[30rem] flex flex-col justify-center items-center gap-7 bg-[#F4F4F4] border-b border-[#5ec9b9]">
+  <SectionTitle label="Conocé nuestro proceso de trabajo...">
+    <WorkFlowIcon slot="icon" />
+  </SectionTitle>
+  <p class="text-center leading-[1.8rem] text-[.9rem]">
+    En <span class={highlighted}>SITEC</span>, cada proyecto se diseña teniendo en cuenta <span class={highlighted}>seguridad</span>, <span class={highlighted}>eficiencia</span> y
+    <span class={highlighted}>adaptabilidad</span>. Nuestro equipo combina experiencia técnica y soluciones
+    innovadoras para garantizar resultados confiables.
+  </p>
+  <div class="flex flex-col gap-4 w-full">
+      <button
+      class={`${buttonStyles} text-white button-gradient`}
+      >PROYECTOS REALIZADOS</button
+      >
+      <button class={`${buttonStyles} border border-[#35796F] text-[#35796F]`}>SOLICITAR PRESUPUESTO</button>
+    </div>
+</section>
+
+<style is:inline>
+    .button-gradient {
+        background: linear-gradient(to right, #61A89E, #35796F);
+    }
+<style>

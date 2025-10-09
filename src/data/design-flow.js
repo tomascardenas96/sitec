@@ -3,7 +3,13 @@ import Box from "../assets/icons/new-product.png";
 import Factory from "../assets/icons/electric-factory.png";
 import Support from "../assets/icons/technical-support.png";
 
-// Agregar flujo corto (Inicio) y completo (Pagina dedicada)
+import Analysis from "../assets/icons/analysis.png";
+import Design from "../assets/icons/design.png";
+import Follow from "../assets/icons/follow.png";
+import Technical from "../assets/icons/technical.png";
+import Testing from "../assets/icons/testing.png";
+
+// Para pagina "/"
 export const shortFlow = [
   {
     icon: Task,
@@ -23,4 +29,31 @@ export const shortFlow = [
   },
 ];
 
-export const longFlow = [];
+// Para pagina "/design"
+export const longFlow = [
+  {
+    title: "Análisis de necesidades",
+    subtitle: "Revisamos los requerimientos del cliente y del proyecto",
+    icon: Analysis.src,
+  },
+  {
+    title: "Diseño conceptual",
+    subtitle: "Elaboramos planos y diagramas preliminares",
+    icon: Design.src,
+  },
+  {
+    title: "Entrega y seguimiento",
+    subtitle: "Entregamos documentación y brindamos soporte post-venta",
+    icon: Follow.src,
+  },
+  {
+    title: "Desarrollo técnico",
+    subtitle: "Definimos especificaciones, componentes y materiales",
+    icon: Technical.src,
+  },
+  {
+    title: "Validación y pruebas",
+    subtitle: "Aseguramos cumplimiento de normas y funcionalidad",
+    icon: Testing.src,
+  },
+];
