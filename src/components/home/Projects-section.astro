@@ -1,8 +1,8 @@
 ---
-import SectionTitle from "../common/Section-title.astro";
 import Check from "../../assets/icons/check.svg";
 import { highlightedProjects } from "../../data/projects.js";
-import ProjectCardHome from "./Proyect-card.astro";
+import ProjectCard from "../common/Project-card.astro";
+import SectionTitle from "../common/Section-title.astro";
 import MainButton from "./Main-button.astro";
 ---
 
@@ -17,7 +17,7 @@ import MainButton from "./Main-button.astro";
   <div class="mt-8 flex flex-col gap-4">
     {
       highlightedProjects.map((project) => (
-        <ProjectCardHome
+        <ProjectCard
           image={project.image}
           title={project.title}
           subtitle={project.subtitle}

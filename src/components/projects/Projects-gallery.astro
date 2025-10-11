@@ -1,0 +1,28 @@
+---
+import Check from "../../assets/icons/check.svg";
+import ProjectCard from "../common/Project-card.astro";
+import SectionTitle from "../common/Section-title.astro";
+
+const { items } = Astro.props;
+---
+
+<section class="py-10 px-5">
+  <SectionTitle
+    label="Proyectos Realizados"
+    subtitle="Conocé algunos de nuestros proyectos finalizados"
+  >
+    <Check class="text-[#35796F]" slot="icon" />
+  </SectionTitle>
+
+  <div class="mt-8 flex flex-col gap-4">
+    {
+      items.map((project: any) => (
+        <ProjectCard
+          image={project.image}
+          title={project.title}
+          subtitle={project.subtitle}
+        />
+      ))
+    }
+  </div>
+</section>

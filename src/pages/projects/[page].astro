@@ -1,0 +1,34 @@
+---
+import ProjectsGallery from "../../components/projects/Projects-gallery.astro";
+import TitlePage from "../../components/common/Title-page.astro";
+import { allProjects } from "../../data/projects.js";
+import MainLayout from "../../layouts/Main-layout.astro";
+import PagesSelector from "../../components/projects/Pages-selector.astro";
+
+const ITEMS_PER_PAGE = 5;
+
+export async function getStaticPaths() {
+  const totalPages = Math.ceil(allProjects.length / 5);
+
+  return Array.from({ length: totalPages }).map((_, i) => ({
+    params: { page: String(i + 1) },
+  }));
+}
+
+const { page } = Astro.params;
+const currentPage = Number(page);
+const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+const currentItems = allProjects.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+const totalPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE);
+---
+
+<MainLayout>
+  <TitlePage title="proyectos" />
+
+  <ProjectsGallery items={currentItems} />
+
+  <div class="mb-24">
+    <PagesSelector pages={totalPages} currentPage={currentPage} />
+  </div>
+</MainLayout>

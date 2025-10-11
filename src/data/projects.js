@@ -20,3 +20,126 @@ export const highlightedProjects = [
     subtitle: "Cuadro eléctrico de última tecnología",
   },
 ];
+
+export const allProjects = [
+  {
+    image: first,
+    title: "1. Tablero Industrial Cagnoli",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: second,
+    title: "Cuadro Eléctrico Avanzado",
+    subtitle: "Integración de control industrial avanzado",
+  },
+  {
+    image: third,
+    title: "Sistema de Control Automatizado",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: first,
+    title: "Tablero Industrial Cagnoli",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: second,
+    title: "Cuadro Eléctrico Avanzado",
+    subtitle: "Integración de control industrial avanzado",
+  },
+  {
+    image: third,
+    title: "Sistema de Control Automatizado",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: first,
+    title: "Tablero Industrial Cagnoli",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: second,
+    title: "Cuadro Eléctrico Avanzado",
+    subtitle: "Integración de control industrial avanzado",
+  },
+  {
+    image: third,
+    title: "9. Sistema de Control Automatizado",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: first,
+    title: "Tablero Industrial Cagnoli",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: second,
+    title: "Cuadro Eléctrico Avanzado",
+    subtitle: "Integración de control industrial avanzado",
+  },
+  {
+    image: third,
+    title: "9. Sistema de Control Automatizado",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: first,
+    title: "Tablero Industrial Cagnoli",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: second,
+    title: "Cuadro Eléctrico Avanzado",
+    subtitle: "Integración de control industrial avanzado",
+  },
+  {
+    image: third,
+    title: "9. Sistema de Control Automatizado",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: first,
+    title: "Tablero Industrial Cagnoli",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: second,
+    title: "Cuadro Eléctrico Avanzado",
+    subtitle: "Integración de control industrial avanzado",
+  },
+  {
+    image: third,
+    title: "9. Sistema de Control Automatizado",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: first,
+    title: "Tablero Industrial Cagnoli",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: second,
+    title: "Cuadro Eléctrico Avanzado",
+    subtitle: "Integración de control industrial avanzado",
+  },
+  {
+    image: third,
+    title: "9. Sistema de Control Automatizado",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: first,
+    title: "Tablero Industrial Cagnoli",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+  {
+    image: second,
+    title: "Cuadro Eléctrico Avanzado",
+    subtitle: "Integración de control industrial avanzado",
+  },
+  {
+    image: third,
+    title: "Ultimo sistema de Control Automatizado",
+    subtitle: "Cuadro eléctrico de última tecnología",
+  },
+];

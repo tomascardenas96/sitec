@@ -1,0 +1,20 @@
+---
+const { pages, currentPage } = Astro.props;
+---
+
+<nav class="flex justify-center items-center gap-2">
+  {
+    new Array(pages).fill(null).map((_, index) => (
+      <p
+        class={`w-8 h-8 flex justify-center items-center font-oswald border border-[#457C74] font-light rounded-sm shadow-md ${currentPage === index + 1 ? "bg-[#457C74]" : "bg-white"}`}
+      >
+        <a
+          href={`${index + 1 === 1 ? "/projects" : `/projects/${index + 1}`}`}
+          class={`${currentPage === index + 1 ? "text-white font-[500]" : "text-[#457C74]"}`}
+        >
+          {index + 1}
+        </a>
+      </p>
+    ))
+  }
+</nav>
