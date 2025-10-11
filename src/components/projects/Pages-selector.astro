@@ -1,20 +1,44 @@
 ---
 const { pages, currentPage } = Astro.props;
+import LeftArrow from "../../assets/icons/left-arrow.svg";
+import RightArrow from "../../assets/icons/right-arrow.svg";
 ---
 
-<nav class="flex justify-center items-center gap-2">
-  {
-    new Array(pages).fill(null).map((_, index) => (
-      <p
-        class={`w-8 h-8 flex justify-center items-center font-oswald border border-[#457C74] font-light rounded-sm shadow-md ${currentPage === index + 1 ? "bg-[#457C74]" : "bg-white"}`}
-      >
-        <a
-          href={`${index + 1 === 1 ? "/projects" : `/projects/${index + 1}`}`}
-          class={`${currentPage === index + 1 ? "text-white font-[500]" : "text-[#457C74]"}`}
-        >
-          {index + 1}
+<nav class="flex justify-center items-center gap-3">
+  <div class="w-6 h-6">
+    {
+      currentPage > 1 && (
+        <a href={`/projects/${currentPage - 1}`}>
+          <LeftArrow class="w-full h-full text-[#457C74]" />
         </a>
-      </p>
-    ))
-  }
+      )
+    }
+  </div>
+
+  <div class="flex justify-center items-center gap-2">
+    {
+      new Array(pages).fill(null).map((_, index) => (
+        <p
+          class={`w-9 h-9 flex justify-center items-center font-oswald border border-[#457C74] font-light rounded-sm shadow-md ${currentPage === index + 1 ? "bg-[#457C74]" : "bg-white"}`}
+        >
+          <a
+            href={`${index + 1 === 1 ? "/projects" : `/projects/${index + 1}`}`}
+            class={`${currentPage === index + 1 ? "text-white font-[500]" : "text-[#457C74]"}`}
+          >
+            {index + 1}
+          </a>
+        </p>
+      ))
+    }
+  </div>
+
+  <div class="w-6 h-6">
+    {
+      currentPage < pages && (
+        <a href={`/projects/${currentPage + 1}`}>
+          <RightArrow class="w-full h-full text-[#457C74]" />
+        </a>
+      )
+    }
+  </div>
 </nav>
