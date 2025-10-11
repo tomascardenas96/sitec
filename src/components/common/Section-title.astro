@@ -1,14 +1,16 @@
 ---
-const { label, subtitle, color } = Astro.props;
+const { label, subtitle, color, hasIcon = false } = Astro.props;
 ---
 
-<div
-  class=`flex flex-col justify-center items-center gap-2 text-[${color}]`
->
+<div class=`flex flex-col justify-center items-center gap-2 text-[${color}]`>
   <div class="flex gap-2 justify-center items-center">
-    <div class=`w-6 h-6 ${color === "white" ? "text-white" : "text-[#35796F]"}`>
-      <slot name="icon" />
-    </div>
+    {
+      hasIcon && (
+        <div class={`w-6 h-6 ${color === "white" ? "text-white" : "text-[#35796F]"}`}>
+          <slot name="icon" />
+        </div>
+      )
+    }
 
     <h1
       class=`text-2xl font-oswald font-normal ${color === "white" ? "text-white" : "text-[#35796F]"}`
