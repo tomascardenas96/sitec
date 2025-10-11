@@ -1,0 +1,19 @@
+---
+const { title, firstLine, secondLine, icon } = Astro.props;
+---
+
+<article class="flex gap-2">
+  <div>
+    <div
+      class="w-10 h-10 bg-[#35796F] flex justify-center items-center rounded-full shadow-md"
+    >
+      <img src={icon.src} alt={title} class="w-5 h-5" />
+    </div>
+  </div>
+
+  <div>
+    <h1 class="text-[1.2rem] font-oswald text-[#35796F]">{title}</h1>
+    <p class="text-[.8rem]">{firstLine}</p>
+    {secondLine && <p class="text-[.8rem]">{secondLine}</p>}
+  </div>
+</article>
