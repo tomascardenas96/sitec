@@ -1,21 +1,38 @@
 ---
 import hero from "../../assets/images/f5d41eb7-25c9-48a8-8e4f-95947947fa13.png";
-import Wallet from "../../assets/icons/wallet.svg";
+const phone = "5492281378525";
+const text =
+  "Buen día, quisiera solicitar un presupuesto para la instalación de paneles eléctricos en mi empresa. Muchas gracias.";
+const encoded = encodeURIComponent(text);
 ---
 
 <section
-  class="h-96 relative flex items-center justify-center bg-cover bg-center flex-col gap-5"
+  class="h-96 relative flex items-center justify-center bg-cover bg-center flex-col gap-6"
   style={`background-image: url('${hero.src}');`}
 >
   <div class="absolute inset-0 bg-black/50"></div>
-  <h1
-    class="relative text-white text-[1.8rem] tracking-[0.02em] font-bold z-10 flex text-center font-oswald max-w-[20ch]"
-  >
-    SOLUCIONES ELECTRICAS E INDUSTRIALES
-  </h1>
+  <div class="p-6 border-2 border-white z-10 rounded-[.2rem]">
+    <h1
+      class="relative text-white text-[1.7rem] tracking-[0.02em] font-[400] z-10 flex text-center font-oswald max-w-[20ch]"
+    >
+      SOLUCIONES ELECTRICAS E INDUSTRIALES
+    </h1>
+  </div>
 
   <button
-    class="bg-[#F29E4C] relative z-10 text-sm flex h-12 items-center gap-2 w-48 justify-center rounded-md text-white shadow-xl font-oswald font-medium"
-    ><Wallet class="w-6 h-6 pb-[.15rem] font-semibold" />SOLICITAR PRESUPUESTO</button
+    class="bg-btn relative z-10 text-sm flex h-12 items-center gap-2 w-48 justify-center rounded-md shadow-xl text-white font-oswald font-medium"
   >
+    <a
+      href={`https://wa.me/${phone}?text=${encoded}`}
+      target="blank"
+      class="h-full w-full text-white flex items-center justify-center"
+      >SOLICITAR PRESUPUESTO</a
+    >
+  </button>
 </section>
+
+<style>
+  .bg-btn {
+    background: linear-gradient(to right, #e48322, #a76420);
+  }
+</style>

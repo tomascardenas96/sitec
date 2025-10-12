@@ -4,9 +4,14 @@ import WorkFlowIcon from "../../assets/icons/workflow.svg";
 
 const buttonStyles = "font-oswald h-12 w-full rounded-md shadow-md";
 const highlighted = "text-[#35796F] font-bold"
+
+const phone = "5492281378525";
+const text =
+  "Buen día, quisiera solicitar un presupuesto para la instalación de paneles eléctricos en mi empresa. Muchas gracias.";
+const encoded = encodeURIComponent(text);
 ---
 
-<section class="px-8 h-[29rem] flex flex-col justify-center items-center gap-7 bg-[#F4F4F4] border-b border-[#5ec9b9]">
+<section class="px-8 h-[29rem] flex flex-col justify-center items-center gap-4 bg-[#F4F4F4] border-b border-[#5ec9b9]">
   <SectionTitle label="Conocé nuestro proceso de trabajo..." hasIcon={true}>
     <WorkFlowIcon slot="icon" />
   </SectionTitle>
@@ -15,12 +20,21 @@ const highlighted = "text-[#35796F] font-bold"
     <span class={highlighted}>adaptabilidad</span>. Nuestro equipo combina experiencia técnica y soluciones
     innovadoras para garantizar resultados confiables.
   </p>
-  <div class="flex flex-col gap-4 w-full">
+  <div class="flex flex-col gap-4 w-full mt-6">
       <button
       class={`${buttonStyles} text-white button-gradient`}
-      >PROYECTOS REALIZADOS</button
+      > 
+      <a href="/projects" class="h-full w-full text-white">
+        PROYECTOS REALIZADOS
+      </a>
+      </button
       >
-      <button class={`${buttonStyles} border border-[#35796F] text-[#35796F]`}>SOLICITAR PRESUPUESTO</button>
+      <button class={`${buttonStyles} border border-[#35796F] `}>
+      <a href={`https://wa.me/${phone}?text=${encoded}`} target="blank" class="w-full h-full text-[#35796F]">
+
+        SOLICITAR PRESUPUESTO
+      </a>
+      </button>
     </div>
 </section>
 

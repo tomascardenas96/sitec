@@ -1,5 +1,6 @@
 ---
 import WhatsappLogo from "../../assets/icons/whatsapp.png";
+const phone = "5492281378525";
 ---
 
 <section
@@ -22,10 +23,15 @@ import WhatsappLogo from "../../assets/icons/whatsapp.png";
     <p class="text-center w-[34ch] leading-6">
       Escribinos tus consultas por WhatsApp y te responderemos a la brevedad.
     </p>
-    <button
-      class="flex items-center bg-white text-[#35796F] shadow-xl w-64 h-14 rounded-xl gap-3 justify-center"
-      ><img src={WhatsappLogo.src} class="w-7 h-7" alt="whatsapp logo" /> CONTACTO
-      POR WHATSAPP
+    <button class="w-64 h-14">
+      <a
+        href={`https://wa.me/${phone}`}
+        target="blank"
+        class="h-full w-full flex items-center bg-white text-[#35796F] shadow-xl rounded-xl gap-3 justify-center"
+      >
+        <img src={WhatsappLogo.src} class="w-7 h-7" alt="whatsapp logo" /> CONTACTO
+        POR WHATSAPP
+      </a>
     </button>
   </div>
 </section>
