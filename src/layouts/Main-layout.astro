@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/common/Footer.astro";
 import Header from "../components/common/Header.astro";
-import Whatsapp from "../assets/icons/whatsapp.svg";
+import WhatsappBtn from "../components/common/WhatsappBtn.astro";
 import "../styles/globals.css";
 ---
 
@@ -26,11 +26,7 @@ import "../styles/globals.css";
     <div class="h-[4.5rem]"></div>
     <Header />
     <slot />
-    <div
-      class="bg-[#4FCE5D] w-max p-4 rounded-full fixed bottom-10 right-5 shadow-md z-40"
-    >
-      <Whatsapp class="w-8 h-8" />
-    </div>
+    <WhatsappBtn />
     <Footer />
   </body>
 </html>

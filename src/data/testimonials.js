@@ -5,19 +5,19 @@ import AlicePicture from "../assets/images/home/testimonials/alice.png";
 export const testimonials = [
   {
     image: JohnPicture,
-    name: "john doe",
+    name: "alberto perez",
     body:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     image: JanePicture,
-    name: "jane smith",
+    name: "juana medina",
     body:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     image: AlicePicture,
-    name: "alice brown",
+    name: "pedro baez",
     body:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },

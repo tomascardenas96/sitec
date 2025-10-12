@@ -1,0 +1,72 @@
+---
+import close from "../../assets/icons/close.svg";
+---
+
+<nav
+  id="menu"
+  data-open="false"
+  class="fixed inset-0 bg-black/60 hidden items-center justify-center z-30"
+>
+  <div
+    class="bg-white w-4/5 max-w-sm p-6 rounded-2xl shadow-lg relative flex flex-col gap-6 text-center menu"
+  >
+    <button id="closeModal" class="absolute top-3 right-3">
+      <img src={close.src} alt="Cerrar" class="w-6 h-6" />
+    </button>
+
+    <a href="/" class="text-md text-[#363636] font-[500]">Inicio</a>
+    <a href="/about-us" class="text-md text-[#363636] font-[500]"
+      >Sobre Nosotros</a
+    >
+    <a href="/design" class="text-md text-[#363636] font-[500]">Diseño</a>
+    <a href="/projects" class="text-md text-[#363636] font-[500]">Proyectos</a>
+    <a href="/contact" class="text-md text-[#363636] font-[500]">Contactanos</a>
+  </div>
+</nav>
+
+<style>
+  .menu {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  nav[data-open="true"] {
+    display: flex !important;
+  }
+
+  nav[data-open="true"] .menu {
+    transform: translateY(0);
+    opacity: 1;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+    const closeBtn = document.getElementById("closeModal");
+
+    if (!burger || !menu || !closeBtn) return;
+
+    // Abrir menú
+    burger.addEventListener("click", () => {
+      menu.dataset.open = "true";
+      burger.dataset.open = "true";
+    });
+
+    // Cerrar menú
+    closeBtn.addEventListener("click", () => {
+      menu.dataset.open = "false";
+      burger.dataset.open = "false";
+    });
+
+    // También cerramos si el usuario hace clic fuera del modal
+    menu.addEventListener("click", (e) => {
+      if (e.target === menu) {
+        menu.dataset.open = "false";
+        burger.dataset.open = "false";
+      }
+    });
+  });
+</script>

@@ -1,0 +1,15 @@
+---
+import Whatsapp from "../../assets/icons/whatsapp.svg";
+const phone = "5492281378525";
+const text =
+  "Hola, estoy interesado en obtener más información sobre la instalación de paneles eléctricos para mi empresa. ¿Podrían asesorarme?";
+const encoded = encodeURIComponent(text);
+---
+
+<div
+  class="bg-[#4FCE5D] w-max p-4 rounded-full fixed bottom-10 right-5 shadow-md z-40"
+>
+  <a href={`https://wa.me/${phone}?text=${encoded}`} target="blank">
+    <Whatsapp class="w-8 h-8" />
+  </a>
+</div>
