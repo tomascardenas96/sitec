@@ -1,0 +1,37 @@
+---
+import MainLayout from "../../../layouts/Main-layout.astro";
+import { allProjects } from "../../../data/projects.js";
+
+export async function getStaticPaths() {
+  return allProjects.map((project) => ({
+    params: { id: project.id.toString() },
+  }));
+}
+
+const { id } = Astro.params;
+
+const project = allProjects.find((p) => p.id.toString() === id);
+
+if (!project) {
+  Astro.redirect("/404");
+}
+---
+
+<MainLayout>
+    <section class="max-w-4xl mx-auto px-4 py-10 text-center">
+      <img src={project?.image.src} alt={project?.title} class="w-full max-h-[24rem] object-cover rounded-lg shadow-md mb-6" />
+      <h1 class="text-3xl font-bold mb-3 font-oswald text-[#35796F]">{project?.title}</h1>
+      <h2 class="text-lg text-gray-600 mb-4 font-600 font-oswald">{project?.subtitle}</h2>
+      <p class="text-gray-700 leading-relaxed mb-10">{project?.description}</p>
+  
+      <!-- 🔙 Botón de volver -->
+      <button
+        type="button"
+        class="bg-[#35796F] text-white px-6 py-3 rounded-md hover:bg-[#285c55] transition"
+        onclick="window.history.back()"
+      >
+        ← Volver
+      </button>
+    </section>
+  </MainLayout>
+  
