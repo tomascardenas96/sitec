@@ -3,6 +3,7 @@ import Logo from "../../assets/sitec-no-bg.png";
 import Facebook from "../../assets/icons/facebook.svg";
 import Instagram from "../../assets/icons/instagram.svg";
 import Linkedin from "../../assets/icons/linkedin.svg";
+import { phone, encoded } from "../../data/whatsapp.js";
 
 const socialStyles =
   "size-10 rounded-full overflow-hidden object-cover flex justify-center items-center shadow-md bg-white";
@@ -22,12 +23,26 @@ const socialStyles =
   <h1 class="font-oswald text-xl mt-10 mb-5">Secciones</h1>
 
   <ul class="text-md font-oswald flex flex-col gap-2">
-    <li>INICIO</li>
-    <li>SOBRE NOSOTROS</li>
-    <li>DISEÑO</li>
-    <li>PROYECTOS</li>
-    <li>CONTACTO</li>
-    <li>PRESUPUESTO</li>
+    <li>
+      <a href="/" class="text-white"> INICIO </a>
+    </li>
+    <li>
+      <a href="/about-us" class="text-white"> SOBRE NOSOTROS </a>
+    </li>
+    <li>
+      <a href="/design" class="text-white"> DISEÑO </a>
+    </li>
+    <li>
+      <a href="/projects" class="text-white"> PROYECTOS </a>
+    </li>
+    <li>
+      <a href="/contact" class="text-white"> CONTACTO </a>
+    </li>
+    <li>
+      <a href={`https://wa.me/${phone}?text=${encoded}`} class="text-white">
+        PRESUPUESTO
+      </a>
+    </li>
   </ul>
 
   <div class="flex justify-center gap-2 mt-11">

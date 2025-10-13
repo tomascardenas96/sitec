@@ -11,7 +11,7 @@ const { title, firstLine, secondLine, icon } = Astro.props;
     </div>
   </div>
 
-  <div>
+  <div class="flex flex-col gap-1">
     <h1 class="text-[1.2rem] font-oswald text-[#35796F]">{title}</h1>
     <p class="text-[.8rem]">{firstLine}</p>
     {secondLine && <p class="text-[.8rem]">{secondLine}</p>}

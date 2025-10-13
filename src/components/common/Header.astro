@@ -1,12 +1,12 @@
 ---
 import logo from "../../assets/Logo-sitec.jpg";
-import close from "../../assets/icons/close.svg";
 import menu from "../../assets/icons/menu.svg";
 import MobileMenu from "./Mobile-menu.astro";
 ---
 
 <header
-  class="bg-white h-[4.5rem] flex items-center justify-between px-2 fixed z-20 shadow-md w-full top-0"
+  id="main-header"
+  class="bg-white h-[4.5rem] flex items-center justify-between px-2 fixed z-20 shadow-md w-full top-0 transition-all duration-300"
 >
   <a href="/" class="h-full">
     <img src={logo.src} alt="Logo Sitec" class="h-full" />
@@ -18,3 +18,21 @@ import MobileMenu from "./Mobile-menu.astro";
 
   <MobileMenu />
 </header>
+
+<script>
+  const header = document.getElementById("main-header");
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+
+    if (header) {
+      if (scrollY > 100) {
+        header.classList.add("h-[5.5rem]");
+        header.classList.remove("h-[4.5rem]");
+      } else {
+        header.classList.add("h-[4.5rem]");
+        header.classList.remove("h-[5.5rem]");
+      }
+    }
+  });
+</script>
