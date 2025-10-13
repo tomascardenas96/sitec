@@ -24,7 +24,7 @@ const totalPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE);
 ---
 
 <MainLayout>
-  <TitlePage title="proyectos" hasIcon={true} />
+  <TitlePage title="proyectos" />
   <ProjectsGallery items={currentItems} />
   <div class="mb-16">
     <PagesSelector pages={totalPages} currentPage={currentPage} />
