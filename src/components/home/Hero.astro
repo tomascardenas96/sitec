@@ -7,11 +7,13 @@ const encoded = encodeURIComponent(text);
 ---
 
 <section
-  class="h-96 relative flex items-center justify-center bg-cover bg-center flex-col gap-8"
+  class="h-96 lg:h-[19rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-8 lg:gap-5"
   style={`background-image: url('${hero.src}');`}
 >
   <div class="absolute inset-0 bg-black/50"></div>
-  <div class="p-6 border-2 border-white z-10 rounded-[.2rem]">
+
+  <!-- Mobile hero title -->
+  <div class="p-6 border-2 border-white z-10 rounded-[.2rem] lg:hidden">
     <h1
       class="relative text-white text-[1.7rem] tracking-[0.02em] font-[400] z-10 flex text-center font-oswald max-w-[20ch]"
     >
@@ -19,8 +21,17 @@ const encoded = encodeURIComponent(text);
     </h1>
   </div>
 
+  <!-- Desktop hero title -->
+  <div class="z-10 rounded-[.2rem] hidden pt-8 lg:block">
+    <h1
+      class="w-[35ch] relative text-white text-[1.8rem] font-[300] z-10 flex text-center font-oswald leading-9 tracking-[.04em]"
+    >
+      Soluciones eléctricas integrales y montajes industriales
+    </h1>
+  </div>
+
   <button
-    class="bg-btn relative z-10 text-sm flex h-12 items-center gap-2 w-52 justify-center rounded-md shadow-xl text-white font-oswald font-medium"
+    class="bg-btn relative cursor-pointer z-10 text-sm lg:text-xs flex h-12 w-52 lg:h-10 lg:w-44 items-center gap-2 justify-center rounded-md shadow-xl text-white font-oswald font-medium lg:font-normal"
   >
     <a
       href={`https://wa.me/${phone}?text=${encoded}`}

@@ -5,18 +5,30 @@ import MobileMenu from "./Mobile-menu.astro";
 ---
 
 <header
-  id="main-header"
-  class="bg-white h-[4.5rem] flex items-center justify-between px-2 fixed z-20 shadow-md w-full top-0 transition-all duration-300"
+  id="header-container"
+  class="h-[4.5rem] lg:h-[4.2rem] flex fixed z-20 w-full top-0 lg:top-7 lg:justify-center"
 >
-  <a href="/" class="h-full">
-    <img src={logo.src} alt="Logo Sitec" class="h-full" />
-  </a>
+  <div
+    class="bg-white px-2 lg:px-6 lg:pr-10 w-full lg:w-[43rem] flex items-center justify-between shadow-xl transition-all duration-300 lg:rounded-md"
+  >
+    <a href="/" class="h-full">
+      <img src={logo.src} alt="Logo Sitec" class="h-full" />
+    </a>
 
-  <button id="burger" class="mr-2" aria-label="Abrir menú" data-open="false">
-    <img src={menu.src} alt="Menú" class="h-8 w-8" />
-  </button>
+    <button id="burger" class="mr-2" aria-label="Abrir menú" data-open="false">
+      <img src={menu.src} alt="Menú" class="h-8 w-8 lg:hidden" />
+    </button>
 
-  <MobileMenu />
+    <ul class="font-oswald hidden gap-4 text-sm lg:flex h-8 items-center">
+      <li class="border-b-2 border-[#F29E4C] py-1">Inicio</li>
+      <li class="py-1">Sobre Nosotros</li>
+      <li class="py-1">Diseño</li>
+      <li class="py-1">Proyectos</li>
+      <li class="py-1">Contacto</li>
+    </ul>
+
+    <MobileMenu />
+  </div>
 </header>
 
 <script>
@@ -31,6 +43,7 @@ import MobileMenu from "./Mobile-menu.astro";
         header.classList.remove("h-[4.5rem]");
       } else {
         header.classList.add("h-[4.5rem]");
+        header.classList.add("w-[43rem]");
         header.classList.remove("h-[5.5rem]");
       }
     }

@@ -1,34 +1,6 @@
-import first from "../assets/images/home/proyects/1.jpg"; 
+import first from "../assets/images/home/proyects/1.jpg";
 import second from "../assets/images/home/proyects/2.jpg";
 import third from "../assets/images/home/proyects/3.jpg";
-
-// Lista destacada (Inicio)
-export const highlightedProjects = [
-  {
-    id: 1,
-    image: first,
-    title: "Tablero Industrial Cagnoli",
-    subtitle: "Cuadro eléctrico de última tecnología",
-    description:
-      "Diseño e instalación de un tablero principal para la planta Cagnoli. Incluye protección trifásica, control de motores, variadores de frecuencia y un sistema de monitoreo en tiempo real para optimizar el consumo energético y la seguridad operativa.",
-  },
-  {
-    id: 2,
-    image: second,
-    title: "Cuadro Eléctrico Avanzado",
-    subtitle: "Integración de control industrial avanzado",
-    description:
-      "Proyecto de modernización eléctrica para una línea de producción automatizada. Se implementó un cuadro de control con PLC Siemens, relés de seguridad y módulos de comunicación Modbus para control remoto desde sala de supervisión.",
-  },
-  {
-    id: 3,
-    image: third,
-    title: "Sistema de Control Automatizado",
-    subtitle: "Cuadro eléctrico de última tecnología",
-    description:
-      "Instalación de un sistema completo de control automatizado para procesos industriales. Incluye sensores, actuadores y un panel de mando con pantalla HMI para la visualización y gestión de los parámetros del sistema en tiempo real.",
-  },
-];
 
 // Lista completa (Página Proyectos realizados)
 export const allProjects = [

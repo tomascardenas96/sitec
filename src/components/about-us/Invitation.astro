@@ -15,7 +15,11 @@ const encoded = encodeURIComponent(text);
   <button
     class="font-oswald bg-[#35796F] shadow-md w-full h-11 mt-3 rounded-sm"
   >
-    <a href={`https://wa.me/${phone}?text=${encoded}`} target="blank" class="w-full h-full text-white">
+    <a
+      href={`https://wa.me/${phone}?text=${encoded}`}
+      target="blank"
+      class="w-full h-full flex justify-center items-center text-white"
+    >
       SOLICITAR PRESUPUESTO
     </a>
   </button>

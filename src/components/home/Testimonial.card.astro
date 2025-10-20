@@ -4,14 +4,18 @@ import QuoteIcon from "../../assets/icons/quote.png";
 ---
 
 <div
-  class="h-[26rem] flex flex-col justify-center items-center gap-4 bg-[#131C27] rounded-md shadow-md pb-3"
+  class="h-[26rem] lg:h-[18rem] flex flex-col justify-center items-center gap-4 lg:gap-3 bg-[#131C27] rounded-md shadow-md pb-3 md:shrink-0 md:w-[20.2rem] lg:w-[100%]"
 >
-  <img src={QuoteIcon.src} alt="quote icon testimonials" class="w-14 h-14" />
-  <p class="text-white max-w-[35ch] text-center text-[.9rem] font-light leading-6">{body}</p>
+  <img src={QuoteIcon.src} alt="quote icon testimonials" class="w-14 h-14 lg:w-8 lg:h-8" />
+  <p
+    class="text-white max-w-[35ch] lg:max-w-[30ch] text-center text-[.9rem] lg:text-[.7rem] font-light lg:font-extralight leading-6 lg:leading-4"
+  >
+    {body}
+  </p>
   <img
     src={image.src}
     alt={name}
-    class="h-[5.5rem] w-[5.5rem] rounded-full border-2 border-[#35796F] object-cover"
+    class="h-[5.5rem] w-[5.5rem] lg:w-[3.5rem] lg:h-[3.5rem] rounded-full border-2 border-[#35796F] object-cover"
   />
-  <h1 class="font-oswald text-[#35796F] text-2xl">{name.toUpperCase()}</h1>
+  <h1 class="font-oswald text-[#35796F] text-2xl lg:text-base">{name.toUpperCase()}</h1>
 </div>

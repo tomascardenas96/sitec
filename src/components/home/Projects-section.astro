@@ -1,12 +1,12 @@
 ---
 import Check from "../../assets/icons/check.svg";
-import { highlightedProjects } from "../../data/projects.js";
+import { allProjects } from "../../data/projects.js";
 import ProjectCard from "../common/Project-card.astro";
 import SectionTitle from "../common/Section-title.astro";
 import MainButton from "./Main-button.astro";
 ---
 
-<section class="py-10 px-5">
+<section class="py-10 px-5 md:flex md:flex-col md:items-center">
   <SectionTitle
     label="Proyectos Realizados"
     subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
@@ -15,16 +15,35 @@ import MainButton from "./Main-button.astro";
     <Check class="text-[#35796F]" slot="icon" />
   </SectionTitle>
 
-  <div class="mt-8 flex flex-col gap-4">
+  <div
+    class="mt-8 md:mt-10 flex flex-col md:grid md:grid-cols-[20rem_20rem] gap-4 md:gap-10 lg:hidden"
+  >
     {
-      highlightedProjects.map((project) => (
-        <ProjectCard
-          image={project.image}
-          title={project.title}
-          subtitle={project.subtitle}
-          id={project.id}
-        />
-      ))
+      allProjects
+        .slice(0, 4)
+        .map((project) => (
+          <ProjectCard
+            image={project.image}
+            title={project.title}
+            subtitle={project.subtitle}
+            id={project.id}
+          />
+        ))
+    }
+  </div>
+
+  <div class="mt-10 hidden grid-cols-3 gap-4 grid-rows-2 lg:w-[50rem] lg:grid">
+    {
+      allProjects
+        .slice(0, 6)
+        .map((project) => (
+          <ProjectCard
+            image={project.image}
+            title={project.title}
+            subtitle={project.subtitle}
+            id={project.id}
+          />
+        ))
     }
   </div>
 

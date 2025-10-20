@@ -7,7 +7,7 @@ import Testimonial from "./Testimonial.card.astro";
 ---
 
 <section
-  class="mt-2 py-10 px-5 bg-cover pb-20"
+  class="mt-2 py-10 px-5 bg-cover pb-20 md:flex md:flex-col md:items-center"
   style={`background-image: url('${texture.src}')`}
 >
   <SectionTitle
@@ -19,7 +19,9 @@ import Testimonial from "./Testimonial.card.astro";
     <Like slot="icon" />
   </SectionTitle>
 
-  <div class="grid gap-6 mt-8">
+  <div
+    class="grid md:flex gap-6 md:gap-8 lg:gap-6 mt-8 md:mt-10 md:max-w-[42.5rem] lg:max-w-[50rem] lg:w-[50rem] md:overflow-auto lg:overflow-visible lg:grid lg:grid-cols-3"
+  >
     {
       testimonials.map((testimonial) => (
         <Testimonial

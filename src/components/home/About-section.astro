@@ -1,24 +1,44 @@
 ---
 import MainButton from "./Main-button.astro";
+import SectionImage from "../../assets/images/home/proyects/1.jpg";
 
 const span = "font-bold text-black text-[#131C27]";
 ---
 
-<section class="h-[30rem] flex flex-col items-center justify-center gap-7 px-5">
-  <h1 class="font-oswald text-[1.8rem] text-[#35796F]">
-    Energía que Inspira Confianza
-  </h1>
+<section class="h-[30rem] lg:flex lg:px-5 lg:justify-center">
+  <div
+    class="h-full w-full lg:max-w-[50rem] flex justify-center items-center lg:flex"
+  >
+    <div
+      class="h-full flex flex-col items-center lg:items-start justify-center gap-7 md:gap-9 px-5 lg:grow-6 lg:w-full"
+    >
+      <h1 class="font-oswald text-[1.8rem] lg:text-[1.6rem] text-[#35796F]">
+        Energía que Inspira Confianza
+      </h1>
 
-  <p class="text-center text-[.9rem] leading-[1.6rem]">
-    En <span class={span}>SITEC</span> ofrecemos soluciones eléctricas integrales
-    a medida. Nos encargamos de la planificación y ejecución de proyectos eléctricos
-    y electromecánicos, priorizando <span class={span}>eficiencia</span>, <span
-      class={span}>seguridad</span
-    > y <span class={span}>cumplimiento normativo.</span>
-    <br />
-    <br /> Con un equipo experimentado y tecnología de vanguardia, garantizamos instalaciones
-    confiables y resultados que superan expectativas
-  </p>
+      <p
+        class="text-center lg:text-start text-[.9rem] lg:text-[.75rem] leading-[1.6rem] lg:leading-[1.4rem] md:max-w-[80ch]"
+      >
+        En <span class={span}>SITEC</span> ofrecemos soluciones eléctricas integrales
+        a medida. Nos encargamos de la planificación y ejecución de proyectos eléctricos
+        y electromecánicos, priorizando <span class={span}>eficiencia</span>, <span
+          class={span}>seguridad</span
+        > y <span class={span}>cumplimiento normativo.</span>
+        <br />
+        <br /> Con un equipo experimentado y tecnologí a de vanguardia, garantizamos
+        instalaciones confiables y resultados que superan expectativas
+      </p>
 
-  <MainButton text="ver más" URL="/about-us" />
+      <MainButton text="ver más" URL="/about-us" />
+    </div>
+
+    <div class="hidden grow-4 lg:block w-full h-full">
+      <div class="h-full flex items-center justify-end">
+        <img
+          src={SectionImage.src}
+          class="h-[72%] w-[82%] border lg:border-[#35796F] p-1 object-cover shadow-md"
+        />
+      </div>
+    </div>
+  </div>
 </section>

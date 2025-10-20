@@ -10,50 +10,52 @@ const socialStyles =
 ---
 
 <footer
-  class="h-[37rem] px-8 pt-8 relative z-10 bg-[rgb(52,65,71)] text-white font-light"
+  class="h-[37rem] px-8 pt-8 relative z-10 bg-[rgb(52,65,71)] text-white font-light md:flex md:justify-center"
 >
-  <img src={Logo.src} alt="logo white" class="w-28" />
+  <div class="md:max-w-[42.5rem] lg:max-w-[50rem]">
+    <img src={Logo.src} alt="logo white" class="w-28" />
 
-  <p class="text-sm">
-    Soluciones eléctricas y electromecánicas de calidad, desde el diseño hasta
-    el montaje y puesta en marcha de tableros. Trabajamos bajo todas las normas
-    de seguridad vigentes.
-  </p>
+    <p class="text-sm">
+      Soluciones eléctricas y electromecánicas de calidad, desde el diseño hasta
+      el montaje y puesta en marcha de tableros. Trabajamos bajo todas las
+      normas de seguridad vigentes.
+    </p>
 
-  <h1 class="font-oswald text-xl mt-10 mb-5">Secciones</h1>
+    <h1 class="font-oswald text-xl mt-10 mb-5">Secciones</h1>
 
-  <ul class="text-md font-oswald flex flex-col gap-2">
-    <li>
-      <a href="/" class="text-white"> INICIO </a>
-    </li>
-    <li>
-      <a href="/about-us" class="text-white"> SOBRE NOSOTROS </a>
-    </li>
-    <li>
-      <a href="/design" class="text-white"> DISEÑO </a>
-    </li>
-    <li>
-      <a href="/projects" class="text-white"> PROYECTOS </a>
-    </li>
-    <li>
-      <a href="/contact" class="text-white"> CONTACTO </a>
-    </li>
-    <li>
-      <a href={`https://wa.me/${phone}?text=${encoded}`} class="text-white">
-        PRESUPUESTO
-      </a>
-    </li>
-  </ul>
+    <ul class="text-md font-oswald flex flex-col gap-2">
+      <li>
+        <a href="/" class="text-white"> INICIO </a>
+      </li>
+      <li>
+        <a href="/about-us" class="text-white"> SOBRE NOSOTROS </a>
+      </li>
+      <li>
+        <a href="/design" class="text-white"> DISEÑO </a>
+      </li>
+      <li>
+        <a href="/projects" class="text-white"> PROYECTOS </a>
+      </li>
+      <li>
+        <a href="/contact" class="text-white"> CONTACTO </a>
+      </li>
+      <li>
+        <a href={`https://wa.me/${phone}?text=${encoded}`} class="text-white">
+          PRESUPUESTO
+        </a>
+      </li>
+    </ul>
 
-  <div class="flex justify-center gap-2 mt-11">
-    <div class={`${socialStyles}`}>
-      <Facebook class="w-5 h-5" />
-    </div>
-    <div class={`${socialStyles}`}>
-      <Instagram class="w-5 h-5" />
-    </div>
-    <div class={`${socialStyles}`}>
-      <Linkedin class="object-cover w-5 h-5" />
+    <div class="flex justify-center gap-2 mt-11">
+      <div class={`${socialStyles}`}>
+        <Facebook class="w-5 h-5" />
+      </div>
+      <div class={`${socialStyles}`}>
+        <Instagram class="w-5 h-5" />
+      </div>
+      <div class={`${socialStyles}`}>
+        <Linkedin class="object-cover w-5 h-5" />
+      </div>
     </div>
   </div>
 </footer>

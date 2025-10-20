@@ -2,16 +2,16 @@
 const { description, icon } = Astro.props;
 ---
 
-<div class="flex flex-col gap-3 items-center">
+<div class="flex flex-col gap-3 md:gap-4 items-center">
   <div
-    class="w-[10rem] h-[10rem] bg-white rounded-md flex items-center justify-center"
+    class="w-[10rem] h-[10rem] md:w-[15rem] lg:w-[10rem] md:h-[15rem] lg:h-[10rem] bg-white rounded-md flex items-center justify-center"
   >
     <img
       src={icon.src}
       alt={description}
-      class="w-[5rem] h-[5rem] object-contain"
+      class="w-[5rem] h-[5rem] md:w-[6rem] md:h-[6rem] object-contain"
     />
   </div>
 
-  <p class="text-center text-[.8rem] max-w-[26ch] text-white">{description}</p>
+  <p class="text-center text-[.8rem] md:text-base lg:text-xs max-w-[26ch] text-white md:leading-6 lg:leading-5">{description}</p>
 </div>
