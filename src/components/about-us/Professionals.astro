@@ -2,51 +2,18 @@
 import SectionTitle from "../common/Section-title.astro";
 import ProfessionalsIcon from "../../assets/icons/professionals.svg";
 import { professionals } from "../../data/professionals";
-import FacebookIcon from "../../assets/icons/facebook.svg";
-import InstagramIcon from "../../assets/icons/instagram.svg";
-import LinkedinIcon from "../../assets/icons/linkedin.svg";
+import ProfessionalCard from "./Professional-card.astro";
 ---
 
-<section class="mx-8 mt-10">
+<section class="mx-8 mt-10 md:mt-14 xl:mt-16">
   <SectionTitle label="Nuestro Equipo de Profesionales" hasIcon={true}>
     <ProfessionalsIcon slot="icon" />
   </SectionTitle>
 
-  <div class="mt-10 flex flex-col gap-8">
+  <div class="mt-10 xl:mt-14 flex lg:grid flex-col lg:grid-cols-3 items-center md:w-full md:flex-row md:overflow-x-auto md:overflow-y-clip gap-8 lg:gap-5 md:pb-4">
     {
       professionals.map((professional) => (
-        <div class="w-full h-[32rem] border grid grid-rows-[17rem_14.5rem] gap-2">
-          <div>
-            <img
-              src={professional.image.src}
-              alt={professional.name}
-              class="object-cover object-center h-[17rem] w-full"
-            />
-          </div>
-
-          <div class="h-full p-5 flex flex-col gap-1">
-            <h1 class="text-center font-oswald text-2xl">
-              {professional.name.toUpperCase()}
-            </h1>
-            <h2 class="text-center font-oswald text-[#35796F] text-xl">
-              {professional.role.toUpperCase()}
-            </h2>
-            <p class="text-sm text-center">{professional.description}</p>
-            <div class="flex gap-1 justify-center items-center">
-              <div class="rounded-full h-8 w-8 shadow-md flex items-center justify-center border">
-                <FacebookIcon class="w-4 h-4 opacity-70" />
-              </div>
-
-              <div class="rounded-full h-8 w-8 shadow-md flex items-center justify-center border">
-                <InstagramIcon class="w-4 h-4 opacity-70" />
-              </div>
-
-              <div class="rounded-full h-8 w-8 shadow-md flex items-center justify-center border">
-                <LinkedinIcon class="w-4 h-4 opacity-70" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProfessionalCard professional={professional} />
       ))
     }
   </div>

@@ -9,8 +9,12 @@ import Invitation from "../components/about-us/Invitation.astro";
 
 <MainLayout>
   <TitlePage title="sobre nosotros" />
-  <Description />
-  <Values />
-  <Professionals />
-  <Invitation />
+  <div
+    class="md:max-w-[768px] lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] md:flex md:flex-col md:justify-self-center"
+  >
+    <Description />
+    <Values />
+    <Professionals />
+    <Invitation />
+  </div>
 </MainLayout>

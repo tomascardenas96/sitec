@@ -1,13 +1,32 @@
-<section class="min-h-[20.5rem] px-5 flex flex-col pt-10 gap-6">
-  <h1 class="text-2xl font-oswald font-[400] text-center text-[#35796F]">
-    ¿Quiénes Somos?
-  </h1>
-  <p class="text-sm text-center leading-[1.5rem]">
-    Somos una empresa con mas de 10 años de experiencia accusantium doloremque
-    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-    et quasi architecto beatae vitae dicta sunt explicabo. <br />
-    <br /> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-    sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-    Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
-  </p>
+---
+import SectionImage from "../../assets/images/home/proyects/2.jpg";
+---
+
+<section
+  class="min-h-[20.5rem] md:min-h-[18rem] lg:min-h-[19rem] px-5 lg:px-5 xl:px-10 pt-10 md:pt-16 lg:flex lg:gap-12 xl:gap-14 2xl:gap-16"
+>
+  <div class="hidden w-[36rem] xl:w-[45rem] 2xl:w-[40rem] h-[15rem] xl:h-[19rem] 2xl:h-[17rem] lg:inline">
+    <img
+      src={SectionImage.src}
+      class="w-full h-full object-cover p-1 border border-[#35796F] shadow-md"
+      alt="Foto de seccion de la pagina sobre nosotros"
+    />
+  </div>
+
+  <div class="flex flex-col gap-6 lg:gap-3 xl:gap-4">
+    <h1
+      class="text-2xl lg:text-[1.4rem] xl:text-[1.6rem] 2xl:text-[1.7rem] font-oswald font-[400] text-center lg:text-start text-[#35796F]"
+    >
+      ¿Quiénes Somos?
+    </h1>
+    <p class="text-sm lg:text-xs xl:text-sm text-center lg:max-w-[110ch] lg:text-start leading-[1.5rem] lg:leading-[1.5rem] xl:leading-[1.65rem]">
+      Somos una empresa con mas de 10 años de experiencia accusantium doloremque
+      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+      et quasi architecto beatae vitae dicta sunt explicabo. <br />
+      <br /> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+      fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
+      nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+      consectetur.
+    </p>
+  </div>
 </section>

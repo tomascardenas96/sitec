@@ -6,14 +6,14 @@ const encoded = encodeURIComponent(text);
 ---
 
 <section
-  class="h-72 px-8 pb-8 flex flex-col justify-center items-center gap-2 font-oswald"
+  class="h-72 lg:h-80 px-8 pb-8 flex flex-col justify-center items-center gap-2 font-oswald"
 >
   <h1 class="text-[#35796F] text-xl font-semibold">
     ¿Te gustaría que trabajemos juntos?
   </h1>
   <p>Solicita acá un presupuesto sin cargo</p>
   <button
-    class="font-oswald bg-[#35796F] shadow-md w-full h-11 mt-3 rounded-sm"
+    class="font-oswald bg-[#35796F] shadow-md w-full lg:max-w-[25rem] h-11 mt-3 rounded-sm"
   >
     <a
       href={`https://wa.me/${phone}?text=${encoded}`}

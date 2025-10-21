@@ -1,0 +1,47 @@
+---
+const { professional } = Astro.props;
+import FacebookIcon from "../../assets/icons/facebook.svg";
+import InstagramIcon from "../../assets/icons/instagram.svg";
+import LinkedinIcon from "../../assets/icons/linkedin.svg";
+---
+
+<div
+  class="w-full md:w-[20.96rem] lg:w-full h-[32rem] lg:h-[24rem] border grid grid-rows-[17rem_14.5rem] md:grid-rows-[16rem_14.5rem] lg:grid-rows-[11rem_14.5rem] gap-2 md:shrink-0"
+>
+  <div>
+    <img
+      src={professional.image.src}
+      alt={professional.name}
+      class="object-cover object-top h-[17rem] md:h-[16rem] lg:h-[11rem] w-full"
+    />
+  </div>
+
+  <div class="h-full p-5 lg:pt-1 lg:px-4 flex flex-col gap-1 md:gap-2 lg:gap-1">
+    <h1 class="text-center font-oswald text-2xl lg:text-sm">
+      {professional.name.toUpperCase()}
+    </h1>
+    <h2 class="text-center font-oswald text-[#35796F] text-xl lg:text-sm">
+      {professional.role.toUpperCase()}
+    </h2>
+    <p class="text-sm lg:text-[.7rem] lg:leading-[.9rem] text-center lg:my-1">{professional.description}</p>
+    <div class="flex gap-1 justify-center items-center lg:mt-1">
+      <div
+        class="rounded-full h-8 w-8 shadow-md flex items-center justify-center border"
+      >
+        <FacebookIcon class="w-4 h-4 opacity-70" />
+      </div>
+
+      <div
+        class="rounded-full h-8 w-8 shadow-md flex items-center justify-center border"
+      >
+        <InstagramIcon class="w-4 h-4 opacity-70" />
+      </div>
+
+      <div
+        class="rounded-full h-8 w-8 shadow-md flex items-center justify-center border"
+      >
+        <LinkedinIcon class="w-4 h-4 opacity-70" />
+      </div>
+    </div>
+  </div>
+</div>

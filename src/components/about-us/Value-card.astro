@@ -1,0 +1,16 @@
+---
+import Success from "../../assets/icons/success.svg";
+const { value } = Astro.props;
+---
+
+<div class="flex gap-3">
+  <div>
+    <Success class="w-7 lg:w-6 h-7 lg:h-6" />
+  </div>
+  <div class="flex flex-col gap-1">
+    <h1 class="font-oswald text-[#35796F] text-[.9rem] lg:text-[.8rem] font-semibold">
+      {value.title.toUpperCase()}
+    </h1>
+    <h2 class="text-sm lg:text-[.8rem]">{value.subtitle}</h2>
+  </div>
+</div>
