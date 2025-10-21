@@ -6,56 +6,74 @@ import Linkedin from "../../assets/icons/linkedin.svg";
 import { phone, encoded } from "../../data/whatsapp.js";
 
 const socialStyles =
-  "size-10 rounded-full overflow-hidden object-cover flex justify-center items-center shadow-md bg-white";
+  "size-10 lg:size-8 rounded-full overflow-hidden object-cover flex justify-center items-center shadow-md bg-white";
 ---
 
 <footer
-  class="h-[37rem] px-8 pt-8 relative z-10 bg-[rgb(52,65,71)] text-white font-light md:flex md:justify-center"
+  class="h-[37rem] lg:h-[26.5rem] px-8 pt-8 relative z-10 bg-[rgb(52,65,71)] text-white font-light md:flex lg:flex-col md:justify-center lg:justify-start lg:items-center"
 >
-  <div class="md:max-w-[42.5rem] lg:max-w-[50rem]">
-    <img src={Logo.src} alt="logo white" class="w-28" />
+  <div
+    class="md:max-w-[42.5rem] lg:max-w-[50rem] lg:w-[50rem] xl:max-w-[60rem] xl:w-[60rem] lg:grid lg:grid-cols-[1fr_15rem] lg:justify-between lg:gap-10 lg:gap-y-4 lg:grid-rows-[10rem_7rem]"
+  >
+    <div>
+      <img src={Logo.src} alt="logo white" class="w-28" />
 
-    <p class="text-sm">
-      Soluciones eléctricas y electromecánicas de calidad, desde el diseño hasta
-      el montaje y puesta en marcha de tableros. Trabajamos bajo todas las
-      normas de seguridad vigentes.
-    </p>
+      <p class="text-sm lg:max-w-[50ch] lg:leading-6">
+        Soluciones eléctricas y electromecánicas de calidad, desde el diseño
+        hasta el montaje y puesta en marcha de tableros. Trabajamos bajo todas
+        las normas de seguridad vigentes.
+      </p>
+    </div>
 
-    <h1 class="font-oswald text-xl mt-10 mb-5">Secciones</h1>
+    <div>
+      <h1 class="font-oswald text-xl mt-10 lg:mt-6 mb-5">Secciones</h1>
 
-    <ul class="text-md font-oswald flex flex-col gap-2">
-      <li>
-        <a href="/" class="text-white"> INICIO </a>
-      </li>
-      <li>
-        <a href="/about-us" class="text-white"> SOBRE NOSOTROS </a>
-      </li>
-      <li>
-        <a href="/design" class="text-white"> DISEÑO </a>
-      </li>
-      <li>
-        <a href="/projects" class="text-white"> PROYECTOS </a>
-      </li>
-      <li>
-        <a href="/contact" class="text-white"> CONTACTO </a>
-      </li>
-      <li>
-        <a href={`https://wa.me/${phone}?text=${encoded}`} class="text-white">
-          PRESUPUESTO
-        </a>
-      </li>
-    </ul>
+      <ul class="text-base lg:text-sm font-oswald flex flex-col gap-2 lg:gap-3">
+        <li>
+          <a href="/" class="text-white"> INICIO </a>
+        </li>
+        <li>
+          <a href="/about-us" class="text-white"> SOBRE NOSOTROS </a>
+        </li>
+        <li>
+          <a href="/design" class="text-white"> DISEÑO </a>
+        </li>
+        <li>
+          <a href="/projects" class="text-white"> PROYECTOS </a>
+        </li>
+        <li>
+          <a href="/contact" class="text-white"> CONTACTO </a>
+        </li>
+        <li>
+          <a href={`https://wa.me/${phone}?text=${encoded}`} class="text-white">
+            PRESUPUESTO
+          </a>
+        </li>
+      </ul>
+    </div>
 
-    <div class="flex justify-center gap-2 mt-11">
-      <div class={`${socialStyles}`}>
-        <Facebook class="w-5 h-5" />
+    <div class="flex flex-col gap-4 lg:mt-3">
+      <h1 class="font-oswald text-xl">Redes Sociales</h1>
+      <div class="flex justify-center lg:justify-start gap-2 mt-11 lg:mt-0">
+        <div class={`${socialStyles}`}>
+          <Facebook class="w-5 lg:w-4 h-5 lg:h-4" />
+        </div>
+        <div class={`${socialStyles}`}>
+          <Instagram class="w-5 lg:w-4 h-5 lg:h-4" />
+        </div>
+        <div class={`${socialStyles}`}>
+          <Linkedin class="object-cover w-5 lg:w-4 h-5 lg:h-4" />
+        </div>
       </div>
-      <div class={`${socialStyles}`}>
-        <Instagram class="w-5 h-5" />
-      </div>
-      <div class={`${socialStyles}`}>
-        <Linkedin class="object-cover w-5 h-5" />
-      </div>
+    </div>
+  </div>
+
+  <div class="hidden lg:flex justify-center h-16 w-full mt-6">
+    <div
+      class="w-[50rem] max-w-[50rem] xl:w-[60rem] xl:max-w-[60rem] border-t flex items-center justify-between text-xs text-grey-500"
+    >
+      <p>Copyright © 2025 - All rights reserved</p>
+      <p>Tomás Cárdenas - https://www.tomascardenas.me</p>
     </div>
   </div>
 </footer>

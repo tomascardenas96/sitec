@@ -5,19 +5,21 @@ import SectionImage from "../../assets/images/home/proyects/1.jpg";
 const span = "font-bold text-black text-[#131C27]";
 ---
 
-<section class="h-[30rem] lg:flex lg:px-5 lg:justify-center">
+<section class="h-[28rem] xl:h-[32rem] lg:flex lg:px-5 lg:justify-center">
   <div
-    class="h-full w-full lg:max-w-[50rem] flex justify-center items-center lg:flex"
+    class="h-full w-full lg:max-w-[50rem] xl:max-w-[60rem] xl:gap-1 flex justify-center items-center lg:flex"
   >
     <div
-      class="h-full flex flex-col items-center lg:items-start justify-center gap-7 md:gap-9 px-5 lg:grow-6 lg:w-full"
+      class="h-full flex flex-col items-center lg:items-start justify-center gap-7 md:gap-9 lg:gap-4 xl:gap-6 px-5 xl:px-0 lg:w-full"
     >
-      <h1 class="font-oswald text-[1.8rem] lg:text-[1.6rem] text-[#35796F]">
+      <h1
+        class="font-oswald text-[1.8rem] lg:text-[1.6rem] xl:text-[1.8rem] text-[#35796F]"
+      >
         Energía que Inspira Confianza
       </h1>
 
       <p
-        class="text-center lg:text-start text-[.9rem] lg:text-[.75rem] leading-[1.6rem] lg:leading-[1.4rem] md:max-w-[80ch]"
+        class="text-center lg:text-start text-[.9rem] lg:text-[.75rem] xl:text-[.9rem] leading-[1.6rem] lg:leading-[1.3rem] xl:leading-[1.5rem] md:max-w-[80ch] xl:max-w-[85ch]"
       >
         En <span class={span}>SITEC</span> ofrecemos soluciones eléctricas integrales
         a medida. Nos encargamos de la planificación y ejecución de proyectos eléctricos
@@ -29,14 +31,16 @@ const span = "font-bold text-black text-[#131C27]";
         instalaciones confiables y resultados que superan expectativas
       </p>
 
-      <MainButton text="ver más" URL="/about-us" />
+      <div class="lg:mt-5">
+        <MainButton text="ver más" URL="/about-us" />
+      </div>
     </div>
 
-    <div class="hidden grow-4 lg:block w-full h-full">
-      <div class="h-full flex items-center justify-end">
+    <div class="hidden lg:flex w-[40rem] xl:w-[57rem] h-full">
+      <div class="h-full w-full flex items-center justify-end">
         <img
           src={SectionImage.src}
-          class="h-[72%] w-[82%] border lg:border-[#35796F] p-1 object-cover shadow-md"
+          class="h-[72%] xl:h-[74%] w-[82%] xl:w-[76%] border lg:border-[#35796F] p-1 object-cover shadow-xl"
         />
       </div>
     </div>
