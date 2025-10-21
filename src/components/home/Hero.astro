@@ -1,5 +1,6 @@
 ---
 import hero from "../../assets/images/f5d41eb7-25c9-48a8-8e4f-95947947fa13.png";
+import Wallet from "../../assets/icons/wallet.svg";
 const phone = "5492281378525";
 const text =
   "Buen día, quisiera solicitar un presupuesto para la instalación de paneles eléctricos en mi empresa. Muchas gracias.";
@@ -7,7 +8,7 @@ const encoded = encodeURIComponent(text);
 ---
 
 <section
-  class="h-96 lg:h-[19rem] xl:h-[21.9rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-8 lg:gap-5 xl:gap-7"
+  class="h-96 lg:h-[19rem] xl:h-[21.9rem] 2xl:h-[26rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-8 lg:gap-5 xl:gap-7 2xl:gap-8"
   style={`background-image: url('${hero.src}');`}
 >
   <div class="absolute inset-0 bg-black/50"></div>
@@ -24,20 +25,20 @@ const encoded = encodeURIComponent(text);
   <!-- Desktop hero title -->
   <div class="z-10 rounded-[.2rem] hidden pt-8 lg:block">
     <h1
-      class="w-[35ch] relative text-white text-[1.8rem] xl:text-[2rem] font-[400] z-10 flex text-center font-oswald leading-9 xl:leading-10 tracking-[.04em] xl:tracking-[.05em]"
+      class="w-[35ch] relative text-white text-[1.8rem] xl:text-[2rem] 2xl:text-[2.5rem] font-[400] z-10 flex text-center font-oswald leading-9 xl:leading-10 2xl:leading-[3rem] tracking-[.04em] xl:tracking-[.05em]"
     >
       Soluciones eléctricas integrales y montajes industriales
     </h1>
   </div>
 
   <button
-    class="bg-btn relative cursor-pointer z-10 text-sm lg:text-xs xl:text-sm flex h-12 lg:h-10 xl:h-11 w-52 lg:w-44 xl:w-52 items-center gap-2 justify-center rounded-md shadow-xl text-white font-oswald font-medium lg:font-normal"
+    class="bg-btn relative cursor-pointer z-10 text-sm lg:text-xs xl:text-sm 2xl:text-base h-12 lg:h-10 xl:h-11 2xl:h-12 w-52 lg:w-44 xl:w-52 2xl:w-60 items-center justify-center rounded-md shadow-xl text-white font-oswald font-medium lg:font-normal"
   >
     <a
       href={`https://wa.me/${phone}?text=${encoded}`}
       target="blank"
-      class="h-full w-full text-white flex items-center justify-center"
-      >SOLICITAR PRESUPUESTO</a
+      class="h-full w-full text-white flex items-center justify-center gap-2"
+      ><Wallet class="hidden 2xl:inline w-5 h-5 shadow-md" /> SOLICITAR PRESUPUESTO</a
     >
   </button>
 </section>

@@ -6,20 +6,22 @@ const { label, subtitle, color, hasIcon = false } = Astro.props;
   <div class="flex gap-2 justify-center items-center">
     {
       hasIcon && (
-        <div class={`w-6 h-6 ${color === "white" ? "text-white" : "text-[#35796F]"}`}>
+        <div
+          class={`w-6 2xl:w-7 h-6 2xl:h-7  ${color === "white" ? "text-white" : "text-[#35796F]"}`}
+        >
           <slot name="icon" />
         </div>
       )
     }
 
     <h1
-      class=`text-2xl font-oswald font-normal ${color === "white" ? "text-white" : "text-[#35796F]"}`
+      class=`text-2xl 2xl:text-3xl font-oswald font-normal ${color === "white" ? "text-white" : "text-[#35796F]"}`
     >
       {label}
     </h1>
   </div>
   <h2
-    class=`text-center font-oswald max-w-[40ch] lg:max-w-full font-light lg:text-sm xl:text-base ${color === "white" ? "text-white" : "text-[#282828]"}`
+    class=`text-center font-oswald max-w-[40ch] lg:max-w-full font-light lg:text-sm xl:text-base 2xl:text-lg ${color === "white" ? "text-white" : "text-[#282828]"}`
   >
     {subtitle}
   </h2>

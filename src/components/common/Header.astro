@@ -6,10 +6,10 @@ import MobileMenu from "./Mobile-menu.astro";
 
 <header
   id="header-container"
-  class="h-[4.5rem] lg:h-[4.2rem] xl:h-[4.7rem] flex fixed z-20 w-full top-0 lg:top-7 lg:justify-center"
+  class="h-[4.5rem] lg:h-[4.2rem] xl:h-[4.7rem] 2xl:h-[5.5rem] flex fixed z-20 w-full top-0 lg:top-7 2xl:top-9 lg:justify-center"
 >
   <div
-    class="bg-white px-2 lg:px-6 lg:pr-10 xl:pr-12 w-full lg:w-[43rem] xl:w-[52rem] flex items-center justify-between shadow-xl transition-all duration-300 lg:rounded-md"
+    class="bg-white px-2 lg:px-6 2xl:px-8 lg:pr-10 xl:pr-12 2xl:pr-16 w-full lg:w-[43rem] xl:w-[52rem] 2xl:w-[57rem] flex items-center justify-between shadow-xl transition-all duration-300 lg:rounded-md"
   >
     <a href="/" class="h-full">
       <img src={logo.src} alt="Logo Sitec" class="h-full" />
@@ -19,12 +19,33 @@ import MobileMenu from "./Mobile-menu.astro";
       <img src={menu.src} alt="Menú" class="h-8 w-8 lg:hidden" />
     </button>
 
-    <ul class="font-oswald hidden gap-4 xl:gap-5 text-sm xl:text-[.93rem] lg:flex h-8 items-center">
-      <li class="border-b-2 border-[#F29E4C] py-1">Inicio</li>
-      <li class="py-1">Sobre Nosotros</li>
-      <li class="py-1">Diseño</li>
-      <li class="py-1">Proyectos</li>
-      <li class="py-1">Contacto</li>
+    <ul
+      class="font-oswald hidden gap-4 xl:gap-5 text-sm xl:text-[.93rem] 2xl:text-[1rem] lg:flex h-8 items-center"
+    >
+      <li class="border-b-2 border-[#F29E4C] py-1">
+        <a class="text-inherit hover:no-underline hover:text-[#808080] transition ease-in-out duration-300" href="/"
+          >Inicio</a>
+      </li>
+      <li class="py-1">
+        <a
+          class="text-inherit hover:no-underline hover:text-[#808080]"
+          href="/about-us">Sobre Nosotros</a>
+      </li>
+      <li class="py-1">
+        <a
+          class="text-inherit hover:no-underline hover:text-[#808080] transition ease-in-out duration-300"
+          href="/design">Diseño</a>
+      </li>
+      <li class="py-1">
+        <a
+          class="text-inherit hover:no-underline hover:text-[#808080] transition ease-in-out duration-300"
+          href="/projects">Proyectos</a>
+      </li>
+      <li class="py-1">
+        <a
+          class="text-inherit hover:no-underline hover:text-[#808080] transition ease-in-out duration-300"
+          href="/contact">Contacto</a>
+      </li>
     </ul>
 
     <MobileMenu />

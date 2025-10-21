@@ -6,7 +6,7 @@ import SectionTitle from "../common/Section-title.astro";
 import MainButton from "./Main-button.astro";
 ---
 
-<section class="py-10 px-5 md:flex md:flex-col md:items-center">
+<section class="py-10 2xl:py-14 px-5 md:flex md:flex-col md:items-center">
   <SectionTitle
     label="Proyectos Realizados"
     subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
@@ -32,10 +32,25 @@ import MainButton from "./Main-button.astro";
     }
   </div>
 
-  <div class="mt-10 hidden grid-cols-3 gap-4 xl:gap-5 grid-rows-2 lg:w-[50rem] xl:w-[60rem] lg:grid">
+  <div class="mt-10 hidden grid-cols-3 gap-4 xl:gap-5 grid-rows-2 lg:w-[50rem] xl:w-[60rem] lg:grid 2xl:hidden">
     {
       allProjects
         .slice(0, 6)
+        .map((project) => (
+          <ProjectCard
+            image={project.image}
+            title={project.title}
+            subtitle={project.subtitle}
+            id={project.id}
+          />
+        ))
+    }
+  </div>
+
+  <div class="mt-16 hidden grid-cols-4 gap-7 2xl:gap-6 gap-y-10 grid-rows-2 w-[85rem] 2xl:grid">
+    {
+      allProjects
+        .slice(0, 8)
         .map((project) => (
           <ProjectCard
             image={project.image}

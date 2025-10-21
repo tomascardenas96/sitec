@@ -4,17 +4,17 @@ const { description, icon } = Astro.props;
 
 <div class="flex flex-col gap-3 md:gap-4 items-center">
   <div
-    class="w-[10rem] h-[10rem] md:w-[15rem] lg:w-[10rem] xl:w-[12.8rem] md:h-[15rem] lg:h-[10rem] xl:h-[12.8rem] bg-white rounded-md flex items-center justify-center"
+    class="w-[10rem] h-[10rem] md:w-[15rem] lg:w-[10rem] xl:w-[12.8rem] 2xl:w-[14rem] md:h-[15rem] lg:h-[10rem] xl:h-[12.8rem] 2xl:h-[14rem] bg-white rounded-md flex items-center justify-center"
   >
     <img
       src={icon.src}
       alt={description}
-      class="w-[5rem] md:w-[6rem] xl:w-[6.5rem] h-[5rem] md:h-[6rem] xl:h-[6.5rem] object-contain opacity-80"
+      class="w-[5rem] md:w-[6rem] xl:w-[6.5rem] 2xl:w-[7rem] h-[5rem] md:h-[6rem] xl:h-[6.5rem] 2xl:h-[7rem] object-contain opacity-80"
     />
   </div>
 
   <p
-    class="text-center font-light text-[.8rem] md:text-base lg:text-xs xl:text-sm max-w-[26ch] xl:max-w-[24ch] text-white md:leading-6 lg:leading-5 xl:leading-[1.4rem]"
+    class="text-center font-light text-[.8rem] md:text-base lg:text-xs xl:text-sm 2xl:text-base max-w-[26ch] xl:max-w-[24ch] text-white md:leading-6 lg:leading-5 xl:leading-[1.4rem]"
   >
     {description}
   </p>

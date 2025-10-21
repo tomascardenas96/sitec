@@ -7,7 +7,7 @@ import Testimonial from "./Testimonial.card.astro";
 ---
 
 <section
-  class="mt-2 py-10 px-5 bg-cover pb-20 xl:pb-24 md:flex md:flex-col md:items-center"
+  class="mt-2 py-10 2xl:py-14 px-5 bg-cover pb-20 xl:pb-24 2xl:pb-28 md:flex md:flex-col md:items-center"
   style={`background-image: url('${texture.src}')`}
 >
   <SectionTitle
@@ -20,7 +20,7 @@ import Testimonial from "./Testimonial.card.astro";
   </SectionTitle>
 
   <div
-    class="grid md:flex gap-6 md:gap-8 lg:gap-6 xl:gap-8 mt-8 md:mt-10 md:max-w-[42.5rem] lg:max-w-[50rem] xl:max-w-[60rem] lg:w-[50rem] xl:w-[60rem] md:overflow-auto lg:overflow-visible lg:grid lg:grid-cols-3"
+    class="grid md:flex gap-6 md:gap-8 lg:gap-6 xl:gap-8 2xl:gap-10 mt-8 md:mt-10 md:max-w-[42.5rem] lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] lg:w-[50rem] xl:w-[60rem] 2xl:w-[65rem] md:overflow-auto lg:overflow-visible lg:grid lg:grid-cols-3"
   >
     {
       testimonials.map((testimonial) => (

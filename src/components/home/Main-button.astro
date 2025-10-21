@@ -3,9 +3,9 @@ const { text, URL } = Astro.props;
 ---
 
 <button
-  class="font-oswald lg:font-thin px-12 lg:px-8 h-12 lg:h-10 border-2 lg:border shadow-md border-[#35796F] mt-2 lg:mt-0 lg:pb-1"
+  class="font-oswald lg:font-thin px-12 lg:px-8 2xl:px-10 h-12 lg:h-10 border-2 lg:border shadow-md border-[#35796F] mt-2 lg:mt-0 lg:pb-1 2xl:pb-0"
 >
-  <a href={URL} class="text-[#35796F] w-full h-full lg:font-medium lg:text-xs">
+  <a href={URL} class="text-[#35796F] w-full h-full lg:font-medium 2xl:font-light lg:text-xs 2xl:text-base">
     {text.toUpperCase()}
   </a>
 </button>
