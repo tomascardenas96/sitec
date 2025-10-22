@@ -2,29 +2,15 @@
 import SectionTitle from "../common/Section-title.astro";
 import ChooseIcon from "../../assets/icons/choose.svg";
 import { skills } from "../../data/skills";
+import SkillCard from "./Skill-card.astro";
 ---
 
-<section class="flex flex-col px-8">
+<section class="flex flex-col px-8 md:mt-2">
   <SectionTitle label="¿Por qué elegirnos?" hasIcon={true}>
     <ChooseIcon slot="icon" class="w-6 h-6" />
   </SectionTitle>
 
-  <div class="flex flex-col gap-4 py-10">
-    {
-      skills.map((skill) => (
-        <div class="grid grid-cols-[6rem_1fr] gap-4">
-          <div class=" w-24 h-24 flex items-center justify-center">
-            <img src={skill.icon} alt="" class="h-[5rem] w-[5rem]" />
-          </div>
-
-          <div class="flex flex-col gap-2 py-2 ">
-            <h2 class="text-[#35796F] font-oswald text-[1.1rem] font-semibold">
-              {skill.title}
-            </h2>
-            <p class="text-sm">{skill.subtitle}</p>
-          </div>
-        </div>
-      ))
-    }
+  <div class="flex md:grid flex-col md:grid-cols-2 gap-4 xl:gap-y-2 2xl:gap-y-8 xl:gap-x-0 2xl:gap-x-7 py-10 2xl:max-w-[52rem] 2xl:mx-auto">
+    {skills.map((skill) => <SkillCard skill={skill} />)}
   </div>
 </section>

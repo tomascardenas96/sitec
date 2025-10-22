@@ -1,0 +1,16 @@
+---
+const { skill } = Astro.props;
+---
+
+<div class="grid grid-cols-[6rem_1fr] md:grid-cols-[5rem_1fr] gap-4 2xl:gap-6 md:gap-5">
+  <div class="w-24 h-24 flex items-center justify-center">
+    <img src={skill.icon} alt="" class="h-[5rem] md:h-[4rem] 2xl:h-[5rem] w-[5rem] md:w-[4rem] 2xl:w-[5rem]" />
+  </div>
+
+  <div class="flex flex-col gap-2 py-2">
+    <h2 class="text-[#35796F] font-oswald text-[1.1rem] md:text-[1rem] font-semibold">
+      {skill.title}
+    </h2>
+    <p class="text-sm md:text-xs 2xl:text-sm">{skill.subtitle}</p>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 ---
 import SectionTitle from "../common/Section-title.astro";
-import WorkFlowIcon from "../../assets/icons/workflow.svg";
+import IterationIcon from "../../assets/icons/iteration.svg";
 
-const buttonStyles = "font-oswald h-12 w-full rounded-md shadow-md";
+const buttonStyles = "font-oswald h-12 md:h-10 xl:h-12 w-full rounded-md shadow-md";
 const highlighted = "text-[#35796F] font-bold"
 
 const phone = "5492281378525";
@@ -11,16 +11,18 @@ const text =
 const encoded = encodeURIComponent(text);
 ---
 
-<section class="px-8 h-[29rem] flex flex-col justify-center items-center gap-4 bg-[#F4F4F4] border-b border-[#5ec9b9]">
+<section class="px-8 h-[29rem] md:h-[17rem] 2xl:h-[19.5rem] flex flex-col justify-center items-center gap-4 md:gap-1 xl:gap-2 2xl:gap-4 bg-[#F4F4F4] ">
   <SectionTitle label="Conocé nuestro proceso de trabajo..." hasIcon={true}>
-    <WorkFlowIcon slot="icon" />
+    <IterationIcon slot="icon" class="w-6 2xl:w-7 h-6 2xl:h-7 " />
   </SectionTitle>
-  <p class="text-center leading-[1.8rem] text-[.9rem]">
+
+  <p class="text-center leading-[1.8rem] lg:leading-[1.6rem] text-[.9rem] md:text-[.8rem] xl:text-[.75rem] 2xl:text-[.9rem] lg:max-w-[95ch] xl:max-w-[110ch]">
     En <span class={highlighted}>SITEC</span>, cada proyecto se diseña teniendo en cuenta <span class={highlighted}>seguridad</span>, <span class={highlighted}>eficiencia</span> y
     <span class={highlighted}>adaptabilidad</span>. Nuestro equipo combina experiencia técnica y soluciones
     innovadoras para garantizar resultados confiables.
   </p>
-  <div class="flex flex-col gap-4 w-full mt-6">
+
+  <div class="flex flex-col md:grid md:grid-cols-[12rem_12rem] 2xl:grid-cols-[13rem_13rem] md:justify-center gap-4 2xl:gap-5 w-full mt-6 md:mt-5 md:text-xs 2xl:text-sm">
       <button
       class={`${buttonStyles} text-white button-gradient`}
       > 

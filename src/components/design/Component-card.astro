@@ -1,0 +1,26 @@
+---
+const { component } = Astro.props;
+---
+
+<div class="flex flex-col items-center gap-4 2xl:w-[15.5rem]">
+  <div
+    class="h-36 md:h-28 2xl:h-36 w-36 md:w-28 2xl:w-36 border border-[#6F6F6F] rounded-full flex items-center justify-center"
+  >
+    <img
+      src={component.icon}
+      alt={component.title}
+      class="h-20 md:h-14 2xl:h-16 w-20 md:w-14 2xl:w-16"
+    />
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <h1
+      class="text-center text-[1.1rem] md:text-[1rem] font-oswald text-[#35796F] font-semibold"
+    >
+      {component.title}
+    </h1>
+    <p class="text-center text-sm md:text-xs 2xl:text-sm md:max-w-[40ch] 2xl:max-w-[30ch]">
+      {component.subtitle}
+    </p>
+  </div>
+</div>

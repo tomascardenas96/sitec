@@ -47,10 +47,10 @@ import MainButton from "./Main-button.astro";
     }
   </div>
 
-  <div class="mt-16 hidden grid-cols-4 gap-7 2xl:gap-6 gap-y-10 grid-rows-2 w-[85rem] 2xl:grid">
+  <div class="mt-16 hidden grid-cols-3 gap-7 2xl:gap-6 gap-y-10 grid-rows-2 w-[70rem] 2xl:grid">
     {
       allProjects
-        .slice(0, 8)
+        .slice(0, 6)
         .map((project) => (
           <ProjectCard
             image={project.image}
