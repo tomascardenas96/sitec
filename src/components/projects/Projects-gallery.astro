@@ -6,7 +6,7 @@ import SectionTitle from "../common/Section-title.astro";
 const { items } = Astro.props;
 ---
 
-<section class="py-10 px-5">
+<section class="py-10 2xl:py-14 px-5 2xl:px-36">
   <SectionTitle
     label="Proyectos Realizados"
     subtitle="Conocé algunos de nuestros proyectos finalizados"
@@ -15,7 +15,7 @@ const { items } = Astro.props;
     <Check class="text-[#35796F]" slot="icon" />
   </SectionTitle>
 
-  <div class="mt-8 flex flex-col gap-4">
+  <div class="mt-8 2xl:mt-14 flex flex-col gap-4 2xl:gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:max-w-[50rem] 2xl:max-w-[83.5rem] lg:max-w-[70rem] md:mx-auto">
     {
       items.map((project: any) => (
         <ProjectCard

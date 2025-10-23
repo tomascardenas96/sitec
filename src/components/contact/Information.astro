@@ -4,12 +4,25 @@ import { information } from "../../data/contact.js";
 import InfoCard from "./Info-card.astro";
 ---
 
-<section class="px-4">
-  <div class="pt-7 pb-5">
-    <SectionTitle label="Datos de Contacto" />
+<section
+  class="px-4 lg:px-0 lg:h-[18.0831rem] xl:h-[20.8331rem] 2xl:h-[21.3331rem]"
+>
+  <div class="pt-7 lg:pt-2 pb-5 lg:pb-5 2xl:pb-7 lg:flex">
+    <!-- <SectionTitle label="Datos de Contacto" /> -->
+    <div class=`flex flex-col justify-center items-center gap-2 `>
+      <div class="flex gap-2 justify-center items-center">
+        <h1
+          class=`text-2xl 2xl:text-[1.7rem] font-oswald font-normal text-[#35796F]`
+        >
+          Datos de Contacto
+        </h1>
+      </div>
+    </div>
   </div>
 
-  <div class="grid grid-cols-2 gap-y-6 gap-x-8 pl-[4%]">
+  <div
+    class="grid grid-cols-2 gap-y-6 lg:gap-y-6 xl:gap-y-7 2xl:gap-y-6 gap-x-8 lg:gap-x-7 xl:gap-x-0 2xl:gap-x-10 pl-[4%] lg:pl-0"
+  >
     {
       information.map((item) => (
         <InfoCard

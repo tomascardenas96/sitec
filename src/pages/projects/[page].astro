@@ -5,10 +5,10 @@ import { allProjects } from "../../data/projects.js";
 import MainLayout from "../../layouts/Main-layout.astro";
 import PagesSelector from "../../components/projects/Pages-selector.astro";
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 8;
 
 export async function getStaticPaths() {
-  const totalPages = Math.ceil(allProjects.length / 5);
+  const totalPages = Math.ceil(allProjects.length / 6);
 
   return Array.from({ length: totalPages }).map((_, i) => ({
     params: { page: String(i + 1) },

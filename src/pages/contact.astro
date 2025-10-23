@@ -8,7 +8,15 @@ import MoreInfo from "../components/contact/More-info.astro";
 
 <MainLayout>
   <TitlePage title="contactanos" />
-  <Information />
-  <Map />
+  <div
+    class="max-w-[35rem] lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] lg:h-[28rem] xl:h-[32rem] 2xl:h-[32rem] lg:flex lg:items-center lg:justify-center mx-auto"
+  >
+    <div
+      class="lg:w-full lg:grid lg:grid-cols-[1fr_1.3fr] lg:justify-between lg:items-center lg:gap-24 xl:gap-40 2xl:gap-48"
+    >
+      <Information />
+      <Map />
+    </div>
+  </div>
   <MoreInfo />
 </MainLayout>

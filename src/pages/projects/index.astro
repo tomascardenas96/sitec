@@ -4,7 +4,7 @@ import MainLayout from "../../layouts/Main-layout.astro";
 import ProjectsGallery from "../../components/projects/Projects-gallery.astro";
 import { allProjects } from "../../data/projects.js";
 import PagesSelector from "../../components/projects/Pages-selector.astro";
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 8;
 const firstPageItems = allProjects.slice(0, ITEMS_PER_PAGE);
 const totalPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE);
 ---

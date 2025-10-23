@@ -2,18 +2,18 @@
 const { title, firstLine, secondLine, icon } = Astro.props;
 ---
 
-<article class="flex gap-2">
+<article class="flex gap-2 lg:gap-3">
   <div>
     <div
-      class="w-10 h-10 bg-[#35796F] flex justify-center items-center rounded-full shadow-md"
+      class="w-10 lg:w-8 2xl:w-10 h-10 lg:h-8 2xl:h-10 bg-[#35796F] flex justify-center items-center rounded-full shadow-md"
     >
-      <img src={icon.src} alt={title} class="w-5 h-5" />
+      <img src={icon.src} alt={title} class="w-5 lg:w-4 2xl:w-5 h-5 lg:h-4 2xl:h-5" />
     </div>
   </div>
 
-  <div class="flex flex-col gap-1">
-    <h1 class="text-[1.2rem] font-oswald text-[#35796F]">{title}</h1>
-    <p class="text-[.8rem]">{firstLine}</p>
-    {secondLine && <p class="text-[.8rem]">{secondLine}</p>}
+  <div class="flex flex-col gap-1 lg:gap-0 xl:gap-[.1rem]">
+    <h1 class="text-[1.2rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem] font-oswald text-[#35796F]">{title}</h1>
+    <p class="text-[.8rem] lg:text-[.7rem] xl:text-[.8rem]">{firstLine}</p>
+    {secondLine && <p class="text-[.8rem] lg:text-[.7rem] xl:text-[.8rem]">{secondLine}</p>}
   </div>
 </article>

@@ -4,34 +4,61 @@ const phone = "5492281378525";
 ---
 
 <section
-  class="bg-[#344147d7] h-[36rem] text-white flex flex-col items-center text-center gap-12 font-oswald pt-14"
+  class="bg-[#344147d7] h-[36rem] lg:h-[16rem] text-white flex items-center font-oswald"
 >
-  <div class="flex flex-col gap-2">
-    <h1 class="text-[1.4rem]">Horarios de atención</h1>
-    <p class="text-[1.05rem] font-light">Lunes a viernes de 8:00 a 17:00 hs.</p>
-    <p class="text-[1.05rem] font-light">Sábados de 8:00 a 13:00 hs.</p>
-  </div>
-
-  <div class="flex flex-col gap-2">
-    <h1 class="text-[1.4rem]">Medios de pago</h1>
-    <p class="text-[1.05rem] font-light w-[22ch]">
-      Aceptamos todos los medios de pago para tu comodidad
-    </p>
-  </div>
-
-  <div class="flex flex-col items-center gap-6">
-    <p class="text-center w-[34ch] leading-6">
-      Escribinos tus consultas por WhatsApp y te responderemos a la brevedad.
-    </p>
-    <button class="w-64 h-14">
-      <a
-        href={`https://wa.me/${phone}`}
-        target="blank"
-        class="h-full w-full flex items-center bg-white text-[#35796F] shadow-xl rounded-xl gap-3 justify-center"
+  <div
+    class="flex flex-col lg:flex-row lg:justify-between text-center lg:text-start items-center lg:items-start gap-12 lg:gap-0 w-full lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] lg:mx-auto"
+  >
+    <div class="flex flex-col gap-2 lg:gap-1">
+      <h1
+        class="text-[1.4rem] lg:text-[1.1rem] xl:text-[1.2rem] 2xl:text-[1.3rem]"
       >
-        <img src={WhatsappLogo.src} class="w-7 h-7" alt="whatsapp logo" /> CONTACTO
-        POR WHATSAPP
-      </a>
-    </button>
+        Horarios de atención
+      </h1>
+      <p
+        class="text-[1.05rem] lg:text-[.9rem] xl:text-[1rem] 2xl:text-[1.1rem] font-light lg:font-extralight"
+      >
+        Lunes a viernes de 8:00 a 17:00 hs.
+      </p>
+      <p
+        class="text-[1.05rem] lg:text-[.9rem] xl:text-[1rem] 2xl:text-[1.1rem] font-light lg:font-extralight"
+      >
+        Sábados de 8:00 a 13:00 hs.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-2 lg:gap-1">
+      <h1
+        class="text-[1.4rem] lg:text-[1.1rem] xl:text-[1.2rem] 2xl:text-[1.3rem]"
+      >
+        Medios de pago
+      </h1>
+      <p
+        class="text-[1.05rem] lg:text-[.9rem] xl:text-[1rem] 2xl:text-[1.1rem] font-light lg:font-extralight w-[22ch] lg:leading-[1.45rem] xl:leading-[1.6rem] 2xl:leading-[1.7rem]"
+      >
+        Aceptamos todos los medios de pago para tu comodidad
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center gap-6 lg:gap-3 xl:gap-4">
+      <p
+        class="text-center w-[34ch] lg:w-[40ch] leading-6 lg:text-[.9rem] xl:text-[1rem] 2xl:text-[1.1rem] lg:font-light"
+      >
+        Escribinos tus consultas por WhatsApp y te responderemos a la brevedad.
+      </p>
+      <button class="w-64 lg:w-60 h-14 lg:h-11">
+        <a
+          href={`https://wa.me/${phone}`}
+          target="blank"
+          class="h-full w-full flex items-center bg-white text-[#35796F] lg:text-sm shadow-xl rounded-md gap-3 justify-center"
+        >
+          <img
+            src={WhatsappLogo.src}
+            class="w-7 lg:w-5 h-7 lg:h-5"
+            alt="whatsapp logo"
+          /> CONTACTO POR WHATSAPP
+        </a>
+      </button>
+    </div>
   </div>
 </section>
