@@ -1,14 +1,17 @@
 ---
 import logo from "../../assets/Logo-sitec.jpg";
 import menu from "../../assets/icons/menu.svg";
+import HeaderList from "./Header-list.astro";
 import MobileMenu from "./Mobile-menu.astro";
+import SocialHeader from "./Social-header.astro";
 ---
 
 <header
   id="header-container"
-  class="h-[4.5rem] lg:h-[4.2rem] xl:h-[4.7rem] 2xl:h-[5.5rem] flex fixed z-20 w-full top-0 lg:top-7 2xl:top-9 lg:justify-center"
+  class="h-[4.5rem] lg:h-[4.8rem] xl:h-[5.5rem] 2xl:h-[5.8rem] flex fixed z-20 w-full top-0 lg:absolute lg:top-7 2xl:top-9 lg:justify-center"
 >
   <div
+    id="main-header"
     class="bg-white px-2 lg:px-6 2xl:px-8 lg:pr-10 xl:pr-12 2xl:pr-16 w-full lg:w-[43rem] xl:w-[52rem] 2xl:w-[57rem] flex items-center justify-between shadow-xl transition-all duration-300 lg:rounded-md"
   >
     <a href="/" class="h-full">
@@ -19,54 +22,89 @@ import MobileMenu from "./Mobile-menu.astro";
       <img src={menu.src} alt="Menú" class="h-8 w-8 lg:hidden" />
     </button>
 
-    <ul
-      class="font-oswald hidden gap-4 xl:gap-5 text-sm xl:text-[.93rem] 2xl:text-[1rem] lg:flex h-8 items-center"
-    >
-      <li class="border-b-2 border-[#F29E4C] py-1">
-        <a class="text-inherit hover:no-underline hover:text-[#808080] transition ease-in-out duration-300" href="/"
-          >Inicio</a>
-      </li>
-      <li class="py-1">
-        <a
-          class="text-inherit hover:no-underline hover:text-[#808080]"
-          href="/about-us">Sobre Nosotros</a>
-      </li>
-      <li class="py-1">
-        <a
-          class="text-inherit hover:no-underline hover:text-[#808080] transition ease-in-out duration-300"
-          href="/design">Diseño</a>
-      </li>
-      <li class="py-1">
-        <a
-          class="text-inherit hover:no-underline hover:text-[#808080] transition ease-in-out duration-300"
-          href="/projects">Proyectos</a>
-      </li>
-      <li class="py-1">
-        <a
-          class="text-inherit hover:no-underline hover:text-[#808080] transition ease-in-out duration-300"
-          href="/contact">Contacto</a>
-      </li>
-    </ul>
-
-    <MobileMenu />
+    <div class="items-center gap-10 hidden lg:flex">
+      <HeaderList />
+      <MobileMenu />
+      <SocialHeader />
+    </div>
   </div>
 </header>
 
+<style>
+  #header-container.scrolled {
+    height: 5.5rem;
+    transition:
+      height 0.3s ease,
+      top 0.3s ease;
+    will-change: height, top;
+  }
+
+  #main-header.scrolled {
+    padding: 0 1rem;
+  }
+
+  @keyframes show-in {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Media query para lg (1024px) */
+  @media (min-width: 1024px) {
+    #main-header.scrolled {
+      width: 100% !important;
+      position: fixed !important;
+      top: 1.75rem;
+      border-radius: 0 !important;
+      padding: 0 6rem;
+      height: 5.5rem;
+      animation: show-in ease-in-out 0.5s;
+    }
+  }
+
+  /* Media query para xl (1280px) */
+  @media (min-width: 1280px) {
+    #main-header.scrolled {
+      width: 100% !important;
+      border-radius: 0 !important;
+      height: 6rem;
+      padding: 0 9rem;
+    }
+  }
+
+  /* Media query para 2xl (1536px) */
+  @media (min-width: 1536px) {
+    #main-header.scrolled {
+      width: 100% !important;
+      border-radius: 0 !important;
+      height: 6.5rem;
+      padding: 0 14rem;
+      top: 2.25rem;
+    }
+  }
+</style>
+
 <script>
   const header = document.getElementById("main-header");
+  const headerContainer = document.getElementById("header-container");
+  const scrollThreshold = 80;
 
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-
-    if (header) {
-      if (scrollY > 100) {
-        header.classList.add("h-[5.5rem]");
-        header.classList.remove("h-[4.5rem]");
-      } else {
-        header.classList.add("h-[4.5rem]");
-        header.classList.add("w-[43rem]");
-        header.classList.remove("h-[5.5rem]");
-      }
+  function handleScroll() {
+    if (window.scrollY > scrollThreshold) {
+      header?.classList.add("scrolled");
+      headerContainer?.classList.add("scrolled");
+    } else {
+      header?.classList.remove("scrolled");
+      headerContainer?.classList.remove("scrolled");
     }
-  });
+  }
+
+  handleScroll();
+
+  window.addEventListener("scroll", handleScroll);
 </script>

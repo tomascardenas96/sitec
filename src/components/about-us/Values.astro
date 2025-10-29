@@ -5,13 +5,13 @@ import { values } from "../../data/values.js";
 import ValueCard from "./Value-card.astro";
 ---
 
-<section class="px-8 mt-10 lg:mt-16 xl:mt-20">
+<section class="px-8 2xl:px-0 mt-10 lg:mt-16 xl:mt-20">
   <SectionTitle label="Nuestros Valores" hasIcon={true}>
     <Diamond slot="icon" />
   </SectionTitle>
 
   <div
-    class="border-t border-b py-7 lg:py-9 flex md:grid flex-col md:grid-cols-2 xl:grid-cols-3 gap-8 mt-6 xl:mt-8 2xl:mt-9"
+    class="border-t border-b py-7 lg:py-9 flex md:grid flex-col md:grid-cols-2 xl:grid-cols-3 gap-8 mt-6 xl:mt-8 2xl:mt-14"
   >
     {values.map((value) => <ValueCard value={value} />)}
   </div>

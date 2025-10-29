@@ -1,0 +1,45 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<ul
+  class="font-oswald hidden gap-4 xl:gap-5 text-sm xl:text-[.93rem] 2xl:text-[1.1rem] lg:flex h-8 items-center"
+>
+  <li
+    class={`py-1 ${currentPath === "/" ? "border-b-2 border-[#F29E4C]" : ""}`}
+  >
+    <a href="/" class="hover:text-[#808080] text-inherit transition">Inicio</a>
+  </li>
+
+  <li
+    class={`py-1 ${currentPath === "/about-us" ? "border-b-2 border-[#F29E4C]" : ""}`}
+  >
+    <a href="/about-us" class="hover:text-[#808080] text-inherit transition"
+      >Sobre Nosotros</a
+    >
+  </li>
+
+  <li
+    class={`py-1 ${currentPath === "/design" ? "border-b-2 border-[#F29E4C]" : ""}`}
+  >
+    <a href="/design" class="hover:text-[#808080] text-inherit transition"
+      >Diseño</a
+    >
+  </li>
+
+  <li
+    class={`py-1 ${currentPath === "/projects" ? "border-b-2 border-[#F29E4C]" : ""}`}
+  >
+    <a href="/projects" class="hover:text-[#808080] text-inherit transition"
+      >Proyectos</a
+    >
+  </li>
+
+  <li
+    class={`py-1 ${currentPath === "/contact" ? "border-b-2 border-[#F29E4C]" : ""}`}
+  >
+    <a href="/contact" class="hover:text-[#808080] text-inherit transition"
+      >Contacto</a
+    >
+  </li>
+</ul>

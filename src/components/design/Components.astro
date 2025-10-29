@@ -5,13 +5,13 @@ import { components } from "../../data/components.js";
 import ComponentCard from "./Component-card.astro";
 ---
 
-<section class="px-8 pb-10 md:mt-2 2xl:mt-4 md:flex md:flex-col md:items-center">
+<section class="px-8 pb-10 md:mt-2 2xl:mt-5 md:flex md:flex-col md:items-center">
   <SectionTitle label="Tipos de paneles y Componentes" hasIcon={true}>
     <ComponentsIcon slot="icon" />
   </SectionTitle>
 
   <div
-    class="py-10 md:py-14 2xl:py-10 flex md:grid flex-col md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-4 lg:gap-x-0 2xl:gap-x-1 md:gap-y-10"
+    class="py-10 md:py-14 2xl:py-24 flex md:grid flex-col md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-4 lg:gap-x-0 2xl:gap-x-1 md:gap-y-10"
   >
     {components.map((component) => <ComponentCard component={component} />)}
   </div>
