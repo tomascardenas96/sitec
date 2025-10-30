@@ -3,6 +3,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <ul
+  id="main-menu"
   class="font-oswald hidden gap-4 xl:gap-5 text-sm xl:text-[.93rem] 2xl:text-[1.1rem] lg:flex h-8 items-center"
 >
   <li
@@ -43,3 +44,15 @@ const currentPath = Astro.url.pathname;
     >
   </li>
 </ul>
+
+<script is:inline>
+  const currentPath = window.location.pathname.replace(/\/$/, "");
+  const menuLinks = document.querySelectorAll("#main-menu li a");
+
+  menuLinks.forEach((link) => {
+    const href = link.getAttribute("href").replace(/\/$/, "");
+    if (href === currentPath) {
+      link.parentElement.classList.add("border-b-2", "border-[#F29E4C]");
+    }
+  });
+</script>
