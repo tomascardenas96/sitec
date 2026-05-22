@@ -1,72 +1,98 @@
 ---
-import Check from "../../assets/icons/check.svg";
 import { allProjects } from "../../data/projects.js";
 import ProjectCard from "../common/Project-card.astro";
-import SectionTitle from "../ui/SectionTitle.astro";
-import Button from "../ui/Button.astro";
+
+const featured = allProjects.slice(0, 6);
+const [first, ...rest] = featured;
 ---
 
-<section class="py-10 2xl:py-14 px-5 md:flex md:flex-col md:items-center">
-  <SectionTitle
-    label="Proyectos Realizados"
-    subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
-    hasIcon={true}
-  >
-    <Check class="text-primary-500" slot="icon" />
-  </SectionTitle>
-
+<section class="relative bg-paper py-20 lg:py-22 overflow-hidden">
   <div
-    class="mt-8 md:mt-10 flex flex-col md:grid md:grid-cols-[20rem_20rem] gap-4 md:gap-10 lg:hidden"
+    class="absolute inset-0 bg-blueprint-grid-sm opacity-40 pointer-events-none"
   >
-    {
-      allProjects
-        .slice(0, 4)
-        .map((project) => (
-          <ProjectCard
-            image={project.image}
-            title={project.title}
-            subtitle={project.subtitle}
-            id={project.id}
-          />
-        ))
-    }
   </div>
 
-  <div
-    class="mt-10 hidden grid-cols-3 gap-4 xl:gap-5 grid-rows-2 lg:w-[50rem] xl:w-[60rem] lg:grid 2xl:hidden"
-  >
-    {
-      allProjects
-        .slice(0, 6)
-        .map((project) => (
-          <ProjectCard
-            image={project.image}
-            title={project.title}
-            subtitle={project.subtitle}
-            id={project.id}
-          />
-        ))
-    }
-  </div>
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-12 relative">
+    <!-- Header -->
+    <div
+      class="flex flex-col justify-center items-center gap-6 lg:gap-0 mb-14 lg:mb-20"
+    >
+      <div class="lg:col-span-7 lg:col-start-2">
+        <div
+          class="flex items-center justify-center gap-3 mb-8 font-mono text-[11px] tracking-[0.28em] uppercase text-rust"
+        >
+          <span>[ 04 ]</span>
+          <span class="block w-8 h-px bg-rust"></span>
+          <span>§ Portfolio</span>
+        </div>
+        <h2
+          class="font-display uppercase leading-[0.9] tracking-tight text-[3rem] md:text-[5rem] lg:text-[5rem] text-ink text-center my-4"
+        >
+          Obras<br />
+          <span class="fraunces-italic font-normal text-rust normal-case"
+            >realizadas</span
+          >.
+        </h2>
+      </div>
+      <div>
+        <p
+          class="font-serif italic text-lg text-ink/60 max-w-[40ch] text-center"
+        >
+          Experiencia, innovación y resultados comprobados en cada uno de
+          nuestros trabajos.
+        </p>
+      </div>
+    </div>
 
-  <div
-    class="mt-16 hidden grid-cols-3 gap-7 2xl:gap-10 gap-y-10 grid-rows-2 w-[67rem] 2xl:grid"
-  >
-    {
-      allProjects
-        .slice(0, 6)
-        .map((project) => (
-          <ProjectCard
-            image={project.image}
-            title={project.title}
-            subtitle={project.subtitle}
-            id={project.id}
-          />
-        ))
-    }
-  </div>
+    <!-- Featured (large) + secondary grid -->
+    <div class="grid lg:grid-cols-12 gap-6 lg:gap-8">
+      <div class="lg:col-span-7 lg:row-span-2">
+        <ProjectCard {...first} featured={true} index="01" />
+      </div>
 
-  <div class="flex justify-center h-36 items-center">
-    <Button href="/projects" variant="outline">MÁS PROYECTOS</Button>
+      {
+        rest.slice(0, 2).map((p, i) => (
+          <div class="lg:col-span-5">
+            <ProjectCard {...p} index={String(i + 2).padStart(2, "0")} />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Secondary row -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-6 lg:mt-8"
+    >
+      {
+        rest
+          .slice(2, 5)
+          .map((p, i) => (
+            <ProjectCard {...p} index={String(i + 4).padStart(2, "0")} />
+          ))
+      }
+    </div>
+
+    <!-- Footer CTA -->
+    <div
+      class="mt-16 lg:mt-20 grid lg:grid-cols-12 gap-6 items-center border-t border-ink/15 pt-10"
+    >
+      <div
+        class="lg:col-span-6 font-mono text-[11px] tracking-[0.25em] uppercase text-ink/55"
+      >
+        Mostrando 6 de {allProjects.length}+ proyectos archivados
+      </div>
+      <div class="lg:col-span-4 lg:col-start-9 lg:text-right">
+        <a
+          href="/projects"
+          class="group inline-flex items-center gap-4 font-display tracking-[0.18em] uppercase text-sm text-ink hover:text-rust transition-colors"
+        >
+          <span
+            class="inline-block w-12 h-px bg-ink group-hover:bg-rust group-hover:w-20 transition-all"
+          ></span>
+          <span>Ver archivo completo</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>

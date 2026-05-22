@@ -4,34 +4,20 @@ import InstagramIcon from "../../assets/icons/instagramv2.svg";
 import LinkedinIcon from "../../assets/icons/linkedinv2.svg";
 ---
 
-<div>
-  <ul class="lg:flex gap-[.3rem]">
-    <li>
-      <a href="https://www.facebook.com" target="_blank">
-        <img
-          src={FacebookIcon.src}
-          alt=""
-          class="h-[1.1rem] w-[1.1rem] cursor-pointer hover:opacity-80 transition-all duration-300"
-        />
-      </a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com" target="_blank">
-        <img
-          src={InstagramIcon.src}
-          alt=""
-          class="h-[1.1rem] w-[1.1rem] cursor-pointer hover:opacity-80 transition-all duration-300"
-        />
-      </a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com" target="_blank">
-        <img
-          src={LinkedinIcon.src}
-          alt=""
-          class="h-[1.1rem] w-[1.1rem] cursor-pointer hover:opacity-80 transition-all duration-300"
-        />
-      </a>
-    </li>
-  </ul>
-</div>
+<ul class="hidden lg:flex items-center gap-3">
+  <li>
+    <a href="https://www.facebook.com" target="_blank" class="w-7 h-7 flex items-center justify-center text-ink/60 hover:text-rust transition-colors">
+      <img src={FacebookIcon.src} alt="Facebook" class="w-4 h-4" />
+    </a>
+  </li>
+  <li>
+    <a href="https://www.instagram.com" target="_blank" class="w-7 h-7 flex items-center justify-center text-ink/60 hover:text-rust transition-colors">
+      <img src={InstagramIcon.src} alt="Instagram" class="w-4 h-4" />
+    </a>
+  </li>
+  <li>
+    <a href="https://www.linkedin.com" target="_blank" class="w-7 h-7 flex items-center justify-center text-ink/60 hover:text-rust transition-colors">
+      <img src={LinkedinIcon.src} alt="Linkedin" class="w-4 h-4" />
+    </a>
+  </li>
+</ul>

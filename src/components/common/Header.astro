@@ -1,5 +1,4 @@
 ---
-import logo from "/public/balca-logo.svg";
 import menu from "../../assets/icons/menu.svg";
 import HeaderList from "./Header-list.astro";
 import MobileMenu from "./Mobile-menu.astro";
@@ -8,103 +7,52 @@ import SocialHeader from "./Social-header.astro";
 
 <header
   id="header-container"
-  class="h-[4.5rem] lg:h-[4.8rem] xl:h-[5.5rem] 2xl:h-[5.8rem] flex fixed z-20 w-full top-0 lg:absolute lg:top-7 2xl:top-9 lg:justify-center"
+  class="sticky top-0 z-30 bg-paper/85 backdrop-blur-md border-b border-ink/10"
 >
   <div
-    id="main-header"
-    class="bg-white px-2 lg:px-6 2xl:px-8 lg:pr-10 xl:pr-12 2xl:pr-16 w-full lg:w-[43rem] xl:w-[52rem] 2xl:w-[55rem] flex items-center justify-between shadow-xl transition-all duration-300 lg:rounded-md"
+    class="max-w-[1400px] mx-auto px-5 lg:px-10 h-16 lg:h-20 flex items-center justify-between gap-8"
   >
-    <a href="/" class="h-full flex items-center">
-      <img src={logo.src} alt="Logo Sitec" class="h-12" />
+    <a href="/" class="flex items-baseline gap-3 group">
+      <span
+        class="font-display text-2xl lg:text-3xl tracking-tight text-ink leading-none"
+      >
+        BALCA
+      </span>
+      <span
+        class="hidden lg:flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase text-ink/60"
+      >
+        <span class="voltage-dot"></span>
+        <span>EST. 2008 · AR</span>
+      </span>
     </a>
 
-    <button id="burger" class="mr-2" aria-label="Abrir menú" data-open="false">
-      <img src={menu.src} alt="Menú" class="h-8 w-8 lg:hidden" />
+    <div class="hidden lg:flex items-center gap-10">
+      <HeaderList />
+      <div class="h-5 w-px bg-ink/15"></div>
+      <SocialHeader />
+      <a
+        href="/contact"
+        class="group inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] uppercase text-ink hover:text-rust transition-colors"
+      >
+        <span>Presupuesto</span>
+        <span
+          class="inline-block w-6 h-px bg-ink group-hover:bg-rust group-hover:w-10 transition-all"
+        ></span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <button
+      id="burger"
+      class="lg:hidden flex flex-col gap-[5px] justify-center items-end w-10 h-10"
+      aria-label="Abrir menú"
+      data-open="false"
+    >
+      <span class="block h-[2px] w-7 bg-ink transition-all"></span>
+      <span class="block h-[2px] w-5 bg-ink transition-all"></span>
+      <span class="block h-[2px] w-7 bg-ink transition-all"></span>
     </button>
 
-    <div class="items-center gap-10 hidden lg:flex">
-      <HeaderList />
-      <SocialHeader />
-    </div>
     <MobileMenu />
   </div>
 </header>
-
-<style>
-  #header-container.scrolled {
-    height: 5.5rem;
-    transition:
-      height 0.3s ease,
-      top 0.3s ease;
-    will-change: height, top;
-  }
-
-  #main-header.scrolled {
-    padding: 0 1rem;
-  }
-
-  @keyframes show-in {
-    from {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Media query para lg (1024px) */
-  @media (min-width: 1024px) {
-    #main-header.scrolled {
-      width: 100% !important;
-      position: fixed !important;
-      top: 1.75rem;
-      border-radius: 0 !important;
-      padding: 0 6rem;
-      height: 5.5rem;
-      animation: show-in ease-in-out 0.5s;
-    }
-  }
-
-  /* Media query para xl (1280px) */
-  @media (min-width: 1280px) {
-    #main-header.scrolled {
-      width: 100% !important;
-      border-radius: 0 !important;
-      height: 6rem;
-      padding: 0 9rem;
-    }
-  }
-
-  /* Media query para 2xl (1536px) */
-  @media (min-width: 1536px) {
-    #main-header.scrolled {
-      width: 100% !important;
-      border-radius: 0 !important;
-      height: 6.5rem;
-      padding: 0 17rem;
-      top: 2.25rem;
-    }
-  }
-</style>
-
-<script>
-  const header = document.getElementById("main-header");
-  const headerContainer = document.getElementById("header-container");
-  const scrollThreshold = 80;
-
-  function handleScroll() {
-    if (window.scrollY > scrollThreshold) {
-      header?.classList.add("scrolled");
-      headerContainer?.classList.add("scrolled");
-    } else {
-      header?.classList.remove("scrolled");
-      headerContainer?.classList.remove("scrolled");
-    }
-  }
-
-  handleScroll();
-
-  window.addEventListener("scroll", handleScroll);
-</script>

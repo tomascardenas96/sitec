@@ -1,41 +1,176 @@
 ---
 import hero from "../../assets/images/f5d41eb7-25c9-48a8-8e4f-95947947fa13.png";
-import Wallet from "../../assets/icons/wallet.svg";
 const phone = "5492281378525";
 const text =
   "Buen día, quisiera solicitar un presupuesto para la instalación de paneles eléctricos en mi empresa. Muchas gracias.";
 const encoded = encodeURIComponent(text);
 ---
 
-<section
-  class="h-96 lg:h-[19rem] xl:h-[21.9rem] 2xl:h-[24rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-8 lg:gap-5 xl:gap-5"
-  style={`background-image: url('${hero.src}');`}
->
-  <div class="absolute inset-0 bg-black/50"></div>
-
-  <!-- Mobile hero title -->
-  <div class="p-6 border-2 border-white z-10 rounded-[.2rem] lg:hidden">
-    <h1
-      class="relative text-white text-3xl tracking-[0.02em] font-[400] z-10 flex text-center font-oswald max-w-[20ch]"
-    >
-      SOLUCIONES ELECTRICAS E INDUSTRIALES
-    </h1>
-  </div>
-
-  <!-- Desktop hero title -->
-  <div class="z-10 rounded-[.2rem] hidden pt-14 lg:block">
-    <h1
-      class="w-[35ch] relative text-white text-3xl xl:text-3xl 2xl:text-4xl font-[400] z-10 flex text-center font-oswald leading-9 xl:leading-10 2xl:leading-[3rem] tracking-[.04em] xl:tracking-[.05em]"
-    >
-      Soluciones eléctricas integrales y montajes industriales
-    </h1>
-  </div>
-
-  <a
-    href={`https://wa.me/${phone}?text=${encoded}`}
-    target="blank"
-    class="bg-cta-gradient relative cursor-pointer z-10 text-sm lg:text-xs xl:text-sm h-12 lg:h-10 xl:h-11 2xl:h-12 w-52 lg:w-44 xl:w-52 2xl:w-56 flex items-center justify-center gap-2 2xl:gap-3 rounded-md shadow-elevated text-white font-oswald font-medium lg:font-normal"
+<section class="relative bg-paper paper-grain overflow-hidden">
+  <div
+    class="absolute inset-0 bg-blueprint-grid pointer-events-none opacity-90"
   >
-    <Wallet class="hidden 2xl:inline w-5 h-5 shadow-md" /> SOLICITAR PRESUPUESTO
-  </a>
+  </div>
+
+  <!-- Coordinate markers -->
+  <div
+    class="hidden lg:block absolute top-6 left-6 font-mono text-[10px] tracking-[0.25em] uppercase text-ink/40 z-10"
+  >
+    [ 01 · HERO ] — 41°S / 060°W
+  </div>
+  <div
+    class="hidden lg:flex absolute top-6 right-6 font-mono text-[10px] tracking-[0.25em] uppercase text-ink/40 z-10 items-center gap-2"
+  >
+    <span class="voltage-dot"></span>
+    <span>SISTEMA ACTIVO · v.380 / 60Hz</span>
+  </div>
+
+  <!-- Vertical side label -->
+  <div
+    class="hidden xl:flex absolute left-6 top-1/2 -translate-y-1/2 z-10 vertical-rl font-mono text-[10px] tracking-[0.4em] uppercase text-ink/50"
+  >
+    BALCA — SOLUCIONES INTEGRALES · BUENOS AIRES · AR
+  </div>
+
+  <div
+    class="max-w-[1400px] mx-auto px-5 lg:px-12 pt-12 lg:pt-20 pb-16 lg:pb-24 relative z-[1]"
+  >
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-10">
+      <!-- Left column: headline -->
+      <div class="lg:col-span-5 lg:col-start-2 flex flex-col gap-8 rise-in">
+        <div
+          class="flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] uppercase text-ink/60"
+        >
+          <span class="inline-block w-8 h-px bg-rust"></span>
+          <span>Edición 2026 — Vol. XVII</span>
+        </div>
+
+        <h1
+          class="font-display uppercase leading-[0.86] tracking-tight text-ink"
+        >
+          <span
+            class="block text-[19vw] md:text-[15vw] lg:text-[11vw] xl:text-[10.5rem]"
+            >Alta</span
+          >
+          <span
+            class="block text-[19vw] md:text-[15vw] lg:text-[11vw] xl:text-[10.5rem] -mt-2 md:-mt-3 lg:-mt-4"
+          >
+            Tensión<span class="text-amber">.</span>
+          </span>
+        </h1>
+
+        <p
+          class="font-serif text-lg md:text-xl lg:text-[1.35rem] leading-[1.45] max-w-[42ch] text-ink/80"
+        >
+          El <span class="fraunces-italic font-semibold">oficio</span> del circuito
+          industrial. Diseñamos, montamos y certificamos tableros eléctricos que sostienen
+          procesos críticos en plantas <span class="ink-mark">desde 2008</span>.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-5 mt-2">
+          <a
+            href={`https://wa.me/${phone}?text=${encoded}`}
+            target="_blank"
+            class="group inline-flex items-center gap-3 bg-ink text-paper px-7 h-14 font-display tracking-[0.18em] uppercase text-sm hover:bg-amber hover:text-ink transition-colors"
+          >
+            <span>Solicitar dictamen técnico</span>
+            <span class="text-amber group-hover:text-ink transition-colors"
+              >⚡</span
+            >
+          </a>
+          <a
+            href="/projects"
+            class="group inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.25em] uppercase text-ink/70 hover:text-rust transition-colors"
+          >
+            <span
+              class="inline-block w-8 h-px bg-ink/40 group-hover:bg-rust group-hover:w-14 transition-all"
+            ></span>
+            <span>Ver portfolio de obras</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right column: image card + meta -->
+      <div
+        class="lg:col-span-4 lg:col-start-8 flex flex-col gap-6 rise-in"
+        style="animation-delay: .25s"
+      >
+        <div class="relative">
+          <div
+            class="absolute -top-3 -left-3 font-mono text-[10px] tracking-widest text-ink/50"
+          >
+            FIG. 01
+          </div>
+          <div
+            class="relative aspect-[4/5] overflow-hidden border border-ink/15 bg-ink"
+          >
+            <img
+              src={hero.src}
+              alt="Tablero eléctrico industrial"
+              class="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-90"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"
+            >
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 text-paper">
+              <div
+                class="font-mono text-[10px] tracking-[0.25em] uppercase text-amber mb-2"
+              >
+                · OBRA EN CURSO
+              </div>
+              <div
+                class="font-display text-2xl tracking-tight uppercase leading-tight"
+              >
+                Tablero Cagnoli — 380V / IEC 61439
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats stack -->
+        <div class="grid grid-cols-3 border-t border-ink/15">
+          <div class="px-3 py-4 border-r border-ink/15">
+            <div class="font-display text-3xl text-ink leading-none">
+              240<span class="text-amber">+</span>
+            </div>
+            <div
+              class="font-mono text-[10px] tracking-widest uppercase text-ink/55 mt-2"
+            >
+              Tableros
+            </div>
+          </div>
+          <div class="px-3 py-4 border-r border-ink/15">
+            <div class="font-display text-3xl text-ink leading-none">17</div>
+            <div
+              class="font-mono text-[10px] tracking-widest uppercase text-ink/55 mt-2"
+            >
+              Años obra
+            </div>
+          </div>
+          <div class="px-3 py-4">
+            <div class="font-display text-3xl text-ink leading-none">
+              0<span class="text-amber">·</span>0
+            </div>
+            <div
+              class="font-mono text-[10px] tracking-widest uppercase text-ink/55 mt-2"
+            >
+              Fallas críticas
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer rule -->
+    <div
+      class="hidden lg:flex items-center gap-4 mt-16 font-mono text-[10px] tracking-[0.25em] uppercase text-ink/50"
+    >
+      <span>Scroll</span>
+      <span class="block w-16 h-px bg-ink/30"></span>
+      <span>02 · Quiénes somos</span>
+      <span class="flex-1 h-px bg-ink/10"></span>
+      <span>BALCA · IEC 61439 / IRAM</span>
+    </div>
+  </div>
 </section>

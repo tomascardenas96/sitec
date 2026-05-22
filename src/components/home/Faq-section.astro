@@ -1,29 +1,87 @@
 ---
-import SectionTitle from "../ui/SectionTitle.astro";
-import Question from "../../assets/icons/question.svg";
 import { faqList } from "../../data/faqs";
 import FaqCard from "./Faq-card.astro";
 ---
 
-<section class="py-10 2xl:py-28 pt-14 pb-24 2xl:pb-28 px-5 ">
-  <SectionTitle
-    label="Preguntas Frecuentes"
-    subtitle="Respondemos las consultas más frecuentes de nuestros clientes"
-    hasIcon={true}
+<section class="relative bg-paper py-20 lg:py-32 overflow-hidden">
+  <div
+    class="absolute inset-0 bg-blueprint-grid-sm opacity-50 pointer-events-none"
   >
-    <Question class="text-primary-500" slot="icon" />
-  </SectionTitle>
+  </div>
 
-  <div class="mt-10 flex flex-col gap-4 md:items-center">
-    {
-      faqList.map((faq) => (
-        <FaqCard
-          key={`faq-${faq.id}`}
-          question={faq.question}
-          answer={faq.answer}
-          id={faq.id}
-        />
-      ))
-    }
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-12 relative">
+    <!-- Header -->
+    <div
+      class="grid lg:flex lg:flex-col lg:items-center lg:justify-center gap-6 lg:gap-0 mb-14 lg:mb-20"
+    >
+      <div class="lg:col-span-5">
+        <div
+          class="flex items-center gap-3 mb-5 font-mono text-[11px] tracking-[0.28em] uppercase text-rust"
+        >
+          <span>[ 06 ]</span>
+          <span class="block w-8 h-px bg-rust"></span>
+          <span>§ Manual de consulta</span>
+        </div>
+        <h2
+          class="font-display uppercase leading-[0.9] tracking-tight lg:text-center text-[3rem] md:text-[5rem] lg:text-[5rem] text-ink my-4"
+        >
+          Preguntas<br />
+          <span class="fraunces-italic font-normal text-rust normal-case"
+            >frecuentes</span
+          >.
+        </h2>
+      </div>
+      <div class="">
+        <p
+          class="font-serif italic text-lg text-ink/60 max-w-[34ch] lg:max-w-[40ch] lg:text-center"
+        >
+          Las consultas que recibimos con mayor frecuencia, respondidas con
+          criterio técnico.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ list -->
+    <div class="grid lg:grid-cols-12 gap-8">
+      <div class="lg:col-span-8 lg:col-start-3 border-t border-ink/20">
+        {
+          faqList.map((faq, i) => (
+            <FaqCard
+              question={faq.question}
+              answer={faq.answer}
+              id={faq.id}
+              index={String(i + 1).padStart(2, "0")}
+            />
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Bottom contact prompt -->
+    <div class="grid lg:grid-cols-12 gap-8 mt-16 lg:mt-24">
+      <div
+        class="lg:col-span-8 lg:col-start-3 bg-ink text-paper p-8 lg:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6"
+      >
+        <div>
+          <div
+            class="font-mono text-[10px] tracking-[0.28em] uppercase text-amber mb-3"
+          >
+            — ¿No encontraste tu consulta?
+          </div>
+          <h3
+            class="font-display text-3xl lg:text-4xl uppercase tracking-tight"
+          >
+            Escribinos directo.
+          </h3>
+        </div>
+        <a
+          href="/contact"
+          class="group inline-flex items-center gap-3 bg-amber text-ink px-6 h-12 font-display tracking-[0.18em] uppercase text-sm hover:bg-paper transition-colors shrink-0"
+        >
+          <span>Contactar al equipo</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>

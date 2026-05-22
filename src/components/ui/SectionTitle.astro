@@ -4,6 +4,7 @@ interface Props {
   subtitle?: string;
   variant?: "default" | "inverse";
   hasIcon?: boolean;
+  index?: string;
   class?: string;
 }
 
@@ -11,29 +12,35 @@ const {
   label,
   subtitle,
   variant = "default",
-  hasIcon = false,
+  index,
   class: className = "",
 } = Astro.props;
 
-const titleColor    = variant === "inverse" ? "text-white" : "text-primary-500";
-const subtitleColor = variant === "inverse" ? "text-white" : "text-neutral-800";
-const iconColor     = variant === "inverse" ? "text-white" : "text-primary-500";
+const isInverse = variant === "inverse";
+const titleColor    = isInverse ? "text-paper" : "text-ink";
+const subtitleColor = isInverse ? "text-paper/70" : "text-ink/60";
+const labelColor    = isInverse ? "text-amber" : "text-rust";
+const ruleColor     = isInverse ? "bg-paper/30" : "bg-ink/20";
 ---
 
-<div class={`flex flex-col justify-center items-center gap-2 ${className}`}>
-  <div class="flex gap-2 justify-center items-center">
-    {hasIcon && (
-      <div class={`w-6 2xl:w-7 h-6 2xl:h-7 ${iconColor}`}>
-        <slot name="icon" />
-      </div>
-    )}
-    <h2 class={`text-2xl 2xl:text-2xl font-oswald font-normal ${titleColor}`}>
+<div class={`w-full ${className}`}>
+  <div class="flex items-center gap-3 mb-4">
+    <span class={`font-mono text-[11px] tracking-[0.28em] uppercase ${labelColor}`}>
+      {index && <span class="mr-2">[{index}]</span>}
+      § Sección
+    </span>
+    <span class={`flex-1 h-px ${ruleColor}`}></span>
+  </div>
+
+  <div class="grid lg:grid-cols-[1fr_auto] items-end gap-6">
+    <h2 class={`font-display uppercase leading-[0.95] tracking-tight text-5xl md:text-6xl lg:text-7xl 2xl:text-8xl ${titleColor}`}>
       {label}
     </h2>
+
+    {subtitle && (
+      <p class={`font-serif italic text-lg lg:text-xl max-w-[36ch] ${subtitleColor} lg:text-right`}>
+        {subtitle}
+      </p>
+    )}
   </div>
-  {subtitle && (
-    <p class={`text-center font-oswald max-w-[40ch] lg:max-w-full font-light lg:text-sm xl:text-base 2xl:text-lg ${subtitleColor}`}>
-      {subtitle}
-    </p>
-  )}
 </div>

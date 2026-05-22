@@ -3,10 +3,16 @@ import Whatsapp from "../../assets/icons/whatsapp.svg";
 const phone = "5492281378525";
 ---
 
-<div
-  class="bg-success w-max p-4 rounded-full fixed bottom-10 lg:bottom-12 right-5 lg:right-10 shadow-card z-40 cursor-pointer"
+<a
+  href={`https://wa.me/${phone}`}
+  target="_blank"
+  class="group fixed bottom-6 right-5 lg:bottom-8 lg:right-8 z-40 flex items-center gap-3 bg-ink text-paper pl-4 pr-5 py-3 shadow-elevated hover:bg-amber hover:text-ink transition-colors"
 >
-  <a href={`https://wa.me/${phone}`} target="blank" class="w-full h-full">
-    <Whatsapp class="w-8 h-8" />
-  </a>
-</div>
+  <span class="relative flex items-center justify-center w-6 h-6">
+    <span class="absolute inset-0 rounded-full bg-amber/40 animate-pulse-amber group-hover:bg-ink/30"></span>
+    <Whatsapp class="relative w-5 h-5" />
+  </span>
+  <span class="font-mono text-[11px] tracking-[0.22em] uppercase hidden sm:inline">
+    Hablar ahora
+  </span>
+</a>

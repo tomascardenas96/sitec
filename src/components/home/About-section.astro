@@ -1,50 +1,147 @@
 ---
-import Button from "../ui/Button.astro";
 import SectionImage from "../../assets/images/home/proyects/1.jpg";
 
-const span = "font-bold text-neutral-900";
+const pillars = [
+  {
+    tag: "01",
+    label: "Eficiencia",
+    body: "Selección de componentes que minimizan consumo y maximizan vida útil.",
+  },
+  {
+    tag: "02",
+    label: "Seguridad",
+    body: "Cumplimiento integral IEC / IRAM en cada tablero entregado.",
+  },
+  {
+    tag: "03",
+    label: "Norma",
+    body: "Documentación técnica trazable, ensayos y certificación.",
+  },
+];
 ---
 
-<section
-  class="h-[28rem] xl:h-[32rem] 2xl:h-[34rem] lg:flex lg:px-5 lg:justify-center"
->
+<section class="relative bg-paper py-20 lg:py-32 overflow-hidden">
   <div
-    class="h-full w-full lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[63rem] xl:gap-1 flex justify-center items-center lg:flex"
+    class="absolute inset-0 bg-blueprint-grid-sm opacity-50 pointer-events-none"
   >
-    <div
-      class="h-full flex flex-col items-center lg:items-start justify-center gap-7 md:gap-9 lg:gap-4 xl:gap-6 2xl:gap-8 px-5 xl:px-0 lg:w-full"
-    >
-      <h1
-        class="font-oswald text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-primary-500"
-      >
-        Energía que Inspira Confianza
-      </h1>
+  </div>
 
-      <p
-        class="text-center lg:text-start text-sm lg:text-xs xl:text-sm leading-[1.6rem] lg:leading-[1.3rem] xl:leading-[1.5rem] 2xl:leading-[1.6rem] md:max-w-[80ch] xl:max-w-[85ch] 2xl:max-w-[60ch]"
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-12 relative">
+    <!-- Section header -->
+    <div class="grid lg:grid-cols-12 gap-6 mb-14 lg:mb-12">
+      <div
+        class="lg:col-span-2 flex items-start gap-3 font-mono text-[10px] tracking-[0.28em] uppercase text-rust"
       >
-        En <span class={span}>SITEC</span> ofrecemos soluciones eléctricas integrales
-        a medida. Nos encargamos de la planificación y ejecución de proyectos eléctricos
-        y electromecánicos, priorizando <span class={span}>eficiencia</span>, <span
-          class={span}>seguridad</span
-        > y <span class={span}>cumplimiento normativo.</span>
-        <br />
-        <br /> Con un equipo experimentado y tecnologí a de vanguardia, garantizamos
-        instalaciones confiables y resultados que superan expectativas
-      </p>
-
-      <div class="lg:mt-5">
-        <Button href="/about-us" variant="outline">VER MÁS</Button>
+        <span>[ 02 ]</span>
+        <span>—</span>
+      </div>
+      <div class="lg:col-span-7 lg:col-start-2">
+        <div
+          class="font-mono text-[11px] tracking-[0.28em] uppercase text-ink/55 mb-4"
+        >
+          § Quiénes somos
+        </div>
+        <h2
+          class="font-display uppercase tracking-tight leading-[0.9] text-[3rem] md:text-[5rem] lg:text-[6rem] text-ink"
+        >
+          <span>Energía</span>
+          <br />
+          <span
+            class="fraunces-italic font-md lowercase tracking-tight text-rust"
+            >que inspira</span
+          ><br />
+          <span> confianza. </span>
+        </h2>
       </div>
     </div>
 
-    <div class="hidden lg:flex w-[40rem] xl:w-[57rem] h-full">
-      <div class="h-full w-full flex items-center justify-end">
-        <img
-          src={SectionImage.src}
-          class="h-[72%] xl:h-[74%] w-[82%] xl:w-[76%] 2xl:w-[80%] border lg:border-primary-500 p-1 object-cover shadow-xl"
-        />
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <!-- Editorial copy -->
+      <div
+        class="lg:col-span-5 lg:col-start-2 order-2 lg:order-1 flex flex-col gap-7"
+      >
+        <div
+          class="font-mono text-[10px] tracking-[0.28em] uppercase text-ink/50"
+        >
+          — Manifiesto BALCA
+        </div>
+
+        <p class="font-serif text-lg lg:text-xl leading-[1.55] text-ink/85">
+          En <span class="font-display tracking-wider text-ink">BALCA</span> ofrecemos
+          soluciones eléctricas integrales <span class="fraunces-italic"
+            >a medida</span
+          >. Planificación y ejecución de proyectos eléctricos y
+          electromecánicos, priorizando
+          <span class="ink-mark">eficiencia</span>,
+          <span class="ink-mark">seguridad</span> y
+          <span class="ink-mark">cumplimiento normativo</span>.
+        </p>
+
+        <p
+          class="font-serif text-base lg:text-lg leading-[1.6] text-ink/65 max-w-[58ch]"
+        >
+          Con un equipo experimentado y tecnología de vanguardia, garantizamos
+          instalaciones confiables y resultados que superan expectativas. Cada
+          proyecto, un dictamen técnico.
+        </p>
+
+        <a
+          href="/about-us"
+          class="group inline-flex items-center gap-4 mt-4 font-display tracking-[0.18em] uppercase text-sm text-ink hover:text-rust transition-colors w-fit"
+        >
+          <span
+            class="inline-block w-12 h-px bg-ink group-hover:bg-rust group-hover:w-20 transition-all"
+          ></span>
+          <span>Conocer el taller</span>
+          <span>↗</span>
+        </a>
       </div>
+
+      <!-- Image -->
+      <div class="lg:col-span-4 lg:col-start-8 order-1 lg:order-2 relative">
+        <div
+          class="absolute -top-3 left-0 font-mono text-[10px] tracking-widest text-ink/50"
+        >
+          FIG. 02 — TALLER
+        </div>
+        <div
+          class="relative aspect-[4/5] border border-ink/15 bg-ink overflow-hidden"
+        >
+          <img
+            src={SectionImage.src}
+            alt="Taller Balca"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-amber/10 mix-blend-color"></div>
+        </div>
+        <div
+          class="absolute -bottom-3 right-0 font-mono text-[10px] tracking-widest text-ink/50"
+        >
+          AZUL · BS·AS
+        </div>
+      </div>
+    </div>
+
+    <!-- Pillars row -->
+    <div class="grid md:grid-cols-3 mt-20 lg:mt-28 border-t border-ink/20">
+      {
+        pillars.map((p) => (
+          <div class="py-8 md:px-6 border-b md:border-b-0 md:border-r last:border-r-0 border-ink/15 group">
+            <div class="flex items-baseline gap-3 mb-5">
+              <span class="font-mono text-[11px] tracking-[0.25em] uppercase text-amber-deep">
+                [{p.tag}]
+              </span>
+              <span class="block h-px flex-1 bg-ink/20 group-hover:bg-rust transition-colors" />
+            </div>
+            <h3 class="font-display text-3xl lg:text-4xl uppercase tracking-tight text-ink mb-3">
+              {p.label}
+            </h3>
+            <p class="font-serif text-base text-ink/65 max-w-[28ch]">
+              {p.body}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

@@ -1,43 +1,56 @@
 ---
-import close from "../../assets/icons/close.svg";
+const items = [
+  { href: "/", label: "Inicio", num: "01" },
+  { href: "/about-us", label: "Nosotros", num: "02" },
+  { href: "/design", label: "Diseño", num: "03" },
+  { href: "/projects", label: "Proyectos", num: "04" },
+  { href: "/contact", label: "Contacto", num: "05" },
+];
 ---
 
 <nav
   id="menu"
   data-open="false"
-  class="fixed inset-0 bg-black/60 hidden items-center justify-center z-30"
+  class="fixed inset-0 z-40 bg-paper hidden flex-col lg:hidden"
 >
-  <div
-    class="bg-white w-4/5 max-w-sm p-6 rounded-2xl shadow-lg relative flex flex-col gap-6 text-center menu"
-  >
-    <button id="closeModal" class="absolute top-3 right-3">
-      <img src={close.src} alt="Cerrar" class="w-6 h-6" />
+  <div class="flex items-center justify-between px-5 h-16 border-b border-ink/10">
+    <span class="font-display text-2xl tracking-tight">SITEC</span>
+    <button id="closeModal" class="font-mono text-[11px] tracking-[0.2em] uppercase flex items-center gap-2">
+      <span>Cerrar</span>
+      <span class="text-xl leading-none">×</span>
     </button>
+  </div>
 
-    <a href="/" class="text-md text-neutral-700 font-[500]">Inicio</a>
-    <a href="/about-us" class="text-md text-neutral-700 font-[500]"
-      >Sobre Nosotros</a
-    >
-    <a href="/design" class="text-md text-neutral-700 font-[500]">Diseño</a>
-    <a href="/projects" class="text-md text-neutral-700 font-[500]">Proyectos</a>
-    <a href="/contact" class="text-md text-neutral-700 font-[500]">Contactanos</a>
+  <div class="flex-1 flex flex-col justify-between px-6 py-8">
+    <ul class="flex flex-col gap-2">
+      {items.map((item) => (
+        <li class="border-b border-ink/10 py-3">
+          <a href={item.href} class="flex items-baseline gap-4 group">
+            <span class="font-mono text-[10px] tracking-widest text-ink/40 group-hover:text-amber transition">{item.num}</span>
+            <span class="font-display text-4xl tracking-tight uppercase">{item.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="mt-10">
+      <div class="font-mono text-[10px] tracking-[0.25em] uppercase text-ink/50 mb-3">
+        — Solicitar presupuesto
+      </div>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-between w-full bg-ink text-paper px-5 py-4 font-display text-xl tracking-wide uppercase"
+      >
+        <span>Escribinos</span>
+        <span class="text-amber">⚡</span>
+      </a>
+    </div>
   </div>
 </nav>
 
 <style>
-  .menu {
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: all 0.3s ease;
-  }
-
   nav[data-open="true"] {
     display: flex !important;
-  }
-
-  nav[data-open="true"] .menu {
-    transform: translateY(0);
-    opacity: 1;
   }
 </style>
 
@@ -46,27 +59,24 @@ import close from "../../assets/icons/close.svg";
     const burger = document.getElementById("burger");
     const menu = document.getElementById("menu");
     const closeBtn = document.getElementById("closeModal");
-
     if (!burger || !menu || !closeBtn) return;
 
-    // Abrir menú
     burger.addEventListener("click", () => {
       menu.dataset.open = "true";
       burger.dataset.open = "true";
+      document.body.style.overflow = "hidden";
     });
 
-    // Cerrar menú
-    closeBtn.addEventListener("click", () => {
+    const close = () => {
       menu.dataset.open = "false";
       burger.dataset.open = "false";
-    });
+      document.body.style.overflow = "";
+    };
 
-    // También cerramos si el usuario hace clic fuera del modal
+    closeBtn.addEventListener("click", close);
+
     menu.addEventListener("click", (e) => {
-      if (e.target === menu) {
-        menu.dataset.open = "false";
-        burger.dataset.open = "false";
-      }
+      if (e.target === menu) close();
     });
   });
 </script>
