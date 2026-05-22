@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem *)",
+      "Bash(git checkout *)",
+      "Bash(npm run *)",
+      "Bash(xargs sed -i -e 's/text-\\\\[#35796F\\\\]/text-primary-500/g' -e 's/border-\\\\[#35796F\\\\]/border-primary-500/g' -e 's/bg-\\\\[#35796F\\\\]/bg-primary-500/g' -e 's/hover:bg-\\\\[#285c55\\\\]/hover:bg-primary-700/g' -e 's/text-\\\\[#457C74\\\\]/text-primary-500/g' -e 's/border-\\\\[#457C74\\\\]/border-primary-500/g' -e 's/bg-\\\\[#457C74\\\\]/bg-primary-500/g' -e 's/text-\\\\[#464646\\\\]/text-neutral-600/g' -e 's/text-\\\\[#6F6F6F\\\\]/text-neutral-500/g' -e 's/border-\\\\[#6F6F6F\\\\]/border-neutral-500/g' -e 's/text-\\\\[#363636\\\\]/text-neutral-700/g' -e 's/text-\\\\[#808080\\\\]/text-neutral-400/g' -e 's/hover:text-\\\\[#808080\\\\]/hover:text-neutral-400/g' -e 's/text-\\\\[#c7c7c7\\\\]/text-neutral-200/g' -e 's/bg-\\\\[#131C27\\\\]/bg-neutral-900/g' -e 's/text-\\\\[#131C27\\\\]/text-neutral-900/g' -e 's/bg-\\\\[#344147d7\\\\]/bg-neutral-800\\\\/85/g' -e 's/text-\\\\[#F29E4C\\\\]/text-accent-400/g' -e 's/text-\\\\[#282828\\\\]/text-neutral-800/g')",
+      "Bash(xargs sed -i -e 's/text-\\\\[\\\\.65rem\\\\]/text-2xs/g' -e 's/text-\\\\[\\\\.7rem\\\\]/text-2xs/g' -e 's/text-\\\\[\\\\.75rem\\\\]/text-xs/g' -e 's/text-\\\\[\\\\.8rem\\\\]/text-xs/g' -e 's/text-\\\\[\\\\.85rem\\\\]/text-sm/g' -e 's/text-\\\\[\\\\.9rem\\\\]/text-sm/g' -e 's/text-\\\\[1rem\\\\]/text-base/g' -e 's/text-\\\\[1\\\\.1rem\\\\]/text-lg/g' -e 's/text-\\\\[1\\\\.2rem\\\\]/text-xl/g' -e 's/text-\\\\[1\\\\.4rem\\\\]/text-2xl/g' -e 's/text-\\\\[1\\\\.6rem\\\\]/text-2xl/g' -e 's/text-\\\\[1\\\\.7rem\\\\]/text-3xl/g' -e 's/text-\\\\[1\\\\.8rem\\\\]/text-3xl/g' -e 's/text-\\\\[1\\\\.9rem\\\\]/text-3xl/g' -e 's/text-\\\\[2rem\\\\]/text-3xl/g' -e 's/text-\\\\[2\\\\.2rem\\\\]/text-4xl/g')",
+      "Bash(npx --yes svgo public/balca-logo.svg -o public/balca-logo-opt.svg --multipass)",
+      "Bash(grep -v \"^\\\\s*//\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Tomás Cárdenas\\\\Desktop\\\\Trabajo\\\\Sitec\" -File | Where-Object {$_.Extension -match '\\\\.\\(js|mjs|cjs|ts|json\\)$'} | Select-Object Name)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\Tomás Cárdenas\\\\Desktop\\\\Trabajo\\\\Sitec\\\\src\\\\components\\\\ui\" -File | ForEach-Object { $_.Name })",
+      "Bash(git check-ignore *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
