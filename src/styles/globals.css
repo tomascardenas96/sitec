@@ -8,5 +8,8 @@ body {
 }
 
 a {
-  @apply text-primary-500 hover:underline;
+  color: theme('colors.primary.500');
+}
+a:hover {
+  text-decoration: underline;
 }
