@@ -15,24 +15,29 @@ const {
   class: className = "",
 } = Astro.props;
 
-const titleColor    = variant === "inverse" ? "text-white" : "text-primary-500";
-const subtitleColor = variant === "inverse" ? "text-white" : "text-neutral-800";
+const titleColor    = variant === "inverse" ? "text-white" : "text-primary-600";
+const subtitleColor = variant === "inverse" ? "text-white/80" : "text-neutral-500";
 const iconColor     = variant === "inverse" ? "text-white" : "text-primary-500";
+const iconBg        = variant === "inverse" ? "bg-white/10 ring-1 ring-white/20" : "bg-primary-50 ring-1 ring-primary-100";
+const accentColor   = variant === "inverse" ? "bg-white/30" : "bg-accent-500/70";
 ---
 
-<div class={`flex flex-col justify-center items-center gap-2 ${className}`}>
-  <div class="flex gap-2 justify-center items-center">
+<div class={`flex flex-col justify-center items-center gap-3 ${className}`}>
+  <div class="flex gap-3 justify-center items-center">
     {hasIcon && (
-      <div class={`w-6 2xl:w-7 h-6 2xl:h-7 ${iconColor}`}>
-        <slot name="icon" />
+      <div class={`w-10 h-10 2xl:w-11 2xl:h-11 rounded-full flex items-center justify-center ${iconBg}`}>
+        <div class={`w-5 h-5 2xl:w-[1.4rem] 2xl:h-[1.4rem] ${iconColor}`}>
+          <slot name="icon" />
+        </div>
       </div>
     )}
-    <h2 class={`text-2xl 2xl:text-2xl font-oswald font-normal ${titleColor}`}>
+    <h2 class={`text-2xl 2xl:text-3xl font-oswald font-normal tracking-wide ${titleColor}`}>
       {label}
     </h2>
   </div>
+  <span class={`block h-[2px] w-12 rounded-full ${accentColor}`}></span>
   {subtitle && (
-    <p class={`text-center font-oswald max-w-[40ch] lg:max-w-full font-light lg:text-sm xl:text-base 2xl:text-lg ${subtitleColor}`}>
+    <p class={`text-center font-openSans max-w-[44ch] lg:max-w-[60ch] font-light text-sm lg:text-sm xl:text-base 2xl:text-lg leading-relaxed ${subtitleColor}`}>
       {subtitle}
     </p>
   )}

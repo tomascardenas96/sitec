@@ -6,7 +6,7 @@ import SectionTitle from "../ui/SectionTitle.astro";
 import Button from "../ui/Button.astro";
 ---
 
-<section class="py-10 2xl:py-14 px-5 md:flex md:flex-col md:items-center">
+<section class="py-14 2xl:py-20 px-5 md:flex md:flex-col md:items-center bg-neutral-50/40">
   <SectionTitle
     label="Proyectos Realizados"
     subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
@@ -16,7 +16,7 @@ import Button from "../ui/Button.astro";
   </SectionTitle>
 
   <div
-    class="mt-8 md:mt-10 flex flex-col md:grid md:grid-cols-[20rem_20rem] gap-4 md:gap-10 lg:hidden"
+    class="mt-10 md:mt-12 flex flex-col md:grid md:grid-cols-[20rem_20rem] gap-5 md:gap-10 lg:hidden"
   >
     {
       allProjects
@@ -33,7 +33,7 @@ import Button from "../ui/Button.astro";
   </div>
 
   <div
-    class="mt-10 hidden grid-cols-3 gap-4 xl:gap-5 grid-rows-2 lg:w-[50rem] xl:w-[60rem] lg:grid 2xl:hidden"
+    class="mt-12 hidden grid-cols-3 gap-6 xl:gap-7 grid-rows-2 lg:w-[56rem] xl:w-[68rem] lg:grid 2xl:hidden"
   >
     {
       allProjects
@@ -50,7 +50,7 @@ import Button from "../ui/Button.astro";
   </div>
 
   <div
-    class="mt-16 hidden grid-cols-3 gap-7 2xl:gap-10 gap-y-10 grid-rows-2 w-[67rem] 2xl:grid"
+    class="mt-16 hidden grid-cols-3 gap-8 2xl:gap-10 gap-y-10 grid-rows-2 w-[76rem] 2xl:grid"
   >
     {
       allProjects

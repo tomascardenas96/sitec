@@ -4,24 +4,27 @@ import QuoteIcon from "../../assets/icons/quote.png";
 ---
 
 <div
-  class="h-[26rem] lg:h-[18rem] xl:h-[22rem] 2xl:h-[24rem] flex flex-col justify-center items-center gap-4 lg:gap-3 2xl:gap-4 bg-neutral-900 rounded-md shadow-md pb-3 md:shrink-0 md:w-[20.2rem] lg:w-[100%]"
+  class="h-[26rem] lg:h-[19rem] xl:h-[22rem] 2xl:h-[24rem] flex flex-col justify-center items-center gap-4 lg:gap-3 2xl:gap-4 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 rounded-3xl shadow-elevated ring-1 ring-white/5 pb-4 md:shrink-0 md:w-[20.2rem] lg:w-full transition-transform duration-300 hover:-translate-y-1 relative overflow-hidden"
 >
+  <div class="absolute -top-10 -left-10 w-32 h-32 rounded-full bg-primary-500/10 blur-2xl"></div>
+  <div class="absolute -bottom-10 -right-10 w-32 h-32 rounded-full bg-accent-500/10 blur-2xl"></div>
+
   <img
     src={QuoteIcon.src}
     alt="quote icon testimonials"
-    class="w-14 lg:w-8 xl:w-11 2xl:w-13 h-14 lg:h-8 xl:h-11 2xl:h-13"
+    class="w-14 lg:w-9 xl:w-11 2xl:w-13 h-14 lg:h-9 xl:h-11 2xl:h-13 relative z-10 opacity-90"
   />
   <p
-    class="text-neutral-200 max-w-[35ch] lg:max-w-[30ch] 2xl:max-w-[31ch] text-center text-sm lg:text-2xs xl:text-xs 2xl:text-sm font-light lg:font-extralight leading-6 lg:leading-4 xl:leading-[1.3rem] 2xl:leading-[1.4rem]"
+    class="relative z-10 text-neutral-200 max-w-[35ch] lg:max-w-[30ch] 2xl:max-w-[33ch] text-center text-sm lg:text-2xs xl:text-xs 2xl:text-sm font-light lg:font-extralight leading-6 lg:leading-[1.15rem] xl:leading-[1.35rem] 2xl:leading-[1.5rem] px-4 italic"
   >
     {body}
   </p>
   <img
     src={image.src}
     alt={name}
-    class="w-[5.5rem] lg:w-[3.5rem] xl:w-[4rem] 2xl:w-[5rem] h-[5.5rem] lg:h-[3.5rem] xl:h-[4rem] 2xl:h-[5rem] rounded-full border-2 border-primary-500 object-cover"
+    class="relative z-10 w-[5.5rem] lg:w-[3.5rem] xl:w-[4rem] 2xl:w-[5rem] h-[5.5rem] lg:h-[3.5rem] xl:h-[4rem] 2xl:h-[5rem] rounded-full ring-2 ring-primary-400 ring-offset-2 ring-offset-neutral-900 object-cover"
   />
-  <h1 class="font-oswald text-primary-500 text-2xl lg:text-base xl:text-lg 2xl:text-xl">
+  <h1 class="relative z-10 font-oswald text-primary-300 text-2xl lg:text-base xl:text-lg 2xl:text-xl tracking-wider">
     {name.toUpperCase()}
   </h1>
 </div>

@@ -5,7 +5,7 @@ import { faqList } from "../../data/faqs";
 import FaqCard from "./Faq-card.astro";
 ---
 
-<section class="py-10 2xl:py-28 pt-14 pb-24 2xl:pb-28 px-5 ">
+<section class="py-14 2xl:py-24 pt-16 pb-28 2xl:pb-32 px-5 bg-gradient-to-b from-white via-neutral-50/40 to-white">
   <SectionTitle
     label="Preguntas Frecuentes"
     subtitle="Respondemos las consultas más frecuentes de nuestros clientes"
@@ -14,7 +14,7 @@ import FaqCard from "./Faq-card.astro";
     <Question class="text-primary-500" slot="icon" />
   </SectionTitle>
 
-  <div class="mt-10 flex flex-col gap-4 md:items-center">
+  <div class="mt-12 flex flex-col gap-3 md:items-center">
     {
       faqList.map((faq) => (
         <FaqCard

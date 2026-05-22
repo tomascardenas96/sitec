@@ -5,9 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev       # Start dev server at localhost:4321
-npm run build     # Production build to ./dist/
-npm run preview   # Preview built site locally
+npm run dev              # Start dev server at localhost:4321
+npm run build            # Production build to ./dist/
+npm run preview          # Preview built site locally
+npm run astro check      # Type-check .astro files (main correctness gate — no test framework)
 ```
 
 There is no test framework configured.
@@ -33,14 +34,23 @@ src/
     projects/
     contact/
   data/           # Static JS data files (projects.js, professionals.js, etc.)
-  layouts/        # Page layout wrappers
-  pages/          # Routes: index, about-us, contact, design, 404
+  layouts/        # Main-layout.astro (only layout; loads Google Fonts: Oswald + Open Sans)
+  pages/          # Routes: index, about-us, contact, design, 404, projects/*
   styles/         # globals.css (Tailwind directives + body defaults)
 ```
 
 Pages import feature-specific components; feature components consume data files and use `ui/` primitives. No state management — all data is static JS exports.
 
+**Dynamic routes** live under `src/pages/projects/`:
+- `projects/index.astro` — first page of the paginated gallery (8 items per page)
+- `projects/[page].astro` — paginated listing, `getStaticPaths` derived from `allProjects` in `data/projects.js`
+- `projects/preview/[id].astro` — per-project detail page
+
+When adding/removing entries in `data/projects.js`, both static paths regenerate at build time.
+
 ## Design System
+
+Full reference: `DESIGN-SYSTEM.md` at repo root — complete token tables, component APIs, conventions, antipatterns. The summary below is the working subset.
 
 All tokens are defined in `tailwind.config.mjs`. **Never use hardcoded hex values or arbitrary Tailwind values** (e.g., `text-[#333]`). Always use token names.
 
@@ -63,3 +73,4 @@ When adding new variants or tokens, add them to `tailwind.config.mjs` and the re
 - Static assets served from `public/` are referenced by path (e.g., `/balca-logo.svg`); assets in `src/assets/` are imported and optimized
 - Client-side JS lives in `src/scripts/` and is loaded via `<script>` tags in components (e.g., mobile menu)
 - Tailwind classes with dynamic values must be complete strings — no string concatenation for class names, as Tailwind purges at build time
+- In `src/styles/globals.css`, prefer `theme("colors.primary.500")` over `@apply text-primary-500` — custom tokens with `@apply` can fail in dev because of Tailwind JIT generation order

@@ -8,24 +8,24 @@ const encoded = encodeURIComponent(text);
 ---
 
 <section
-  class="h-96 lg:h-[19rem] xl:h-[21.9rem] 2xl:h-[24rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-8 lg:gap-5 xl:gap-5"
+  class="h-[26rem] lg:h-[22rem] xl:h-[26rem] 2xl:h-[28rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-8 lg:gap-7 xl:gap-8"
   style={`background-image: url('${hero.src}');`}
 >
-  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/70"></div>
 
   <!-- Mobile hero title -->
-  <div class="p-6 border-2 border-white z-10 rounded-[.2rem] lg:hidden">
+  <div class="px-7 py-6 border border-white/70 z-10 rounded-2xl backdrop-blur-[2px] bg-white/5 lg:hidden">
     <h1
-      class="relative text-white text-3xl tracking-[0.02em] font-[400] z-10 flex text-center font-oswald max-w-[20ch]"
+      class="relative text-white text-3xl tracking-[0.02em] font-[400] z-10 flex text-center font-oswald max-w-[20ch] leading-[2.4rem]"
     >
-      SOLUCIONES ELECTRICAS E INDUSTRIALES
+      SOLUCIONES ELÉCTRICAS E INDUSTRIALES
     </h1>
   </div>
 
   <!-- Desktop hero title -->
-  <div class="z-10 rounded-[.2rem] hidden pt-14 lg:block">
+  <div class="z-10 hidden pt-12 lg:block">
     <h1
-      class="w-[35ch] relative text-white text-3xl xl:text-3xl 2xl:text-4xl font-[400] z-10 flex text-center font-oswald leading-9 xl:leading-10 2xl:leading-[3rem] tracking-[.04em] xl:tracking-[.05em]"
+      class="w-[35ch] relative text-white text-3xl xl:text-[2rem] 2xl:text-[2.4rem] font-[400] z-10 flex text-center font-oswald leading-[2.6rem] xl:leading-[2.8rem] 2xl:leading-[3.2rem] tracking-[.04em] xl:tracking-[.05em]"
     >
       Soluciones eléctricas integrales y montajes industriales
     </h1>
@@ -34,8 +34,8 @@ const encoded = encodeURIComponent(text);
   <a
     href={`https://wa.me/${phone}?text=${encoded}`}
     target="blank"
-    class="bg-cta-gradient relative cursor-pointer z-10 text-sm lg:text-xs xl:text-sm h-12 lg:h-10 xl:h-11 2xl:h-12 w-52 lg:w-44 xl:w-52 2xl:w-56 flex items-center justify-center gap-2 2xl:gap-3 rounded-md shadow-elevated text-white font-oswald font-medium lg:font-normal"
+    class="bg-cta-gradient relative cursor-pointer z-10 text-sm lg:text-xs xl:text-sm h-12 lg:h-11 xl:h-12 2xl:h-[3.25rem] w-56 lg:w-52 xl:w-56 2xl:w-60 flex items-center justify-center gap-2 2xl:gap-3 rounded-full shadow-elevated text-white font-oswald font-medium lg:font-normal tracking-wider transition-transform duration-200 hover:scale-[1.03]"
   >
-    <Wallet class="hidden 2xl:inline w-5 h-5 shadow-md" /> SOLICITAR PRESUPUESTO
+    <Wallet class="hidden 2xl:inline w-5 h-5" /> SOLICITAR PRESUPUESTO
   </a>
 </section>

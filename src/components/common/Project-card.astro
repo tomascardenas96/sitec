@@ -2,18 +2,18 @@
 const { image, title, subtitle, id } = Astro.props;
 ---
 
-<artice class="w-full h-80 lg:h-72 border shadow-sm">
+<article class="w-full h-80 lg:h-[19rem] xl:h-[20rem] rounded-2xl overflow-hidden bg-white shadow-card ring-1 ring-neutral-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated hover:ring-primary-100 group">
   <a
     href={`/projects/preview/${id}`}
-    class="grid grid-rows-[13.5rem_1fr] lg:grid-rows-[11.5rem_1fr] text-inherit"
+    class="grid grid-rows-[13.5rem_1fr] lg:grid-rows-[11.5rem_1fr] xl:grid-rows-[12.5rem_1fr] text-inherit h-full"
   >
-    <div class="border-b">
-      <img src={image.src} alt={title} class="w-full h-full object-cover" />
+    <div class="overflow-hidden">
+      <img src={image.src} alt={title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
     </div>
 
-    <div class="flex flex-col pt-4 lg:pt-2 lg:gap-[.1rem]">
-      <h1 class="font-oswald text-xl lg:text-lg 2xl:text-xl text-center text-primary-500">{title}</h1>
-      <h2 class="text-center md:max-w-[25ch] lg:max-w-[32ch] md:self-center lg:text-xs 2xl:text-sm">{subtitle}</h2>
+    <div class="flex flex-col pt-4 pb-3 lg:pt-3 lg:gap-1 px-4">
+      <h1 class="font-oswald text-xl lg:text-lg 2xl:text-xl text-center text-primary-600">{title}</h1>
+      <h2 class="text-center md:max-w-[25ch] lg:max-w-[32ch] md:self-center lg:text-xs 2xl:text-sm text-neutral-500 leading-relaxed">{subtitle}</h2>
     </div>
   </a>
-</artice>
+</article>

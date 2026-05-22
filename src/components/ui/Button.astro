@@ -18,19 +18,19 @@ const {
 } = Astro.props;
 
 const sizeClasses: Record<string, string> = {
-  sm: "h-8 px-4 text-xs",
-  md: "h-10 px-8 text-sm lg:text-xs 2xl:text-base",
-  lg: "h-12 px-12 text-base",
+  sm: "h-9 px-5 text-xs rounded-full",
+  md: "h-11 px-8 text-sm lg:text-xs 2xl:text-base rounded-full",
+  lg: "h-12 px-12 text-base rounded-full",
 };
 
 const variantClasses: Record<string, string> = {
-  primary:  "bg-cta-gradient text-white shadow-elevated rounded-md font-medium",
-  outline:  "border-2 border-primary-500 text-primary-500 shadow-card font-normal",
-  floating: "bg-success rounded-full p-4 shadow-card fixed bottom-10 lg:bottom-12 right-5 lg:right-10 z-40 cursor-pointer",
-  ghost:    "text-primary-500 hover:bg-primary-50 rounded-md",
+  primary:  "bg-cta-gradient text-white shadow-elevated font-medium hover:shadow-card hover:brightness-105",
+  outline:  "border-2 border-primary-500 text-primary-500 shadow-soft font-normal hover:bg-primary-50",
+  floating: "bg-success rounded-full p-4 shadow-elevated fixed bottom-10 lg:bottom-12 right-5 lg:right-10 z-40 cursor-pointer hover:scale-105",
+  ghost:    "text-primary-500 hover:bg-primary-50",
 };
 
-const base = "font-oswald inline-flex items-center justify-center cursor-pointer transition-colors";
+const base = "font-oswald inline-flex items-center justify-center cursor-pointer transition-all duration-200";
 const width = fullWidth ? "w-full" : "";
 const Tag = href ? "a" : "button";
 ---

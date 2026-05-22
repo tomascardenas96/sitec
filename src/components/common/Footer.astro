@@ -6,14 +6,14 @@ import Linkedin from "../../assets/icons/linkedin.svg";
 import { phone, encoded } from "../../data/whatsapp.js";
 
 const socialStyles =
-  "size-10 lg:size-8 rounded-full overflow-hidden object-cover flex justify-center items-center shadow-md bg-white";
+  "size-10 lg:size-9 rounded-full overflow-hidden object-cover flex justify-center items-center shadow-card bg-white/95 hover:bg-white transition-colors";
 ---
 
 <footer
-  class="h-[37rem] lg:h-[26.5rem] px-8 pt-8 relative z-10 bg-[rgb(52,65,71)] text-white font-light md:flex lg:flex-col md:justify-center lg:justify-start lg:items-center"
+  class="h-[37rem] lg:h-[26.5rem] px-8 pt-10 relative z-10 bg-gradient-to-br from-[rgb(48,60,66)] via-[rgb(52,65,71)] to-[rgb(40,52,58)] text-white font-light md:flex lg:flex-col md:justify-center lg:justify-start lg:items-center"
 >
   <div
-    class="lg:w-[50rem] xl:w-[60rem] 2xl:w-[65rem] md:max-w-[42.5rem] lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] lg:grid lg:grid-cols-[1fr_15rem] lg:justify-between lg:gap-10 lg:gap-y-4 lg:grid-rows-[10rem_7rem]"
+    class="lg:w-[56rem] xl:w-[66rem] 2xl:w-[72rem] md:max-w-[42.5rem] lg:max-w-[56rem] xl:max-w-[66rem] 2xl:max-w-[72rem] lg:grid lg:grid-cols-[1fr_15rem] lg:justify-between lg:gap-10 lg:gap-y-4 lg:grid-rows-[10rem_7rem]"
   >
     <div>
       <img src={Logo.src} alt="logo white" class="w-28" />
@@ -70,7 +70,7 @@ const socialStyles =
 
   <div class="hidden lg:flex justify-center h-16 w-full mt-6">
     <div
-      class="w-[50rem] xl:w-[60rem] 2xl:w-[65rem] max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] border-t flex items-center justify-between text-xs text-grey-500"
+      class="w-[56rem] xl:w-[66rem] 2xl:w-[72rem] max-w-[56rem] xl:max-w-[66rem] 2xl:max-w-[72rem] border-t border-white/15 flex items-center justify-between text-xs text-white/60"
     >
       <p>Copyright © 2025 - All rights reserved</p>
       <p>Tomás Cárdenas - https://www.tomascardenas.me</p>
