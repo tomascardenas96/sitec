@@ -8,7 +8,7 @@ import TwitterIcon from "../assets/icons/twitter.png";
 export const information = [
   {
     title: "Dirección",
-    firstLine: "Calle falsa 123",
+    firstLine: "Figueroa 2367",
     secondLine: "Tandil, Argentina",
     icon: LocationIcon,
   },
@@ -29,17 +29,5 @@ export const information = [
     firstLine: "/sitec-instagram",
     secondLine: null,
     icon: InstagramIcon,
-  },
-  {
-    title: "Facebook",
-    firstLine: "/sitec-facebook",
-    secondLine: null,
-    icon: FacebookIcon,
-  },
-  {
-    title: "Twitter",
-    firstLine: "/sitec-twitter",
-    secondLine: null,
-    icon: TwitterIcon,
-  },
+  }
 ];

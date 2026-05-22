@@ -2,8 +2,8 @@
 import Check from "../../assets/icons/check.svg";
 import { allProjects } from "../../data/projects.js";
 import ProjectCard from "../common/Project-card.astro";
-import SectionTitle from "../common/Section-title.astro";
-import MainButton from "./Main-button.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import Button from "../ui/Button.astro";
 ---
 
 <section class="py-10 2xl:py-14 px-5 md:flex md:flex-col md:items-center">
@@ -12,7 +12,7 @@ import MainButton from "./Main-button.astro";
     subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
     hasIcon={true}
   >
-    <Check class="text-[#35796F]" slot="icon" />
+    <Check class="text-primary-500" slot="icon" />
   </SectionTitle>
 
   <div
@@ -32,7 +32,9 @@ import MainButton from "./Main-button.astro";
     }
   </div>
 
-  <div class="mt-10 hidden grid-cols-3 gap-4 xl:gap-5 grid-rows-2 lg:w-[50rem] xl:w-[60rem] lg:grid 2xl:hidden">
+  <div
+    class="mt-10 hidden grid-cols-3 gap-4 xl:gap-5 grid-rows-2 lg:w-[50rem] xl:w-[60rem] lg:grid 2xl:hidden"
+  >
     {
       allProjects
         .slice(0, 6)
@@ -47,7 +49,9 @@ import MainButton from "./Main-button.astro";
     }
   </div>
 
-  <div class="mt-16 hidden grid-cols-3 gap-7 2xl:gap-6 gap-y-10 grid-rows-2 w-[70rem] 2xl:grid">
+  <div
+    class="mt-16 hidden grid-cols-3 gap-7 2xl:gap-10 gap-y-10 grid-rows-2 w-[67rem] 2xl:grid"
+  >
     {
       allProjects
         .slice(0, 6)
@@ -63,6 +67,6 @@ import MainButton from "./Main-button.astro";
   </div>
 
   <div class="flex justify-center h-36 items-center">
-    <MainButton text="más proyectos" URL="/projects" />
+    <Button href="/projects" variant="outline">MÁS PROYECTOS</Button>
   </div>
 </section>

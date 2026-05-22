@@ -1,16 +1,15 @@
 ---
+import Card from "../ui/Card.astro";
 import Success from "../../assets/icons/success.svg";
 const { value } = Astro.props;
 ---
 
-<div class="flex gap-3">
-  <div>
+<Card align="start">
+  <div slot="media">
     <Success class="w-7 lg:w-6 h-7 lg:h-6" />
   </div>
-  <div class="flex flex-col gap-1">
-    <h1 class="font-oswald text-[#35796F] text-[.9rem] lg:text-[.8rem] 2xl:text-[.9rem] font-semibold">
-      {value.title.toUpperCase()}
-    </h1>
-    <h2 class="text-[#00000088] text-sm lg:text-[.8rem] 2xl:text-[.85rem]">{value.subtitle}</h2>
-  </div>
-</div>
+  <h3 slot="header" class="font-oswald text-primary-500 text-sm lg:text-xs 2xl:text-sm font-semibold">
+    {value.title.toUpperCase()}
+  </h3>
+  <p slot="body" class="text-neutral-800/60 text-sm lg:text-xs 2xl:text-sm">{value.subtitle}</p>
+</Card>

@@ -9,7 +9,7 @@ import RightArrow from "../../assets/icons/right-arrow.svg";
     {
       currentPage > 1 && (
         <a href={`/projects/${currentPage - 1}`}>
-          <LeftArrow class="w-full h-full text-[#457C74]" />
+          <LeftArrow class="w-full h-full text-primary-500" />
         </a>
       )
     }
@@ -19,11 +19,11 @@ import RightArrow from "../../assets/icons/right-arrow.svg";
     {
       new Array(pages).fill(null).map((_, index) => (
         <p
-          class={`w-9 h-9 flex justify-center items-center font-oswald border border-[#457C74] font-light rounded-sm shadow-md ${currentPage === index + 1 ? "bg-[#457C74]" : "bg-white"}`}
+          class={`w-9 h-9 flex justify-center items-center font-oswald border border-primary-500 font-light rounded-sm shadow-md ${currentPage === index + 1 ? "bg-primary-500" : "bg-white"}`}
         >
           <a
             href={`${index + 1 === 1 ? "/projects" : `/projects/${index + 1}`}`}
-            class={`${currentPage === index + 1 ? "text-white font-[500]" : "text-[#457C74]"}`}
+            class={`${currentPage === index + 1 ? "text-white font-[500]" : "text-primary-500"}`}
           >
             {index + 1}
           </a>
@@ -36,7 +36,7 @@ import RightArrow from "../../assets/icons/right-arrow.svg";
     {
       currentPage < pages && (
         <a href={`/projects/${currentPage + 1}`}>
-          <RightArrow class="w-full h-full text-[#457C74]" />
+          <RightArrow class="w-full h-full text-primary-500" />
         </a>
       )
     }

@@ -1,0 +1,39 @@
+---
+interface Props {
+  label: string;
+  subtitle?: string;
+  variant?: "default" | "inverse";
+  hasIcon?: boolean;
+  class?: string;
+}
+
+const {
+  label,
+  subtitle,
+  variant = "default",
+  hasIcon = false,
+  class: className = "",
+} = Astro.props;
+
+const titleColor    = variant === "inverse" ? "text-white" : "text-primary-500";
+const subtitleColor = variant === "inverse" ? "text-white" : "text-neutral-800";
+const iconColor     = variant === "inverse" ? "text-white" : "text-primary-500";
+---
+
+<div class={`flex flex-col justify-center items-center gap-2 ${className}`}>
+  <div class="flex gap-2 justify-center items-center">
+    {hasIcon && (
+      <div class={`w-6 2xl:w-7 h-6 2xl:h-7 ${iconColor}`}>
+        <slot name="icon" />
+      </div>
+    )}
+    <h2 class={`text-2xl 2xl:text-2xl font-oswald font-normal ${titleColor}`}>
+      {label}
+    </h2>
+  </div>
+  {subtitle && (
+    <p class={`text-center font-oswald max-w-[40ch] lg:max-w-full font-light lg:text-sm xl:text-base 2xl:text-lg ${subtitleColor}`}>
+      {subtitle}
+    </p>
+  )}
+</div>

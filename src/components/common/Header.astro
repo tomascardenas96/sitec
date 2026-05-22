@@ -1,5 +1,5 @@
 ---
-import logo from "../../assets/Logo-sitec.jpg";
+import logo from "/public/balca-logo.svg";
 import menu from "../../assets/icons/menu.svg";
 import HeaderList from "./Header-list.astro";
 import MobileMenu from "./Mobile-menu.astro";
@@ -12,10 +12,10 @@ import SocialHeader from "./Social-header.astro";
 >
   <div
     id="main-header"
-    class="bg-white px-2 lg:px-6 2xl:px-8 lg:pr-10 xl:pr-12 2xl:pr-16 w-full lg:w-[43rem] xl:w-[52rem] 2xl:w-[57rem] flex items-center justify-between shadow-xl transition-all duration-300 lg:rounded-md"
+    class="bg-white px-2 lg:px-6 2xl:px-8 lg:pr-10 xl:pr-12 2xl:pr-16 w-full lg:w-[43rem] xl:w-[52rem] 2xl:w-[55rem] flex items-center justify-between shadow-xl transition-all duration-300 lg:rounded-md"
   >
-    <a href="/" class="h-full">
-      <img src={logo.src} alt="Logo Sitec" class="h-full" />
+    <a href="/" class="h-full flex items-center">
+      <img src={logo.src} alt="Logo Sitec" class="h-12" />
     </a>
 
     <button id="burger" class="mr-2" aria-label="Abrir menú" data-open="false">

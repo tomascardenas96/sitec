@@ -1,7 +1,8 @@
 ---
-import SectionTitle from "../common/Section-title.astro";
 import { information } from "../../data/contact.js";
+import RightArrowIcon from "../../assets/icons/right-arrow.svg";
 import InfoCard from "./Info-card.astro";
+const phone = "5492281378525";
 ---
 
 <section
@@ -12,7 +13,7 @@ import InfoCard from "./Info-card.astro";
     <div class=`flex flex-col justify-center items-center gap-2 `>
       <div class="flex gap-2 justify-center items-center">
         <h1
-          class=`text-2xl 2xl:text-[1.7rem] font-oswald font-normal text-[#35796F]`
+          class=`text-2xl 2xl:text-3xl font-oswald font-normal text-primary-500`
         >
           Datos de Contacto
         </h1>
@@ -34,4 +35,15 @@ import InfoCard from "./Info-card.astro";
       ))
     }
   </div>
+
+  <p class="mt-11 flex items-center gap-2 text-xs">
+    <a
+      href={`https://wa.me/${phone}`}
+      target="blank"
+      class="flex items-center gap-2 text-neutral-600 underline"
+    >
+      <RightArrowIcon class="w-4 h-4" /> Solicitá tu cotización y responderemos a
+      la brevedad
+    </a>
+  </p>
 </section>

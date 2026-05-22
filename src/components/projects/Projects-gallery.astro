@@ -1,7 +1,7 @@
 ---
 import Check from "../../assets/icons/check.svg";
 import ProjectCard from "../common/Project-card.astro";
-import SectionTitle from "../common/Section-title.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
 
 const { items } = Astro.props;
 ---
@@ -12,7 +12,7 @@ const { items } = Astro.props;
     subtitle="Conocé algunos de nuestros proyectos finalizados"
     hasIcon={true}
   >
-    <Check class="text-[#35796F]" slot="icon" />
+    <Check class="text-primary-500" slot="icon" />
   </SectionTitle>
 
   <div class="mt-8 2xl:mt-14 flex flex-col gap-4 2xl:gap-6 md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 md:max-w-[50rem] 2xl:max-w-[83.5rem] lg:max-w-[70rem] md:mx-auto">

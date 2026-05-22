@@ -21,13 +21,13 @@ if (!project) {
 <MainLayout>
   <TitlePage title="Proyectos" />
     <section class="max-w-2xl mx-auto px-4 py-10 lg:pb-16 lg:mt-4 text-center">
-      <img src={project?.image.src} alt={project?.title} class="w-full max-h-[24rem] object-cover rounded-xs p-1 border border-[#35796F] shadow-md mb-8" />
-      <h1 class="text-3xl font-bold mb-4 font-oswald 2xl:font-normal text-[#35796F]">{project?.title}</h1>
+      <img src={project?.image.src} alt={project?.title} class="w-full max-h-[24rem] object-cover rounded-xs p-1 border border-primary-500 shadow-md mb-8" />
+      <h1 class="text-3xl font-bold mb-4 font-oswald 2xl:font-normal text-primary-500">{project?.title}</h1>
       <p class="text-gray-700 leading-relaxed mb-10">{project?.description}</p>
   
       <button
         type="button"
-        class="bg-[#35796F] text-white px-6 py-3 rounded-md hover:bg-[#285c55] transition"
+        class="bg-primary-500 text-white px-6 py-3 rounded-md hover:bg-primary-700 transition"
         onclick="window.history.back()"
       >
         ← Volver

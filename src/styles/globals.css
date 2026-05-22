@@ -1,13 +1,12 @@
-@import url("./variables.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Tus estilos globales opcionales */
 body {
-  @apply font-openSans text-[#464646];
+  @apply font-openSans text-neutral-600;
 }
 
 a {
-  @apply text-blue-600 hover:underline;
+  @apply text-primary-500 hover:underline;
 }

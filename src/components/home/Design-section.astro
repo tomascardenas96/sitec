@@ -1,7 +1,7 @@
 ---
 import texture from "../../assets/images/textura.png";
 import Rocket from "../../assets/icons/rocket.svg";
-import SectionTitle from "../common/Section-title.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
 import { shortFlow } from "../../data/design-flow.js";
 import DesignCard from "./Design-card.astro";
 ---
@@ -13,7 +13,7 @@ import DesignCard from "./Design-card.astro";
   <SectionTitle
     label="Diseño de Proyectos"
     subtitle="Transformando ideas en soluciones eléctricas confiables y eficientes"
-    color="white"
+    variant="inverse"
     hasIcon={true}
   >
     <Rocket slot="icon" />
@@ -35,9 +35,9 @@ import DesignCard from "./Design-card.astro";
           md:max-w-[43.75rem]
           lg:max-w-[50rem]
           xl:max-w-[60rem]
-          2xl:max-w-[65rem]
+          2xl:max-w-[63rem]
           xl:w-[60rem]
-          2xl:w-[65rem]
+          2xl:w-[63rem]
           xl:py-2"
   >
     {

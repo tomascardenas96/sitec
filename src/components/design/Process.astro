@@ -1,9 +1,9 @@
 ---
-import SectionTitle from "../common/Section-title.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
 import IterationIcon from "../../assets/icons/iteration.svg";
 
 const buttonStyles = "font-oswald h-12 md:h-10 xl:h-12 w-full rounded-md shadow-md";
-const highlighted = "text-[#35796F] font-bold"
+const highlighted = "text-primary-500 font-bold"
 
 const phone = "5492281378525";
 const text =
@@ -16,7 +16,7 @@ const encoded = encodeURIComponent(text);
     <IterationIcon slot="icon" class="w-6 2xl:w-7 h-6 2xl:h-7 " />
   </SectionTitle>
 
-  <p class="text-center leading-[1.8rem] lg:leading-[1.6rem] text-[.9rem] md:text-[.8rem] xl:text-[.75rem] 2xl:text-[.9rem] lg:max-w-[95ch] xl:max-w-[110ch]">
+  <p class="text-center leading-[1.8rem] lg:leading-[1.6rem] text-sm md:text-xs xl:text-xs 2xl:text-sm lg:max-w-[95ch] xl:max-w-[110ch]">
     En <span class={highlighted}>SITEC</span>, cada proyecto se diseña teniendo en cuenta <span class={highlighted}>seguridad</span>, <span class={highlighted}>eficiencia</span> y
     <span class={highlighted}>adaptabilidad</span>. Nuestro equipo combina experiencia técnica y soluciones
     innovadoras para garantizar resultados confiables.
@@ -31,8 +31,8 @@ const encoded = encodeURIComponent(text);
       </a>
       </button
       >
-      <button class={`${buttonStyles} border border-[#35796F] `}>
-      <a href={`https://wa.me/${phone}?text=${encoded}`} target="blank" class="w-full h-full text-[#35796F]">
+      <button class={`${buttonStyles} border border-primary-500 `}>
+      <a href={`https://wa.me/${phone}?text=${encoded}`} target="blank" class="w-full h-full text-primary-500">
 
         SOLICITAR PRESUPUESTO
       </a>

@@ -1,5 +1,5 @@
 ---
-import SectionTitle from "../common/Section-title.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
 import Diamond from "../../assets/icons/diamond.svg";
 import { values } from "../../data/values.js";
 import ValueCard from "./Value-card.astro";
@@ -11,7 +11,7 @@ import ValueCard from "./Value-card.astro";
   </SectionTitle>
 
   <div
-    class="border-t border-b py-7 lg:py-9 flex md:grid flex-col md:grid-cols-2 xl:grid-cols-3 gap-8 mt-6 xl:mt-8 2xl:mt-14"
+    class="border-t border-b py-7 lg:py-9 flex md:grid flex-col md:grid-cols-2 xl:grid-cols-3 gap-8 mt-6 xl:mt-8 2xl:mt-10"
   >
     {values.map((value) => <ValueCard value={value} />)}
   </div>

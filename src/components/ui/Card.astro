@@ -1,0 +1,41 @@
+---
+interface Props {
+  variant?: "bordered" | "elevated" | "minimal";
+  align?: "start" | "center";
+  iconBg?: boolean;
+  iconRounded?: boolean;
+  class?: string;
+}
+
+const {
+  variant = "minimal",
+  align = "start",
+  iconBg = false,
+  iconRounded = false,
+  class: className = "",
+} = Astro.props;
+
+const variantClasses: Record<string, string> = {
+  bordered: "border border-neutral-200",
+  elevated: "shadow-card bg-white",
+  minimal:  "",
+};
+
+const alignClasses: Record<string, string> = {
+  start:  "items-start",
+  center: "items-center",
+};
+---
+
+<div class={`flex gap-3 ${alignClasses[align]} ${variantClasses[variant]} ${className}`}>
+  {Astro.slots.has("media") && (
+    <div class={`shrink-0 flex items-center justify-center ${iconRounded ? "rounded-full" : ""} ${iconBg ? "bg-primary-500 shadow-card" : ""}`}>
+      <slot name="media" />
+    </div>
+  )}
+  <div class="flex flex-col gap-1">
+    <slot name="header" />
+    <slot name="body" />
+    <slot />
+  </div>
+</div>

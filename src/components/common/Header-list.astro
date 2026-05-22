@@ -4,42 +4,42 @@ const currentPath = Astro.url.pathname;
 
 <ul
   id="main-menu"
-  class="font-oswald hidden gap-4 xl:gap-5 text-sm xl:text-[.93rem] 2xl:text-[1.1rem] lg:flex h-8 items-center"
+  class="font-oswald hidden gap-4 xl:gap-5 text-sm xl:text-[.93rem] 2xl:text-lg lg:flex h-8 items-center"
 >
   <li
-    class={`py-1 ${currentPath === "/" ? "border-b-2 border-[#F29E4C]" : ""}`}
+    class={`py-1 ${currentPath === "/" ? "border-b-2 border-accent-400" : ""}`}
   >
-    <a href="/" class="hover:text-[#808080] text-inherit transition">Inicio</a>
+    <a href="/" class="hover:text-neutral-400 text-inherit transition">Inicio</a>
   </li>
 
   <li
-    class={`py-1 ${currentPath === "/about-us" ? "border-b-2 border-[#F29E4C]" : ""}`}
+    class={`py-1 ${currentPath === "/about-us" ? "border-b-2 border-accent-400" : ""}`}
   >
-    <a href="/about-us" class="hover:text-[#808080] text-inherit transition"
+    <a href="/about-us" class="hover:text-neutral-400 text-inherit transition"
       >Sobre Nosotros</a
     >
   </li>
 
   <li
-    class={`py-1 ${currentPath === "/design" ? "border-b-2 border-[#F29E4C]" : ""}`}
+    class={`py-1 ${currentPath === "/design" ? "border-b-2 border-accent-400" : ""}`}
   >
-    <a href="/design" class="hover:text-[#808080] text-inherit transition"
+    <a href="/design" class="hover:text-neutral-400 text-inherit transition"
       >Diseño</a
     >
   </li>
 
   <li
-    class={`py-1 ${currentPath === "/projects" ? "border-b-2 border-[#F29E4C]" : ""}`}
+    class={`py-1 ${currentPath === "/projects" ? "border-b-2 border-accent-400" : ""}`}
   >
-    <a href="/projects" class="hover:text-[#808080] text-inherit transition"
+    <a href="/projects" class="hover:text-neutral-400 text-inherit transition"
       >Proyectos</a
     >
   </li>
 
   <li
-    class={`py-1 ${currentPath === "/contact" ? "border-b-2 border-[#F29E4C]" : ""}`}
+    class={`py-1 ${currentPath === "/contact" ? "border-b-2 border-accent-400" : ""}`}
   >
-    <a href="/contact" class="hover:text-[#808080] text-inherit transition"
+    <a href="/contact" class="hover:text-neutral-400 text-inherit transition"
       >Contacto</a
     >
   </li>
@@ -52,7 +52,7 @@ const currentPath = Astro.url.pathname;
   menuLinks.forEach((link) => {
     const href = link.getAttribute("href").replace(/\/$/, "");
     if (href === currentPath) {
-      link.parentElement.classList.add("border-b-2", "border-[#F29E4C]");
+      link.parentElement.classList.add("border-b-2", "border-accent-400");
     }
   });
 </script>

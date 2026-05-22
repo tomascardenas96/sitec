@@ -1,5 +1,5 @@
 ---
-import SectionTitle from "../common/Section-title.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
 import ProfessionalsIcon from "../../assets/icons/professionals.svg";
 import { professionals } from "../../data/professionals";
 import ProfessionalCard from "./Professional-card.astro";
@@ -10,7 +10,9 @@ import ProfessionalCard from "./Professional-card.astro";
     <ProfessionalsIcon slot="icon" />
   </SectionTitle>
 
-  <div class="mt-10 xl:mt-14 flex lg:grid flex-col lg:grid-cols-3 items-center md:w-full md:flex-row md:overflow-x-auto md:overflow-y-clip gap-8 lg:gap-5 md:pb-4">
+  <div
+    class="mt-10 xl:mt-14 flex lg:grid flex-col lg:grid-cols-3 items-center md:w-full md:flex-row md:overflow-x-auto md:overflow-y-clip gap-8 lg:gap-5 md:pb-4"
+  >
     {
       professionals.map((professional) => (
         <ProfessionalCard professional={professional} />
