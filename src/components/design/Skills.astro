@@ -11,6 +11,6 @@ import SkillCard from "./Skill-card.astro";
   </SectionTitle>
 
   <div class="flex md:grid flex-col md:grid-cols-2 gap-4 xl:gap-y-2 2xl:gap-y-9 xl:gap-x-0 2xl:gap-x-7 py-10 2xl:max-w-[52rem] 2xl:mx-auto 2xl:my-6">
-    {skills.map((skill) => <SkillCard skill={skill} />)}
+    {skills.map((skill, index) => <SkillCard skill={skill} index={index} />)}
   </div>
 </section>

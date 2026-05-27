@@ -1,13 +1,32 @@
 ---
 import Card from "../ui/Card.astro";
-const { title, firstLine, secondLine, icon } = Astro.props;
+const { title, firstLine, secondLine, icon, index = 0 } = Astro.props;
+const delay = (index % 4) * 90;
 ---
 
-<Card align="start">
-  <div slot="media" class="w-10 lg:w-8 2xl:w-10 h-10 lg:h-8 2xl:h-10 bg-primary-500 flex justify-center items-center rounded-full shadow-card shrink-0">
-    <img src={icon.src} alt={title} class="w-5 lg:w-4 2xl:w-5 h-5 lg:h-4 2xl:h-5" />
-  </div>
-  <h3 slot="header" class="text-lg lg:text-base xl:text-lg 2xl:text-xl font-oswald text-primary-500">{title}</h3>
-  <p slot="body" class="text-sm lg:text-xs xl:text-sm">{firstLine}</p>
-  {secondLine && <p class="text-sm lg:text-xs xl:text-sm">{secondLine}</p>}
-</Card>
+<div
+  class="group transition-transform duration-300 hover:-translate-y-0.5"
+  data-reveal="fade-up"
+  data-reveal-delay={delay}
+>
+  <Card align="start">
+    <div
+      slot="media"
+      class="w-10 lg:w-8 2xl:w-10 h-10 lg:h-8 2xl:h-10 bg-primary-500 flex justify-center items-center rounded-full shadow-card shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-accent-500"
+    >
+      <img
+        src={icon.src}
+        alt={title}
+        class="w-5 lg:w-4 2xl:w-5 h-5 lg:h-4 2xl:h-5"
+      />
+    </div>
+    <h3
+      slot="header"
+      class="text-lg lg:text-base xl:text-lg 2xl:text-xl font-oswald text-primary-500 transition-colors duration-200 group-hover:text-accent-500"
+    >
+      {title}
+    </h3>
+    <p slot="body" class="text-sm lg:text-xs xl:text-sm">{firstLine}</p>
+    {secondLine && <p class="text-sm lg:text-xs xl:text-sm">{secondLine}</p>}
+  </Card>
+</div>

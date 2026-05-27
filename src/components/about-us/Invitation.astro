@@ -8,12 +8,19 @@ const encoded = encodeURIComponent(text);
 <section
   class="h-72 lg:h-80 2xl:h-96 px-8 pb-8 flex flex-col justify-center items-center gap-2 font-oswald"
 >
-  <h1 class="text-primary-500 text-xl font-semibold">
+  <h1
+    class="text-primary-500 text-xl font-semibold"
+    data-reveal="fade-up"
+  >
     ¿Te gustaría que trabajemos juntos?
   </h1>
-  <p>Solicita acá un presupuesto sin cargo</p>
+  <p data-reveal="fade-up" data-reveal-delay="100">
+    Solicita acá un presupuesto sin cargo
+  </p>
   <button
-    class="font-oswald bg-primary-500 shadow-md w-full lg:max-w-[25rem] h-11 mt-3 rounded-sm"
+    class="group font-oswald bg-primary-500 shadow-md w-full lg:max-w-[25rem] h-11 mt-3 rounded-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-elevated hover:brightness-110"
+    data-reveal="fade-up"
+    data-reveal-delay="200"
   >
     <a
       href={`https://wa.me/${phone}?text=${encoded}`}

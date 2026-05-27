@@ -1,21 +1,26 @@
 ---
-const { component } = Astro.props;
+const { component, index = 0 } = Astro.props;
+const delay = (index % 3) * 100;
 ---
 
-<div class="flex flex-col items-center gap-4 2xl:w-[15.5rem]">
+<div
+  class="group flex flex-col items-center gap-4 2xl:w-[15.5rem]"
+  data-reveal="fade-up"
+  data-reveal-delay={delay}
+>
   <div
-    class="h-36 md:h-28 2xl:h-32 w-36 md:w-28 2xl:w-32 border border-neutral-500 rounded-full flex items-center justify-center"
+    class="h-36 md:h-28 2xl:h-32 w-36 md:w-28 2xl:w-32 border border-neutral-500 rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-accent-500 group-hover:-translate-y-1 group-hover:shadow-card"
   >
     <img
       src={component.icon}
       alt={component.title}
-      class="h-20 md:h-14 2xl:h-12 w-20 md:w-14 2xl:w-12"
+      class="h-20 md:h-14 2xl:h-12 w-20 md:w-14 2xl:w-12 transition-transform duration-300 group-hover:scale-110"
     />
   </div>
 
   <div class="flex flex-col gap-2">
     <h3
-      class="text-center text-lg md:text-base font-oswald text-primary-500 font-semibold"
+      class="text-center text-lg md:text-base font-oswald text-primary-500 font-semibold transition-colors duration-200 group-hover:text-accent-500"
     >
       {component.title}
     </h3>

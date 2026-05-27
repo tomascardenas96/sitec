@@ -14,8 +14,8 @@ import ProfessionalCard from "./Professional-card.astro";
     class="mt-10 xl:mt-14 flex lg:grid flex-col lg:grid-cols-3 items-center md:w-full md:flex-row md:overflow-x-auto md:overflow-y-clip gap-8 lg:gap-5 md:pb-4"
   >
     {
-      professionals.map((professional) => (
-        <ProfessionalCard professional={professional} />
+      professionals.map((professional, index) => (
+        <ProfessionalCard professional={professional} index={index} />
       ))
     }
   </div>

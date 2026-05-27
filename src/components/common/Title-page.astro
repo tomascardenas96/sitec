@@ -4,13 +4,49 @@ import HeroImage from "../../assets/images/f5d41eb7-25c9-48a8-8e4f-95947947fa13.
 ---
 
 <div
-  class="w-full h-[14rem] lg:h-[16rem] xl:h-[17rem] 2xl:h-[19rem] bg-cover bg-center flex justify-center items-center relative shadow-xl lg:pt-10"
+  class="w-full h-[14rem] lg:h-[16rem] xl:h-[17rem] 2xl:h-[19rem] bg-cover bg-center flex justify-center items-center relative shadow-xl lg:pt-10 overflow-hidden"
   style={`background-image: url('${HeroImage.src}');`}
 >
-  <div class="absolute inset-0 bg-black/50"></div>
-  <h1
-    class="text-4xl xl:text-3xl 2xl:text-4xl font-light tracking-[.1rem] xl:tracking-[.2rem] 2xl:tracking-[.3rem] text-white font-oswald z-10"
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/25"
   >
-    {title.toUpperCase()}
-  </h1>
+  </div>
+  <div class="flex flex-col items-center gap-3 z-10 title-page-reveal">
+    <div class="flex items-center gap-3">
+      <span class="h-px w-8 bg-accent-500"></span>
+      <p
+        class="text-accent-300 text-[0.6rem] lg:text-xs font-oswald font-light uppercase tracking-[0.35em]"
+      >
+        Balca
+      </p>
+      <span class="h-px w-8 bg-accent-500"></span>
+    </div>
+    <h1
+      class="text-4xl xl:text-3xl 2xl:text-4xl font-light tracking-[.1rem] xl:tracking-[.2rem] 2xl:tracking-[.3rem] text-white font-oswald"
+    >
+      {title.toUpperCase()}
+    </h1>
+  </div>
 </div>
+
+<style>
+  .title-page-reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: titlePageReveal 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 80ms;
+  }
+  @keyframes titlePageReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .title-page-reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>

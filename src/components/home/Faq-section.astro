@@ -16,12 +16,13 @@ import FaqCard from "./Faq-card.astro";
 
   <div class="mt-10 flex flex-col gap-4 md:items-center">
     {
-      faqList.map((faq) => (
+      faqList.map((faq, index) => (
         <FaqCard
           key={`faq-${faq.id}`}
           question={faq.question}
           answer={faq.answer}
           id={faq.id}
+          index={index}
         />
       ))
     }

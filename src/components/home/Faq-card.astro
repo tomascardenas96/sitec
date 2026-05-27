@@ -1,16 +1,19 @@
 ---
-const { question, answer, id } = Astro.props;
+const { question, answer, id, index = 0 } = Astro.props;
 import DownArrow from "../../assets/icons/down-arrow.svg";
 import LightBulb from "../../assets/icons/light.svg";
+const delay = (index % 4) * 80;
 ---
 
 <details
-  class="group border border-primary-500 rounded-sm shadow-md bg-white transition-all md:w-[42.5rem] lg:w-[36rem] xl:w-[40rem] 2xl:w-[50rem]"
+  class="group border border-primary-500 rounded-sm shadow-md bg-white transition-all duration-300 hover:shadow-elevated md:w-[42.5rem] lg:w-[36rem] xl:w-[40rem] 2xl:w-[50rem] open:shadow-elevated"
+  data-reveal="fade-up"
+  data-reveal-delay={delay}
 >
   <summary
-    class="flex items-center justify-between cursor-pointer px-5 py-4 lg:py-2 xl:py-3 2xl:py-2 text-sm lg:text-xs font-medium list-none"
+    class="flex items-center justify-between cursor-pointer px-5 py-4 lg:py-2 xl:py-3 2xl:py-2 text-sm lg:text-sm font-medium list-none transition-colors duration-200 hover:text-primary-500"
   >
-    <LightBulb class="hidden h-6 w-6 xl:block"/>
+    <LightBulb class="hidden h-6 w-6 xl:block" />
     <span>{question}</span>
     <DownArrow
       class="h-4 w-4 text-primary-500 transition-transform duration-300 group-open:rotate-180"

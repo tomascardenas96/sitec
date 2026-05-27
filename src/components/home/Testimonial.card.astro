@@ -1,27 +1,32 @@
 ---
-const { image, name, body } = Astro.props;
+const { image, name, body, index = 0 } = Astro.props;
 import QuoteIcon from "../../assets/icons/quote.png";
+const delay = (index % 3) * 100;
 ---
 
 <div
-  class="h-[26rem] lg:h-[18rem] xl:h-[22rem] 2xl:h-[24rem] flex flex-col justify-center items-center gap-4 lg:gap-3 2xl:gap-4 bg-neutral-900 rounded-md shadow-md pb-3 md:shrink-0 md:w-[20.2rem] lg:w-[100%]"
+  class="group h-[26rem] lg:h-[18rem] xl:h-[22rem] 2xl:h-[24rem] flex flex-col justify-center items-center gap-4 lg:gap-3 2xl:gap-4 bg-neutral-900 rounded-md shadow-md pb-3 md:shrink-0 md:w-[20.2rem] lg:w-[100%] transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated"
+  data-reveal="fade-up"
+  data-reveal-delay={delay}
 >
   <img
     src={QuoteIcon.src}
     alt="quote icon testimonials"
-    class="w-14 lg:w-8 xl:w-11 2xl:w-13 h-14 lg:h-8 xl:h-11 2xl:h-13"
+    class="w-14 lg:w-8 xl:w-11 2xl:w-13 h-14 lg:h-8 xl:h-11 2xl:h-13 transition-transform duration-300 group-hover:-translate-y-0.5"
   />
   <p
-    class="text-neutral-200 max-w-[35ch] lg:max-w-[30ch] 2xl:max-w-[31ch] text-center text-sm lg:text-2xs xl:text-xs 2xl:text-sm font-light lg:font-extralight leading-6 lg:leading-4 xl:leading-[1.3rem] 2xl:leading-[1.4rem]"
+    class="text-neutral-200 max-w-[35ch] lg:max-w-[30ch] 2xl:max-w-[31ch] text-center text-sm lg:text-2xs xl:text-xs 2xl:text-base font-light lg:font-extralight leading-6 lg:leading-4 xl:leading-[1.3rem] 2xl:leading-[1.4rem]"
   >
     {body}
   </p>
   <img
     src={image.src}
     alt={name}
-    class="w-[5.5rem] lg:w-[3.5rem] xl:w-[4rem] 2xl:w-[5rem] h-[5.5rem] lg:h-[3.5rem] xl:h-[4rem] 2xl:h-[5rem] rounded-full border-2 border-primary-500 object-cover"
+    class="w-[5.5rem] lg:w-[3.5rem] xl:w-[4rem] 2xl:w-[5rem] h-[5.5rem] lg:h-[3.5rem] xl:h-[4rem] 2xl:h-[5rem] rounded-full border-2 border-primary-500 object-cover transition-transform duration-300 group-hover:scale-105"
   />
-  <h1 class="font-oswald text-primary-500 text-2xl lg:text-base xl:text-lg 2xl:text-xl">
+  <h1
+    class="font-oswald text-primary-500 text-2xl lg:text-base xl:text-lg 2xl:text-xl transition-colors duration-200 group-hover:text-accent-500"
+  >
     {name.toUpperCase()}
   </h1>
 </div>

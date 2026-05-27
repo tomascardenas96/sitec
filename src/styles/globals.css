@@ -13,3 +13,35 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* Scroll reveal */
+[data-reveal] {
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.js-reveal [data-reveal]:not(.is-visible) {
+  opacity: 0;
+}
+.js-reveal [data-reveal="fade-up"]:not(.is-visible) {
+  transform: translateY(22px);
+}
+.js-reveal [data-reveal="fade-in"]:not(.is-visible) {
+  transform: none;
+}
+.js-reveal [data-reveal="expand-x"]:not(.is-visible) {
+  transform: scaleX(0);
+}
+[data-reveal="expand-x"] {
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transition: none !important;
+  }
+  .js-reveal [data-reveal]:not(.is-visible) {
+    opacity: 1;
+    transform: none;
+  }
+}

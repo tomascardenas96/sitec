@@ -13,6 +13,6 @@ import ValueCard from "./Value-card.astro";
   <div
     class="border-t border-b py-7 lg:py-9 flex md:grid flex-col md:grid-cols-2 xl:grid-cols-3 gap-8 mt-6 xl:mt-8 2xl:mt-10"
   >
-    {values.map((value) => <ValueCard value={value} />)}
+    {values.map((value, index) => <ValueCard value={value} index={index} />)}
   </div>
 </section>

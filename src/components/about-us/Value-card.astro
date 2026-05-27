@@ -1,15 +1,32 @@
 ---
 import Card from "../ui/Card.astro";
 import Success from "../../assets/icons/success.svg";
-const { value } = Astro.props;
+const { value, index = 0 } = Astro.props;
+const delay = (index % 3) * 90;
 ---
 
-<Card align="start">
-  <div slot="media">
-    <Success class="w-7 lg:w-6 h-7 lg:h-6" />
-  </div>
-  <h3 slot="header" class="font-oswald text-primary-500 text-sm lg:text-xs 2xl:text-sm font-semibold">
-    {value.title.toUpperCase()}
-  </h3>
-  <p slot="body" class="text-neutral-800/60 text-sm lg:text-xs 2xl:text-sm">{value.subtitle}</p>
-</Card>
+<div
+  class="group transition-transform duration-300 hover:-translate-y-0.5"
+  data-reveal="fade-up"
+  data-reveal-delay={delay}
+>
+  <Card align="start">
+    <div slot="media">
+      <Success
+        class="w-7 lg:w-6 h-7 lg:h-6 transition-transform duration-300 group-hover:scale-110"
+      />
+    </div>
+    <h3
+      slot="header"
+      class="font-oswald text-primary-500 text-sm lg:text-xs 2xl:text-sm font-semibold transition-colors duration-200 group-hover:text-accent-500"
+    >
+      {value.title.toUpperCase()}
+    </h3>
+    <p
+      slot="body"
+      class="text-neutral-800/60 text-sm lg:text-xs 2xl:text-sm"
+    >
+      {value.subtitle}
+    </p>
+  </Card>
+</div>

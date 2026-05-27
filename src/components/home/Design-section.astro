@@ -41,8 +41,8 @@ import DesignCard from "./Design-card.astro";
           xl:py-2"
   >
     {
-      shortFlow.map((item) => (
-        <DesignCard description={item.title} icon={item.icon} />
+      shortFlow.map((item, index) => (
+        <DesignCard description={item.title} icon={item.icon} index={index} />
       ))
     }
   </div>

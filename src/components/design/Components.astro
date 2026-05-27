@@ -13,6 +13,6 @@ import ComponentCard from "./Component-card.astro";
   <div
     class="py-10 md:py-14 2xl:py-24 flex md:grid flex-col md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-x-4 lg:gap-x-0 2xl:gap-x-1 md:gap-y-10"
   >
-    {components.map((component) => <ComponentCard component={component} />)}
+    {components.map((component, index) => <ComponentCard component={component} index={index} />)}
   </div>
 </section>

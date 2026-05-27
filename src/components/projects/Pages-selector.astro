@@ -4,12 +4,15 @@ import LeftArrow from "../../assets/icons/left-arrow.svg";
 import RightArrow from "../../assets/icons/right-arrow.svg";
 ---
 
-<nav class="flex justify-center items-center gap-3">
+<nav class="flex justify-center items-center gap-3 mb-28" data-reveal="fade-up">
   <div class="w-6 h-6">
     {
       currentPage > 1 && (
-        <a href={`/projects/${currentPage - 1}`}>
-          <LeftArrow class="w-full h-full text-primary-500" />
+        <a
+          href={`/projects/${currentPage - 1}`}
+          class="group block transition-transform duration-200 hover:-translate-x-0.5"
+        >
+          <LeftArrow class="w-full h-full text-primary-500 transition-colors duration-200 group-hover:text-accent-500" />
         </a>
       )
     }
@@ -19,7 +22,7 @@ import RightArrow from "../../assets/icons/right-arrow.svg";
     {
       new Array(pages).fill(null).map((_, index) => (
         <p
-          class={`w-9 h-9 flex justify-center items-center font-oswald border border-primary-500 font-light rounded-sm shadow-md ${currentPage === index + 1 ? "bg-primary-500" : "bg-white"}`}
+          class={`w-9 h-9 flex justify-center items-center font-oswald border border-primary-500 font-light rounded-sm shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-elevated ${currentPage === index + 1 ? "bg-primary-500" : "bg-white hover:bg-primary-50"}`}
         >
           <a
             href={`${index + 1 === 1 ? "/projects" : `/projects/${index + 1}`}`}
@@ -35,8 +38,11 @@ import RightArrow from "../../assets/icons/right-arrow.svg";
   <div class="w-6 h-6">
     {
       currentPage < pages && (
-        <a href={`/projects/${currentPage + 1}`}>
-          <RightArrow class="w-full h-full text-primary-500" />
+        <a
+          href={`/projects/${currentPage + 1}`}
+          class="group block transition-transform duration-200 hover:translate-x-0.5"
+        >
+          <RightArrow class="w-full h-full text-primary-500 transition-colors duration-200 group-hover:text-accent-500" />
         </a>
       )
     }

@@ -10,6 +10,9 @@ import "../styles/globals.css";
 <!doctype html>
 <html lang="es">
   <head>
+    <script is:inline>
+      document.documentElement.classList.add("js-reveal");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -33,6 +36,9 @@ import "../styles/globals.css";
     <slot />
     <WhatsappBtn />
     <Footer />
+    <script>
+      import "../scripts/reveal.js";
+    </script>
   </body>
 </html>
 

@@ -8,34 +8,94 @@ const encoded = encodeURIComponent(text);
 ---
 
 <section
-  class="h-96 lg:h-[19rem] xl:h-[21.9rem] 2xl:h-[24rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-8 lg:gap-5 xl:gap-5"
+  class="h-96 lg:h-[19rem] xl:h-[21.9rem] 2xl:h-[35rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-6 lg:gap-5 xl:gap-5 overflow-hidden"
   style={`background-image: url('${hero.src}');`}
 >
-  <div class="absolute inset-0 bg-black/50"></div>
-
-  <!-- Mobile hero title -->
-  <div class="p-6 border-2 border-white z-10 rounded-[.2rem] lg:hidden">
-    <h1
-      class="relative text-white text-3xl tracking-[0.02em] font-[400] z-10 flex text-center font-oswald max-w-[20ch]"
-    >
-      SOLUCIONES ELECTRICAS E INDUSTRIALES
-    </h1>
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20"
+  >
   </div>
 
-  <!-- Desktop hero title -->
-  <div class="z-10 rounded-[.2rem] hidden pt-14 lg:block">
-    <h1
-      class="w-[35ch] relative text-white text-3xl xl:text-3xl 2xl:text-4xl font-[400] z-10 flex text-center font-oswald leading-9 xl:leading-10 2xl:leading-[3rem] tracking-[.04em] xl:tracking-[.05em]"
+  <!-- Mobile hero -->
+  <div class="z-10 flex flex-col items-center gap-4 lg:hidden">
+    <div
+      class="flex items-center gap-3 hero-reveal"
+      style="animation-delay: 80ms"
     >
-      Soluciones eléctricas integrales y montajes industriales
-    </h1>
+      <span class="h-px w-8 bg-accent-500"></span>
+      <p
+        class="text-accent-300 text-[0.65rem] font-oswald font-light uppercase tracking-[0.3em]"
+      >
+        Soluciones industriales desde 2010
+      </p>
+      <span class="h-px w-8 bg-accent-500"></span>
+    </div>
+    <div
+      class="p-6 border-2 border-white rounded-[.2rem] hero-reveal"
+      style="animation-delay: 180ms"
+    >
+      <h1
+        class="relative text-white text-3xl tracking-[0.02em] font-[400] flex text-center font-oswald max-w-[20ch]"
+      >
+        SOLUCIONES ELECTRICAS E INDUSTRIALES
+      </h1>
+    </div>
+  </div>
+
+  <!-- Desktop hero -->
+  <div
+    class="z-10 hidden lg:flex lg:flex-col lg:items-center lg:gap-3 lg:pt-10 2xl:pt-14"
+  >
+    <div
+      class="flex items-center gap-3 hero-reveal"
+      style="animation-delay: 80ms"
+    >
+      <span class="h-px w-10 bg-accent-500"></span>
+      <p
+        class="text-accent-300 text-[0.7rem] xl:text-xs font-oswald font-light uppercase tracking-[0.4em]"
+      >
+        Soluciones industriales desde 2010
+      </p>
+      <span class="h-px w-10 bg-accent-500"></span>
+    </div>
+    <div class="hero-reveal" style="animation-delay: 200ms">
+      <h1
+        class="w-[35ch] relative text-white text-3xl xl:text-3xl 2xl:text-4xl font-[400] flex text-center font-oswald leading-9 xl:leading-10 2xl:leading-[3rem] tracking-[.04em] xl:tracking-[.05em]"
+      >
+        Soluciones eléctricas integrales y montajes industriales
+      </h1>
+    </div>
   </div>
 
   <a
     href={`https://wa.me/${phone}?text=${encoded}`}
     target="blank"
-    class="bg-cta-gradient relative cursor-pointer z-10 text-sm lg:text-xs xl:text-sm h-12 lg:h-10 xl:h-11 2xl:h-12 w-52 lg:w-44 xl:w-52 2xl:w-56 flex items-center justify-center gap-2 2xl:gap-3 rounded-md shadow-elevated text-white font-oswald font-medium lg:font-normal"
+    class="group bg-cta-gradient relative cursor-pointer z-10 text-sm lg:text-xs xl:text-sm h-12 lg:h-10 xl:h-11 2xl:h-12 w-52 lg:w-44 xl:w-52 2xl:w-56 flex items-center justify-center gap-2 2xl:gap-3 rounded-md shadow-elevated text-white font-oswald font-medium lg:font-normal transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_12px_28px_rgba(0,0,0,0.28)] hero-reveal"
+    style="animation-delay: 320ms"
   >
-    <Wallet class="hidden 2xl:inline w-5 h-5 shadow-md" /> SOLICITAR PRESUPUESTO
+    <Wallet
+      class="hidden 2xl:inline w-5 h-5 shadow-md transition-transform duration-200 group-hover:translate-x-0.5"
+    /> SOLICITAR PRESUPUESTO
   </a>
 </section>
+
+<style>
+  .hero-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: heroReveal 600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes heroReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>

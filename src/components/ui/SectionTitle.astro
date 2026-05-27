@@ -23,17 +23,18 @@ const iconColor     = variant === "inverse" ? "text-white" : "text-primary-500";
 <div class={`flex flex-col justify-center items-center gap-2 ${className}`}>
   <div class="flex gap-2 justify-center items-center">
     {hasIcon && (
-      <div class={`w-6 2xl:w-7 h-6 2xl:h-7 ${iconColor}`}>
+      <div class={`w-6 2xl:w-7 h-6 2xl:h-7 ${iconColor}`} data-reveal="fade-up">
         <slot name="icon" />
       </div>
     )}
-    <h2 class={`text-2xl 2xl:text-2xl font-oswald font-normal ${titleColor}`}>
+    <h2 class={`text-2xl 2xl:text-2xl font-oswald font-normal ${titleColor}`} data-reveal="fade-up" data-reveal-delay="80">
       {label}
     </h2>
   </div>
   {subtitle && (
-    <p class={`text-center font-oswald max-w-[40ch] lg:max-w-full font-light lg:text-sm xl:text-base 2xl:text-lg ${subtitleColor}`}>
+    <p class={`text-center font-oswald max-w-[40ch] lg:max-w-full font-light lg:text-sm xl:text-base 2xl:text-lg ${subtitleColor}`} data-reveal="fade-up" data-reveal-delay="160">
       {subtitle}
     </p>
   )}
+  <div class="h-0.5 w-12 bg-accent-500 mt-2 rounded-full" data-reveal="expand-x" data-reveal-delay="240"></div>
 </div>

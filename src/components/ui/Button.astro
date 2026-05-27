@@ -24,13 +24,13 @@ const sizeClasses: Record<string, string> = {
 };
 
 const variantClasses: Record<string, string> = {
-  primary:  "bg-cta-gradient text-white shadow-elevated rounded-md font-medium",
-  outline:  "border-2 border-primary-500 text-primary-500 shadow-card font-normal",
-  floating: "bg-success rounded-full p-4 shadow-card fixed bottom-10 lg:bottom-12 right-5 lg:right-10 z-40 cursor-pointer",
+  primary:  "bg-cta-gradient text-white shadow-elevated rounded-md font-medium hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_12px_28px_rgba(0,0,0,0.22)]",
+  outline:  "border-2 border-primary-500 text-primary-500 shadow-card font-normal hover:bg-primary-500 hover:text-white",
+  floating: "bg-success rounded-full p-4 shadow-card fixed bottom-10 lg:bottom-12 right-5 lg:right-10 z-40 cursor-pointer hover:scale-105 hover:shadow-elevated",
   ghost:    "text-primary-500 hover:bg-primary-50 rounded-md",
 };
 
-const base = "font-oswald inline-flex items-center justify-center cursor-pointer transition-colors";
+const base = "group font-oswald inline-flex items-center justify-center cursor-pointer transition-all duration-200";
 const width = fullWidth ? "w-full" : "";
 const Tag = href ? "a" : "button";
 ---

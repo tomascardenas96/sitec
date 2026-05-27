@@ -9,10 +9,11 @@ const phone = "5492281378525";
   <div
     class="flex flex-col lg:flex-row lg:justify-between text-center lg:text-start items-center lg:items-start gap-12 lg:gap-0 w-full lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] lg:mx-auto"
   >
-    <div class="flex flex-col gap-2 lg:gap-1">
-      <h1
-        class="text-2xl lg:text-lg xl:text-xl 2xl:text-xl"
-      >
+    <div
+      class="flex flex-col gap-2 lg:gap-1"
+      data-reveal="fade-up"
+    >
+      <h1 class="text-2xl lg:text-lg xl:text-xl 2xl:text-xl">
         Horarios de atención
       </h1>
       <p
@@ -27,12 +28,12 @@ const phone = "5492281378525";
       </p>
     </div>
 
-    <div class="flex flex-col gap-2 lg:gap-1">
-      <h1
-        class="text-2xl lg:text-lg xl:text-xl 2xl:text-xl"
-      >
-        Medios de pago
-      </h1>
+    <div
+      class="flex flex-col gap-2 lg:gap-1"
+      data-reveal="fade-up"
+      data-reveal-delay="120"
+    >
+      <h1 class="text-2xl lg:text-lg xl:text-xl 2xl:text-xl">Medios de pago</h1>
       <p
         class="text-base lg:text-sm xl:text-base 2xl:text-lg font-light lg:font-extralight w-[22ch] lg:leading-[1.45rem] xl:leading-[1.6rem] 2xl:leading-[1.7rem]"
       >
@@ -40,21 +41,27 @@ const phone = "5492281378525";
       </p>
     </div>
 
-    <div class="flex flex-col items-center gap-6 lg:gap-3 xl:gap-4">
+    <div
+      class="flex flex-col items-center gap-6 lg:gap-3 xl:gap-4"
+      data-reveal="fade-up"
+      data-reveal-delay="240"
+    >
       <p
         class="text-center w-[34ch] lg:w-[40ch] leading-6 lg:text-sm xl:text-base 2xl:text-lg lg:font-light"
       >
         Escribinos tus consultas por WhatsApp y te responderemos a la brevedad.
       </p>
-      <button class="w-64 lg:w-60 h-14 lg:h-11">
+      <button
+        class="group w-64 lg:w-60 h-14 lg:h-11 transition-transform duration-200 hover:-translate-y-0.5"
+      >
         <a
           href={`https://wa.me/${phone}`}
           target="blank"
-          class="h-full w-full flex items-center bg-white text-primary-500 lg:text-sm shadow-xl rounded-md gap-3 justify-center"
+          class="h-full w-full flex items-center bg-white text-primary-500 lg:text-sm shadow-xl rounded-md gap-3 justify-center transition-shadow duration-200 group-hover:shadow-elevated"
         >
           <img
             src={WhatsappLogo.src}
-            class="w-7 lg:w-5 h-7 lg:h-5"
+            class="w-7 lg:w-5 h-7 lg:h-5 transition-transform duration-200 group-hover:scale-110"
             alt="whatsapp logo"
           /> CONTACTO POR WHATSAPP
         </a>

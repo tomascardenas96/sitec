@@ -1,8 +1,6 @@
 ---
 import { information } from "../../data/contact.js";
-import RightArrowIcon from "../../assets/icons/right-arrow.svg";
 import InfoCard from "./Info-card.astro";
-const phone = "5492281378525";
 ---
 
 <section
@@ -14,6 +12,7 @@ const phone = "5492281378525";
       <div class="flex gap-2 justify-center items-center">
         <h1
           class=`text-2xl 2xl:text-3xl font-oswald font-normal text-primary-500`
+          data-reveal="fade-up"
         >
           Datos de Contacto
         </h1>
@@ -25,25 +24,22 @@ const phone = "5492281378525";
     class="grid grid-cols-2 gap-y-6 lg:gap-y-6 xl:gap-y-7 2xl:gap-y-6 gap-x-8 lg:gap-x-7 xl:gap-x-0 2xl:gap-x-10 pl-[4%] lg:pl-0"
   >
     {
-      information.map((item) => (
+      information.map((item, index) => (
         <InfoCard
           title={item.title}
           firstLine={item.firstLine}
           secondLine={item.secondLine}
           icon={item.icon}
+          index={index}
         />
       ))
     }
   </div>
 
-  <p class="mt-11 flex items-center gap-2 text-xs">
-    <a
-      href={`https://wa.me/${phone}`}
-      target="blank"
-      class="flex items-center gap-2 text-neutral-600 underline"
-    >
-      <RightArrowIcon class="w-4 h-4" /> Solicitá tu cotización y responderemos a
-      la brevedad
-    </a>
+  <p
+    class="mt-11 flex items-center gap-2 text-xs"
+    data-reveal="fade-up"
+    data-reveal-delay="320"
+  >
   </p>
 </section>
