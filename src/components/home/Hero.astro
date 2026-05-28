@@ -8,7 +8,7 @@ const encoded = encodeURIComponent(text);
 ---
 
 <section
-  class="h-96 lg:h-[19rem] xl:h-[21.9rem] 2xl:h-[35rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-6 lg:gap-5 xl:gap-5 overflow-hidden"
+  class="h-96 lg:h-[19rem] xl:h-[21.9rem] 2xl:h-[33rem] relative flex items-center justify-center bg-cover bg-center flex-col gap-6 lg:gap-5 xl:gap-5 overflow-hidden"
   style={`background-image: url('${hero.src}');`}
 >
   <div
@@ -60,7 +60,7 @@ const encoded = encodeURIComponent(text);
     </div>
     <div class="hero-reveal" style="animation-delay: 200ms">
       <h1
-        class="w-[35ch] relative text-white text-3xl xl:text-3xl 2xl:text-4xl font-[400] flex text-center font-oswald leading-9 xl:leading-10 2xl:leading-[3rem] tracking-[.04em] xl:tracking-[.05em]"
+        class="w-[35ch] 2xl:w-[30ch] relative text-white text-3xl xl:text-3xl 2xl:text-5xl font-[400] flex text-center font-oswald leading-9 xl:leading-10 2xl:leading-[4rem] tracking-[.04em] xl:tracking-[.05em]"
       >
         Soluciones eléctricas integrales y montajes industriales
       </h1>
@@ -70,7 +70,15 @@ const encoded = encodeURIComponent(text);
   <a
     href={`https://wa.me/${phone}?text=${encoded}`}
     target="blank"
-    class="group bg-cta-gradient relative cursor-pointer z-10 text-sm lg:text-xs xl:text-sm h-12 lg:h-10 xl:h-11 2xl:h-12 w-52 lg:w-44 xl:w-52 2xl:w-56 flex items-center justify-center gap-2 2xl:gap-3 rounded-md shadow-elevated text-white font-oswald font-medium lg:font-normal transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_12px_28px_rgba(0,0,0,0.28)] hero-reveal"
+    class="group
+    bg-cta-gradient
+    relative
+    cursor-pointer
+    z-10
+    text-sm lg:text-xs xl:text-sm
+    h-12 lg:h-10 xl:h-11 2xl:h-12
+    w-52 lg:w-44 xl:w-52 2xl:w-56
+    flex items-center justify-center gap-2 2xl:gap-3 rounded-md shadow-elevated text-white font-oswald font-medium lg:font-normal transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_12px_28px_rgba(0,0,0,0.28)] hero-reveal"
     style="animation-delay: 320ms"
   >
     <Wallet
