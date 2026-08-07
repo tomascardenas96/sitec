@@ -6,50 +6,50 @@ const span = "font-bold text-neutral-900";
 ---
 
 <section
-  class="h-[28rem] xl:h-[32rem] 2xl:h-[34rem] lg:flex lg:px-5 lg:justify-center"
+    class="h-[28rem] xl:h-[32rem] 2xl:h-[34rem] lg:flex lg:px-5 lg:justify-center"
 >
-  <div
-    class="h-full w-full lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[63rem] xl:gap-1 flex justify-center items-center lg:flex"
-  >
     <div
-      class="h-full flex flex-col items-center lg:items-start justify-center gap-7 md:gap-9 lg:gap-4 xl:gap-6 2xl:gap-8 px-5 xl:px-0 lg:w-full"
+        class="h-full w-full lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[63rem] xl:gap-1 flex justify-center items-center lg:flex"
     >
-      <h1
-        class="font-oswald text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-primary-500"
-        data-reveal="fade-up"
-      >
-        Energía que Inspira Confianza
-      </h1>
+        <div
+            class="h-full flex flex-col items-center lg:items-start justify-center gap-7 md:gap-9 lg:gap-4 xl:gap-6 2xl:gap-8 px-5 xl:px-0 lg:w-full"
+        >
+            <h1
+                class="font-oswald text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-primary-500"
+                data-reveal="fade-up"
+            >
+                Energía que Inspira Confianza
+            </h1>
 
-      <p
-        class="text-center lg:text-start text-sm lg:text-xs xl:text-[1rem] leading-[1.6rem] lg:leading-[1.3rem] xl:leading-[1.5rem] 2xl:leading-[1.8rem] md:max-w-[80ch] xl:max-w-[85ch] 2xl:max-w-[60ch]"
-        data-reveal="fade-up"
-        data-reveal-delay="120"
-      >
-        En <span class={span}>SITEC</span> ofrecemos soluciones eléctricas integrales
-        a medida. Nos encargamos de la planificación y ejecución de proyectos eléctricos
-        y electromecánicos, priorizando <span class={span}>eficiencia</span>, <span
-          class={span}>seguridad</span
-        > y <span class={span}>cumplimiento normativo.</span>
-        <br />
-        <br /> Con un equipo experimentado y tecnologí a de vanguardia, garantizamos
-        instalaciones confiables y resultados que superan expectativas
-      </p>
+            <p
+                class="text-center lg:text-start text-sm lg:text-xs xl:text-[1rem] leading-[1.6rem] lg:leading-[1.3rem] xl:leading-[1.5rem] 2xl:leading-[1.8rem] md:max-w-[80ch] xl:max-w-[85ch] 2xl:max-w-[60ch]"
+                data-reveal="fade-up"
+                data-reveal-delay="120"
+            >
+                En <span class={span}>BALCA</span> nos especializamos en la fabricación
+                y venta de tableros eléctricos industriales, ofreciendo soluciones
+                <span class={span}>seguras</span>, <span class={span}
+                    >eficientes</span
+                > y <span class={span}>adaptadas</span> a cada necesidad.
+                <br />
+                <br /> Trabajamos con compromiso, calidad y precisión para brindar
+                respuestas confiables a industrias, comercios, obras y proyectos eléctricos.
+            </p>
 
-      <div class="lg:mt-5" data-reveal="fade-up" data-reveal-delay="220">
-        <Button href="/about-us" variant="outline">VER MÁS</Button>
-      </div>
+            <div class="lg:mt-5" data-reveal="fade-up" data-reveal-delay="220">
+                <Button href="/about-us" variant="outline">VER MÁS</Button>
+            </div>
+        </div>
+
+        <div class="hidden lg:flex w-[40rem] xl:w-[57rem] h-full">
+            <div class="h-full w-full flex items-center justify-end">
+                <img
+                    src={SectionImage.src}
+                    class="h-[72%] xl:h-[74%] w-[82%] xl:w-[76%] 2xl:w-[80%] border lg:border-primary-500 p-1 object-cover shadow-xl"
+                    data-reveal="fade-up"
+                    data-reveal-delay="100"
+                />
+            </div>
+        </div>
     </div>
-
-    <div class="hidden lg:flex w-[40rem] xl:w-[57rem] h-full">
-      <div class="h-full w-full flex items-center justify-end">
-        <img
-          src={SectionImage.src}
-          class="h-[72%] xl:h-[74%] w-[82%] xl:w-[76%] 2xl:w-[80%] border lg:border-primary-500 p-1 object-cover shadow-xl"
-          data-reveal="fade-up"
-          data-reveal-delay="100"
-        />
-      </div>
-    </div>
-  </div>
 </section>
