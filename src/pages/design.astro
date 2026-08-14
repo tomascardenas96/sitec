@@ -1,18 +1,24 @@
 ---
 import TitlePage from "../components/common/Title-page.astro";
-import Components from "../components/design/Components.astro";
-import Process from "../components/design/Process.astro";
-import Skills from "../components/design/Skills.astro";
+import EntryPoints from "../components/design/Entry-points.astro";
 import Stages from "../components/design/Stages.astro";
+import PanelTypes from "../components/design/Panel-types.astro";
+import Norms from "../components/design/Norms.astro";
+import CtaSection from "../components/common/Cta-section.astro";
 import MainLayout from "../layouts/Main-layout.astro";
 ---
 
-<MainLayout>
-  <TitlePage title="diseño de proyectos" />
-  <Process />
-  <div class="mx-auto lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem]">
-    <Stages />
-    <Skills />
-    <Components />
-  </div>
+<MainLayout
+  title="Diseño de proyectos — BALCA"
+  description="Diseño, desarrollo y documentación de tableros eléctricos industriales bajo normas IRAM e IEC 61439, en Tandil, Buenos Aires."
+>
+  <TitlePage
+    title="Diseño de proyectos"
+    subtitle="De la ingeniería a la puesta en marcha: así se diseña y documenta cada tablero."
+  />
+  <EntryPoints />
+  <Stages />
+  <PanelTypes />
+  <Norms />
+  <CtaSection />
 </MainLayout>

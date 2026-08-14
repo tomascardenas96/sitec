@@ -1,0 +1,40 @@
+---
+interface Props {
+    id: number;
+    title: string;
+    subtitle: string;
+    index?: number;
+}
+
+const { id, title, subtitle, index = 0 } = Astro.props;
+const ref = String(id).padStart(2, "0");
+---
+
+<li
+    class="border-b border-steel-200"
+    data-reveal="fade-up"
+    data-reveal-delay={Math.min(index, 6) * 40}
+>
+    <a
+        href={`/projects/preview/${id}`}
+        class="group grid grid-cols-[3rem_1fr] items-baseline gap-x-5 gap-y-1 py-5 no-underline transition-colors duration-200 ease-out hover:bg-white hover:no-underline lg:grid-cols-[5rem_1fr_1.1fr_2rem] lg:items-center lg:gap-x-8 lg:py-6"
+    >
+        <span class="plate text-2xs text-steel-400">N.º {ref}</span>
+        <h3 class="font-oswald text-lg font-medium uppercase tracking-display text-steel-900 transition-colors duration-200 group-hover:text-accent-700 2xl:text-xl">
+            {title}
+        </h3>
+        <p class="col-start-2 text-sm leading-relaxed text-steel-500 lg:col-start-3">
+            {subtitle}
+        </p>
+        <svg
+            viewBox="0 0 24 24"
+            class="hidden h-5 w-5 shrink-0 text-accent-500 transition-transform duration-200 ease-out group-hover:translate-x-1.5 lg:col-start-4 lg:block"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+        >
+            <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="square" />
+        </svg>
+    </a>
+</li>

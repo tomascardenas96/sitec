@@ -1,0 +1,118 @@
+---
+import { Image } from "astro:assets";
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import { allProjects } from "../../data/projects.js";
+import { components } from "../../data/components.js";
+import { glyphs } from "../../data/glyphs.js";
+
+// El catálogo real tiene solo 3 fotos (ver DESIGN-SYSTEM.md §5); "Obras realizadas"
+// en home ya muestra las 3. Por eso acá no se repite el título/subtítulo de esa
+// ficha de proyecto: la foto se presenta como una vista genérica del taller, no
+// como una segunda tarjeta de caso. Reemplazar por una foto propia del taller en
+// cuanto exista.
+const featured = allProjects[1];
+---
+
+<section class="bg-steel-900 py-20 lg:py-28 2xl:py-32">
+  <Container>
+    <SectionTitle
+      kicker="El taller"
+      label="Lo que sale de la fábrica"
+      subtitle="Diseñamos y armamos cada tablero en Tandil, bajo normas IRAM e IEC 61439, y lo dejamos funcionando en obra."
+      variant="inverse"
+      align="start"
+      class="lg:max-w-[42rem]"
+    />
+
+    <div class="mt-12 grid gap-10 lg:mt-16 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-16 2xl:gap-20">
+      <figure
+        class="relative m-0 w-full"
+        data-reveal="fade-up"
+        data-reveal-delay="80"
+      >
+        <span
+          class="absolute -left-3 -top-3 hidden h-16 w-[3px] bg-accent-500 lg:block"
+          aria-hidden="true"></span>
+        <span
+          class="absolute -left-3 -top-3 hidden h-[3px] w-16 bg-accent-500 lg:block"
+          aria-hidden="true"></span>
+
+        <Image
+          src={featured.image}
+          alt="Tablero eléctrico industrial en proceso de fabricación en el taller de BALCA"
+          width={640}
+          densities={[1, 2]}
+          format="webp"
+          quality={72}
+          loading="lazy"
+          class="aspect-[3/2] w-full object-cover"
+        />
+
+        <figcaption
+          class="flex items-baseline justify-between gap-4 border-t-2 border-white/30 pt-3"
+        >
+          <span class="font-oswald text-sm uppercase tracking-[0.08em] text-white">
+            El taller
+          </span>
+          <span class="plate shrink-0 text-2xs text-steel-300">Tablero en fabricación</span>
+        </figcaption>
+      </figure>
+
+      <div>
+        <ul role="list" class="border-t border-white/15">
+          {
+            components.map((item, index) => (
+              <li
+                class="flex items-center gap-4 border-b border-white/15 py-4"
+                data-reveal="fade-up"
+                data-reveal-delay={(index % 3) * 90}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-5 w-5 shrink-0 text-accent-500"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                  aria-hidden="true"
+                >
+                  {glyphs[item.glyph].map((d) => (
+                    <path d={d} />
+                  ))}
+                </svg>
+                <div>
+                  <h3 class="font-oswald text-sm uppercase tracking-[0.06em] text-white 2xl:text-base">
+                    {item.title}
+                  </h3>
+                  <p class="mt-1 text-sm text-steel-300">{item.subtitle}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+
+        <a
+          href="/projects"
+          class="group mt-2 flex items-center justify-between gap-6 border-b border-white/15 py-6 no-underline transition-colors duration-200 ease-out hover:no-underline"
+        >
+          <span
+            class="font-oswald text-lg uppercase tracking-[0.12em] text-white transition-colors duration-200 group-hover:text-accent-400"
+          >
+            Ver las obras realizadas
+          </span>
+          <svg
+            viewBox="0 0 24 24"
+            class="h-5 w-5 shrink-0 text-accent-500 transition-transform duration-200 ease-out group-hover:translate-x-1.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="square"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>

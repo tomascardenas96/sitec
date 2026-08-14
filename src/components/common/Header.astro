@@ -1,110 +1,87 @@
 ---
-import logo from "/public/balca-logo.svg";
-import menu from "../../assets/icons/menu.svg";
 import HeaderList from "./Header-list.astro";
 import MobileMenu from "./Mobile-menu.astro";
-import SocialHeader from "./Social-header.astro";
+import SocialLinks from "./Social-links.astro";
+import { phone, encoded } from "../../data/whatsapp.js";
 ---
 
 <header
-  id="header-container"
-  class="h-[4.5rem] lg:h-[4.8rem] xl:h-[5.5rem] 2xl:h-[5.8rem] flex fixed z-20 w-full top-0 lg:absolute lg:top-7 2xl:top-9 lg:justify-center"
+    id="site-header"
+    data-scrolled="false"
+    class="sticky top-0 z-40 border-b border-steel-200 bg-white transition-shadow duration-300 ease-out data-[scrolled=true]:shadow-elevated"
 >
-  <div
-    id="main-header"
-    class="bg-white px-2 lg:px-6 2xl:px-8 lg:pr-10 xl:pr-12 2xl:pr-16 w-full lg:w-[43rem] xl:w-[52rem] 2xl:w-[55rem] flex items-center justify-between shadow-xl transition-all duration-300 lg:rounded-md"
-  >
-    <a href="/" class="h-full flex items-center">
-      <img src={logo.src} alt="Logo Sitec" class="h-12" />
-    </a>
+    <div
+        class="mx-auto flex w-full max-w-shell items-stretch justify-between px-5 sm:px-8 lg:px-10 2xl:px-16"
+    >
+        <a
+            href="/"
+            class="flex shrink-0 items-center py-3 no-underline hover:no-underline"
+            aria-label="BALCA — Inicio"
+        >
+            <img
+                src="/balca-logo.svg"
+                alt="BALCA, instalaciones eléctricas integrales y montajes industriales"
+                width="1000"
+                height="400"
+                decoding="async"
+                class="h-12 w-auto lg:h-14 2xl:h-16"
+            />
+        </a>
 
-    <button id="burger" class="mr-2" aria-label="Abrir menú" data-open="false">
-      <img src={menu.src} alt="Menú" class="h-8 w-8 lg:hidden" />
-    </button>
+        <div class="flex items-stretch">
+            <nav
+                aria-label="Navegación principal"
+                class="hidden items-center gap-8 pr-8 lg:flex xl:gap-10 xl:pr-10"
+            >
+                <HeaderList />
+                <span class="h-5 w-px bg-steel-200"></span>
+                <SocialLinks />
+            </nav>
 
-    <div class="items-center gap-10 hidden lg:flex">
-      <HeaderList />
-      <SocialHeader />
+            <!-- Bloque de acción a sangre: la pieza naranja cierra la barra. -->
+            <a
+                href={`https://wa.me/${phone}?text=${encoded}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hidden self-center h-14 items-center bg-accent-600 px-7 font-oswald text-xs uppercase tracking-[0.16em] font-medium text-white no-underline transition-colors duration-200 ease-out hover:bg-accent-400 hover:no-underline md:flex 2xl:px-9 2xl:text-sm"
+            >
+                Solicitar presupuesto
+            </a>
+
+            <button
+                id="burger"
+                type="button"
+                aria-label="Abrir menú"
+                aria-controls="menu"
+                aria-expanded="false"
+                class="flex w-16 items-center justify-center border-l border-steel-200 text-steel-900 transition-colors duration-200 hover:bg-steel-900 hover:text-white lg:hidden"
+            >
+                <svg
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                >
+                    <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="square"
+                    ></path>
+                </svg>
+            </button>
+        </div>
     </div>
+
     <MobileMenu />
-  </div>
 </header>
 
-<style>
-  #header-container.scrolled {
-    height: 5.5rem;
-    transition:
-      height 0.3s ease,
-      top 0.3s ease;
-    will-change: height, top;
-  }
-
-  #main-header.scrolled {
-    padding: 0 1rem;
-  }
-
-  @keyframes show-in {
-    from {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Media query para lg (1024px) */
-  @media (min-width: 1024px) {
-    #main-header.scrolled {
-      width: 100% !important;
-      position: fixed !important;
-      top: 1.75rem;
-      border-radius: 0 !important;
-      padding: 0 6rem;
-      height: 5.5rem;
-      animation: show-in ease-in-out 0.5s;
-    }
-  }
-
-  /* Media query para xl (1280px) */
-  @media (min-width: 1280px) {
-    #main-header.scrolled {
-      width: 100% !important;
-      border-radius: 0 !important;
-      height: 6rem;
-      padding: 0 9rem;
-    }
-  }
-
-  /* Media query para 2xl (1536px) */
-  @media (min-width: 1536px) {
-    #main-header.scrolled {
-      width: 100% !important;
-      border-radius: 0 !important;
-      height: 6.5rem;
-      padding: 0 17rem;
-      top: 2.25rem;
-    }
-  }
-</style>
-
-<script>
-  const header = document.getElementById("main-header");
-  const headerContainer = document.getElementById("header-container");
-  const scrollThreshold = 80;
-
-  function handleScroll() {
-    if (window.scrollY > scrollThreshold) {
-      header?.classList.add("scrolled");
-      headerContainer?.classList.add("scrolled");
-    } else {
-      header?.classList.remove("scrolled");
-      headerContainer?.classList.remove("scrolled");
-    }
-  }
-
-  handleScroll();
-
-  window.addEventListener("scroll", handleScroll);
+<script is:inline>
+    (() => {
+        const header = document.getElementById("site-header");
+        if (!header) return;
+        const update = () => {
+            header.dataset.scrolled = window.scrollY > 24 ? "true" : "false";
+        };
+        update();
+        window.addEventListener("scroll", update, { passive: true });
+    })();
 </script>

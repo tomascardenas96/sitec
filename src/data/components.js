@@ -1,41 +1,36 @@
-import Panel from "../assets/icons/panel.png"
-import Transfer from "../assets/icons/transfer.png"
-import Control from "../assets/icons/control.png"
-import Motor from "../assets/icons/motor.png"
-import PLC from "../assets/icons/plc.png"
-import Plug from "../assets/icons/plug.png"
-
+// `glyph` identifica el ícono de línea que dibuja el componente que lo consuma
+// (ver el mapa `glyphs` en glyphs.js).
 export const components = [
   {
     title: "Tableros de Distribución",
     subtitle:
       "Para baja y media tensión, garantizando seguridad y confiabilidad.",
-    icon: Panel.src
+    glyph: "panel",
   },
   {
     title: "Tableros de Control",
     subtitle:
       "Para automatización de procesos industriales y sistemas de mando.",
-    icon: Control.src
+    glyph: "control",
   },
   {
     title: "Centros de Control de Motores",
-    subtitle: "Utilizamos componentes y procesos que garantizan durabilidad.",
-    icon: Motor.src
+    subtitle: "Agrupan arrancadores y protecciones para el control de motores en planta.",
+    glyph: "motor",
   },
   {
     title: "Tableros de Transferencia",
-    subtitle: "Sistemas automáticos para grupos electrogenos de respaldo.",
-    icon: Transfer.src,
+    subtitle: "Sistemas automáticos para grupos electrógenos de respaldo.",
+    glyph: "transfer",
   },
   {
-    title: "Paneles PLC ",
+    title: "Paneles PLC",
     subtitle: "Control lógico programable y pantallas de operación.",
-    icon: PLC.src
+    glyph: "plc",
   },
   {
-    title: "Componentes Electricos",
-    subtitle: "Interruptores, contactores, variadores, transformadores y mas.",
-    icon: Plug.src
+    title: "Componentes Eléctricos",
+    subtitle: "Interruptores, contactores, variadores, transformadores y más.",
+    glyph: "plug",
   },
 ];

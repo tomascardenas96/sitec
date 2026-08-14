@@ -1,33 +1,49 @@
-import LocationIcon from "../assets/icons/location.png";
-import PhoneIcon from "../assets/icons/phone-call.png";
-import EmailIcon from "../assets/icons/mail.png";
-import InstagramIcon from "../assets/icons/instagram.png";
-import FacebookIcon from "../assets/icons/facebook.png";
-import TwitterIcon from "../assets/icons/twitter.png";
+import { phone } from "./whatsapp.js";
 
-export const information = [
+// TODO: email.falso@sitec.com y /sitec-instagram son placeholders heredados
+// del sitio anterior (marca "SITEC"). Reemplazar por los datos reales de
+// BALCA antes de publicar. Los teléfonos también son los que ya mostraba el
+// sitio (Top-bar.astro, Footer.astro) — confirmar si son los reales.
+export const channels = [
   {
-    title: "Dirección",
-    firstLine: "Figueroa 2367",
-    secondLine: "Tandil, Argentina",
-    icon: LocationIcon,
+    kind: "whatsapp",
+    label: "WhatsApp",
+    value: "+54 9 2281 37-8525",
+    href: `https://wa.me/${phone}`,
   },
   {
-    title: "Teléfonos",
-    firstLine: "(2494) - 123456",
-    secondLine: "(2494) - 789987",
-    icon: PhoneIcon,
+    kind: "phone",
+    label: "Teléfono",
+    value: "(2494) - 123456",
+    href: "tel:+542494123456",
   },
   {
-    title: "E-mail",
-    firstLine: "email.falso@sitec.com",
-    secondLine: null,
-    icon: EmailIcon,
+    kind: "phone",
+    label: "Teléfono",
+    value: "(2494) - 789987",
+    href: "tel:+542494789987",
   },
   {
-    title: "Instagram",
-    firstLine: "/sitec-instagram",
-    secondLine: null,
-    icon: InstagramIcon,
-  }
+    kind: "email",
+    label: "E-mail",
+    value: "email.falso@sitec.com",
+    href: "mailto:email.falso@sitec.com",
+  },
+  {
+    kind: "instagram",
+    label: "Instagram",
+    value: "/sitec-instagram",
+    href: "https://instagram.com/sitec-instagram",
+  },
+  {
+    kind: "address",
+    label: "Taller",
+    value: "Figueroa 2367, Tandil",
+    href: "https://www.google.com/maps/search/?api=1&query=Figueroa+2367+Tandil",
+  },
+];
+
+export const hours = [
+  { label: "Lunes a viernes", value: "8:00 a 17:00 hs." },
+  { label: "Sábados", value: "8:00 a 13:00 hs." },
 ];

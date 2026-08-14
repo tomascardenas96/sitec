@@ -1,36 +1,62 @@
 ---
+import { Image } from "astro:assets";
+
 const { image, title, subtitle, id, index = 0 } = Astro.props;
 const delay = (index % 3) * 90;
+const ref = String(id).padStart(2, "0");
 ---
 
-<artice
-  class="group w-full h-80 lg:h-72 border shadow-sm bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated"
+<article
+  class="group border border-steel-200 bg-white transition-colors duration-300 ease-out hover:border-steel-900"
   data-reveal="fade-up"
   data-reveal-delay={delay}
 >
   <a
     href={`/projects/preview/${id}`}
-    class="grid grid-rows-[13.5rem_1fr] lg:grid-rows-[11.5rem_1fr] text-inherit"
+    class="flex h-full flex-col no-underline hover:no-underline"
   >
-    <div class="border-b overflow-hidden">
-      <img
-        src={image.src}
+    <div class="relative overflow-hidden">
+      <Image
+        src={image}
         alt={title}
-        class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+        width={480}
+        densities={[1, 2]}
+        format="webp"
+        quality={70}
+        loading="lazy"
+        class="aspect-[4/5] w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
       />
+      <!-- Referencia de catálogo: la obra tiene número, como en la carpeta técnica. -->
+      <span
+        class="plate absolute left-0 top-0 bg-steel-950/90 px-3 py-2 text-2xs text-white"
+      >
+        N.º {ref}
+      </span>
     </div>
 
-    <div class="flex flex-col pt-4 lg:pt-2 lg:gap-[.1rem]">
-      <h1
-        class="font-oswald text-xl lg:text-lg 2xl:text-xl text-center text-primary-500 transition-colors duration-200 group-hover:text-accent-500"
+    <div class="flex flex-1 flex-col border-t border-steel-200 p-5 2xl:p-6">
+      <h3
+        class="font-oswald text-lg font-medium uppercase tracking-display text-steel-900 transition-colors duration-200 group-hover:text-accent-700 2xl:text-xl"
       >
         {title}
-      </h1>
-      <h2
-        class="text-center md:max-w-[25ch] lg:max-w-[32ch] md:self-center lg:text-xs 2xl:text-sm"
+      </h3>
+      <p class="mt-2 text-sm leading-relaxed text-steel-500">{subtitle}</p>
+
+      <span
+        class="plate mt-6 flex items-center gap-2 text-2xs text-primary-500 transition-colors duration-200 group-hover:text-accent-700"
       >
-        {subtitle}
-      </h2>
+        Ver ficha
+        <svg
+          viewBox="0 0 24 24"
+          class="h-3.5 w-3.5 transition-transform duration-200 ease-out group-hover:translate-x-1"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          aria-hidden="true"
+        >
+          <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="square"></path>
+        </svg>
+      </span>
     </div>
   </a>
-</artice>
+</article>

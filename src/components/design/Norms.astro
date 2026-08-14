@@ -1,0 +1,45 @@
+---
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import { norms } from "../../data/norms.js";
+---
+
+<section class="bg-steel-50 py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <SectionTitle
+            kicker="Garantías"
+            label="Normas y documentación"
+            align="start"
+            class="lg:max-w-[42rem]"
+        />
+
+        <!-- steel-400, no accent-400: a text-2xs el naranja no pasa AA sobre
+             claro (ver DESIGN-SYSTEM.md §1.1). -->
+        <dl
+            class="mt-10 grid border-t border-steel-200 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3"
+            data-reveal="fade-up"
+            data-reveal-delay="80"
+        >
+            {
+                norms.map((item, index) => (
+                    <div
+                        class:list={[
+                            "flex flex-col-reverse gap-1.5 border-b border-steel-200 py-6",
+                            index % 2 === 1 && "sm:border-l sm:pl-6",
+                            index % 3 === 0
+                                ? "lg:border-l-0 lg:pl-0"
+                                : "lg:border-l lg:pl-8 2xl:pl-10",
+                        ]}
+                    >
+                        <dt class="plate text-2xs text-steel-400">
+                            {item.label}
+                        </dt>
+                        <dd class="font-oswald text-lg uppercase tracking-[0.02em] text-steel-900 2xl:text-xl">
+                            {item.value}
+                        </dd>
+                    </div>
+                ))
+            }
+        </dl>
+    </Container>
+</section>

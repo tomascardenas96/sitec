@@ -2,16 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tus estilos globales opcionales */
-body {
-  @apply font-openSans text-neutral-600;
+@layer base {
+  body {
+    @apply font-openSans;
+    color: theme("colors.steel.700");
+    background-color: theme("colors.white");
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  a {
+    color: theme("colors.primary.500");
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Anillo de foco de dos tonos: el aro oscuro se ve sobre blanco y sobre el
+     naranja del cierre; el halo claro se ve sobre las superficies de acero.
+     Siempre queda al menos uno visible. */
+  :focus-visible {
+    outline: 2px solid theme("colors.steel.950");
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px theme("colors.accent.200");
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  ::selection {
+    background-color: theme("colors.accent.500");
+    color: theme("colors.steel.950");
+  }
+
+  /* El header es sticky: los anclas no deben quedar debajo de la barra. */
+  [id] {
+    scroll-margin-top: 7rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
 
-a {
-  color: theme('colors.primary.500');
+@layer components {
+  /* Franja de señalización industrial. Motivo de marca: aparece en el borde
+     superior del cierre y del footer, en ningún otro lado. */
+  .hazard {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      theme("colors.accent.500") 0 10px,
+      theme("colors.steel.950") 10px 20px
+    );
+  }
+
+  /* Chapa de identificación grabada. */
+  .plate {
+    font-family: theme("fontFamily.oswald");
+    text-transform: uppercase;
+    letter-spacing: theme("letterSpacing.plate");
+  }
+
+  /* Campo de formulario: chapa con canto vivo, no pastilla. */
+  .field {
+    width: 100%;
+    border: 1px solid theme("colors.steel.200");
+    background-color: theme("colors.white");
+    padding: 0.75rem 1rem;
+    border-radius: 0;
+    color: theme("colors.steel.700");
+    transition: border-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .field:hover {
+    border-color: theme("colors.steel.400");
+  }
+  .field:focus {
+    border-color: theme("colors.steel.900");
+  }
+  .field::placeholder {
+    color: theme("colors.steel.400");
+  }
 }
-a:hover {
-  text-decoration: underline;
+
+@layer utilities {
+  .text-measure {
+    max-width: 68ch;
+  }
 }
 
 /* Scroll reveal */
@@ -35,6 +121,9 @@ a:hover {
 }
 [data-reveal="expand-x"] {
   transform-origin: center;
+}
+[data-reveal="expand-x"][data-origin="left"] {
+  transform-origin: left center;
 }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] {

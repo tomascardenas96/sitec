@@ -1,55 +1,109 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../ui/Button.astro";
-import SectionImage from "../../assets/images/home/proyects/1.jpg";
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import { allProjects } from "../../data/projects.js";
+import { components } from "../../data/components.js";
+import { glyphs } from "../../data/glyphs.js";
 
-const span = "font-bold text-neutral-900";
+// La foto no decora: es una obra del catálogo y se identifica como tal.
+const featured = allProjects[0];
+const span = "font-semibold text-steel-900";
 ---
 
-<section
-    class="h-[28rem] xl:h-[32rem] 2xl:h-[34rem] lg:flex lg:px-5 lg:justify-center"
->
-    <div
-        class="h-full w-full lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[63rem] xl:gap-1 flex justify-center items-center lg:flex"
-    >
-        <div
-            class="h-full flex flex-col items-center lg:items-start justify-center gap-7 md:gap-9 lg:gap-4 xl:gap-6 2xl:gap-8 px-5 xl:px-0 lg:w-full"
+<section class="py-20 lg:py-28 2xl:py-32">
+  <Container>
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16 2xl:gap-24">
+      <div>
+        <SectionTitle
+          label="Energía que inspira confianza"
+          kicker="Quiénes somos"
+          align="start"
+        />
+
+        <div class="mt-8 flex flex-col gap-5 text-base leading-relaxed lg:text-lg">
+          <p class="max-w-measure" data-reveal="fade-up">
+            En <span class={span}>BALCA</span> nos especializamos en la fabricación
+            y venta de tableros eléctricos industriales, ofreciendo soluciones
+            <span class={span}>seguras</span>, <span class={span}
+              >eficientes</span
+            > y <span class={span}>adaptadas</span> a cada necesidad.
+          </p>
+          <p class="max-w-measure" data-reveal="fade-up" data-reveal-delay="80">
+            Trabajamos con compromiso, calidad y precisión para brindar
+            respuestas confiables a industrias, comercios, obras y proyectos
+            eléctricos.
+          </p>
+        </div>
+
+        <!-- Qué sale del taller: lista de tipos, con la misma grilla de reglas. -->
+        <h3 class="plate mt-10 text-2xs text-steel-400">Qué fabricamos</h3>
+        <ul
+          class="mt-4 grid border-t border-steel-200 sm:grid-cols-2 sm:gap-x-8"
+          data-reveal="fade-up"
+          data-reveal-delay="140"
         >
-            <h1
-                class="font-oswald text-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-primary-500"
-                data-reveal="fade-up"
-            >
-                Energía que Inspira Confianza
-            </h1>
+          {
+            components.map((item) => (
+              <li class="flex items-center gap-3 border-b border-steel-200 py-3 font-oswald text-sm uppercase tracking-[0.08em] text-steel-900">
+                <svg
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 shrink-0 text-accent-500"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                  aria-hidden="true"
+                >
+                  {glyphs[item.glyph].map((d) => (
+                    <path d={d} />
+                  ))}
+                </svg>
+                {item.title}
+              </li>
+            ))
+          }
+        </ul>
 
-            <p
-                class="text-center lg:text-start text-sm lg:text-xs xl:text-[1rem] leading-[1.6rem] lg:leading-[1.3rem] xl:leading-[1.5rem] 2xl:leading-[1.8rem] md:max-w-[80ch] xl:max-w-[85ch] 2xl:max-w-[60ch]"
-                data-reveal="fade-up"
-                data-reveal-delay="120"
-            >
-                En <span class={span}>BALCA</span> nos especializamos en la fabricación
-                y venta de tableros eléctricos industriales, ofreciendo soluciones
-                <span class={span}>seguras</span>, <span class={span}
-                    >eficientes</span
-                > y <span class={span}>adaptadas</span> a cada necesidad.
-                <br />
-                <br /> Trabajamos con compromiso, calidad y precisión para brindar
-                respuestas confiables a industrias, comercios, obras y proyectos eléctricos.
-            </p>
-
-            <div class="lg:mt-5" data-reveal="fade-up" data-reveal-delay="220">
-                <Button href="/about-us" variant="outline">VER MÁS</Button>
-            </div>
+        <div class="mt-10">
+          <Button href="/about-us" variant="outline">Conocé la empresa</Button>
         </div>
+      </div>
 
-        <div class="hidden lg:flex w-[40rem] xl:w-[57rem] h-full">
-            <div class="h-full w-full flex items-center justify-end">
-                <img
-                    src={SectionImage.src}
-                    class="h-[72%] xl:h-[74%] w-[82%] xl:w-[76%] 2xl:w-[80%] border lg:border-primary-500 p-1 object-cover shadow-xl"
-                    data-reveal="fade-up"
-                    data-reveal-delay="100"
-                />
-            </div>
-        </div>
+      <figure
+        class="relative m-0 w-full lg:max-w-[30rem] lg:justify-self-end"
+        data-reveal="fade-up"
+        data-reveal-delay="120"
+      >
+        <!-- Escuadra de señalización: ancla la foto a la grilla en lugar de flotarla. -->
+        <span
+          class="absolute -left-3 -top-3 hidden h-16 w-[3px] bg-accent-500 lg:block"
+          aria-hidden="true"></span>
+        <span
+          class="absolute -left-3 -top-3 hidden h-[3px] w-16 bg-accent-500 lg:block"
+          aria-hidden="true"></span>
+
+        <Image
+          src={featured.image}
+          alt={`${featured.title}: ${featured.subtitle}`}
+          width={640}
+          densities={[1, 2]}
+          format="webp"
+          quality={72}
+          loading="lazy"
+          class="aspect-[4/5] w-full object-cover"
+        />
+
+        <figcaption
+          class="flex items-baseline justify-between gap-4 border-t-2 border-steel-900 bg-white pt-3"
+        >
+          <span class="font-oswald text-sm uppercase tracking-[0.08em] text-steel-900">
+            {featured.title}
+          </span>
+          <span class="plate shrink-0 text-2xs text-steel-400">Obra ejecutada</span>
+        </figcaption>
+      </figure>
     </div>
+  </Container>
 </section>

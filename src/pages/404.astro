@@ -1,14 +1,25 @@
 ---
 import TitlePage from "../components/common/Title-page.astro";
 import MainLayout from "../layouts/Main-layout.astro";
+import Container from "../components/ui/Container.astro";
+import Button from "../components/ui/Button.astro";
 ---
 
-<MainLayout>
-  <TitlePage title="no encontrado" />
-  <div class="h-96 flex justify-center items-center flex-col gap-2">
-    <p data-reveal="fade-up">Página no encontrada</p>
-    <p data-reveal="fade-up" data-reveal-delay="120">
-      Volver al <a href="/">Inicio</a>
-    </p>
-  </div>
+<MainLayout title="Página no encontrada — BALCA">
+  <TitlePage
+    title="No encontrado"
+    subtitle="La página que buscás no existe o cambió de dirección."
+  />
+  <Container>
+    <div
+      class="flex flex-col items-center gap-6 border-t border-steel-200 py-20 text-center lg:py-28"
+    >
+      <p class="max-w-measure text-base leading-relaxed text-steel-500" data-reveal="fade-up">
+        Revisá el enlace o volvé al inicio.
+      </p>
+      <Button href="/" variant="outline" data-reveal="fade-up" data-reveal-delay="120">
+        Volver al inicio
+      </Button>
+    </div>
+  </Container>
 </MainLayout>

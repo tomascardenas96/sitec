@@ -1,0 +1,62 @@
+---
+import Button from "../ui/Button.astro";
+import Container from "../ui/Container.astro";
+import { phone, encoded } from "../../data/whatsapp.js";
+
+const phones = [
+  { label: "(2494) - 123456", href: "tel:+542494123456" },
+  { label: "(2494) - 789987", href: "tel:+542494789987" },
+];
+---
+
+<!-- Naranja de señalización a sangre: el cierre es el punto más alto de la página. -->
+<section class="bg-accent-500 text-steel-950">
+  <Container class="py-16 lg:py-20 2xl:py-24">
+    <div
+      class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16 2xl:gap-24"
+    >
+      <div>
+        <p class="plate text-2xs text-steel-950/80">Presupuesto sin cargo</p>
+        <h2
+          class="mt-5 max-w-[18ch] font-oswald text-4xl font-medium uppercase tracking-display lg:text-5xl 2xl:text-6xl"
+        >
+          ¿Tenés un tablero para fabricar o una obra para montar?
+        </h2>
+        <p class="mt-6 max-w-measure text-base leading-relaxed text-steel-950/80 lg:text-lg">
+          Contanos qué necesitás —planos, potencia, plazos, lo que tengas— y te
+          armamos el presupuesto.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-6 lg:items-end">
+        <div class="flex flex-col gap-3 sm:flex-row sm:gap-4">
+          <Button
+            href={`https://wa.me/${phone}?text=${encoded}`}
+            target="_blank"
+            variant="solidDark"
+            size="lg"
+          >
+            Escribinos por WhatsApp
+          </Button>
+          <Button href="/contact" variant="outline" size="lg">
+            Ver contacto
+          </Button>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <span class="plate text-2xs text-steel-950/80">O llamanos</span>
+          {
+            phones.map((p) => (
+              <a
+                href={p.href}
+                class="font-oswald text-lg tracking-[0.04em] text-steel-950 no-underline underline-offset-4 hover:underline"
+              >
+                {p.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

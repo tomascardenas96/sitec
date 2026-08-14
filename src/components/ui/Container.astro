@@ -1,0 +1,18 @@
+---
+interface Props {
+  as?: "div" | "section" | "header" | "footer" | "nav";
+  width?: "shell" | "measure";
+  class?: string;
+}
+
+const { as: Tag = "div", width = "shell", class: className = "" } = Astro.props;
+
+const widths: Record<string, string> = {
+  shell: "max-w-shell",
+  measure: "max-w-measure",
+};
+---
+
+<Tag class={`w-full mx-auto px-5 sm:px-8 lg:px-10 2xl:px-16 ${widths[width]} ${className}`.trim()}>
+  <slot />
+</Tag>

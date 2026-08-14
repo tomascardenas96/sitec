@@ -1,0 +1,53 @@
+---
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import RegisterRow from "./Register-row.astro";
+import { allProjects } from "../../data/projects.js";
+---
+
+<!-- El catálogo tiene 24 entradas pero solo 3 fotos y 3 títulos reales en
+     ciclo (ver DESIGN-SYSTEM.md §5). Una grilla de 24 tarjetas expone esa
+     repetición; una planilla de texto la disuelve. -->
+<section class="bg-steel-50 py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <div
+            class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between"
+        >
+            <SectionTitle
+                kicker="Catálogo"
+                label="Registro de obras"
+                align="start"
+                class="lg:max-w-[38rem]"
+            />
+            <p class="plate shrink-0 text-2xs text-steel-400">
+                {allProjects.length} obras
+            </p>
+        </div>
+
+        <div class="mt-10 lg:mt-12">
+            <div
+                class="hidden border-b-2 border-steel-900 pb-3 lg:grid lg:grid-cols-[5rem_1fr_1.1fr_2rem] lg:gap-x-8"
+            >
+                <span class="plate text-2xs text-steel-400">N.º</span>
+                <span class="plate text-2xs text-steel-400">Obra</span>
+                <span class="plate text-2xs text-steel-400">Descripción</span>
+                <span aria-hidden="true"></span>
+            </div>
+            <ul
+                role="list"
+                class="border-t border-steel-200 lg:border-t-0"
+            >
+                {
+                    allProjects.map((project, index) => (
+                        <RegisterRow
+                            id={project.id}
+                            title={project.title}
+                            subtitle={project.subtitle}
+                            index={index}
+                        />
+                    ))
+                }
+            </ul>
+        </div>
+    </Container>
+</section>

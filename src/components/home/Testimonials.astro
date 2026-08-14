@@ -1,36 +1,33 @@
 ---
-import texture from "../../assets/images/textura.png";
+import Container from "../ui/Container.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
-import Like from "../../assets/icons/like.svg";
 import { testimonials } from "../../data/testimonials";
 import Testimonial from "./Testimonial.card.astro";
 ---
 
-<section
-  class="mt-2 py-10 2xl:py-24 px-5 bg-cover pb-20 xl:pb-24 md:flex md:flex-col md:items-center"
-  style={`background-image: url('${texture.src}')`}
->
-  <SectionTitle
-    label="Testimonios de Clientes"
-    subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
-    variant="inverse"
-    hasIcon={true}
-  >
-    <Like slot="icon" />
-  </SectionTitle>
-
-  <div
-    class="grid md:flex gap-6 md:gap-8 lg:gap-6 xl:gap-8 2xl:gap-10 mt-8 md:mt-10 md:max-w-[42.5rem] lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] lg:w-[50rem] xl:w-[60rem] 2xl:w-[65rem] md:overflow-auto lg:overflow-visible lg:grid lg:grid-cols-3"
-  >
-    {
-      testimonials.map((testimonial, index) => (
-        <Testimonial
-          image={testimonial.image}
-          name={testimonial.name}
-          body={testimonial.body}
-          index={index}
+{
+  testimonials.length > 0 && (
+    <section class="bg-steel-50 py-20 lg:py-28 2xl:py-32">
+      <Container>
+        <SectionTitle
+          label="Lo que dicen los clientes"
+          kicker="Referencias"
+          align="start"
+          class="lg:max-w-[38rem]"
         />
-      ))
-    }
-  </div>
-</section>
+
+        <div class="mt-12 grid border-t border-steel-200 lg:mt-16 lg:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
+            <Testimonial
+              name={testimonial.name}
+              role={testimonial.role}
+              company={testimonial.company}
+              body={testimonial.body}
+              index={index}
+            />
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}

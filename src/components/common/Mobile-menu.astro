@@ -1,72 +1,133 @@
 ---
-import close from "../../assets/icons/close.svg";
+import SocialLinks from "./Social-links.astro";
+import { phone, encoded } from "../../data/whatsapp.js";
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/about-us", label: "Sobre Nosotros" },
+  { href: "/design", label: "Diseño" },
+  { href: "/projects", label: "Proyectos" },
+  { href: "/contact", label: "Contacto" },
+];
+
+const isActive = (href) =>
+  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
 ---
 
-<nav
+<div
   id="menu"
   data-open="false"
-  class="fixed inset-0 bg-black/60 hidden items-center justify-center z-30"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menú de navegación"
+  class="group fixed inset-0 z-50 hidden data-[open=true]:block lg:hidden"
 >
   <div
-    class="bg-white w-4/5 max-w-sm p-6 rounded-2xl shadow-lg relative flex flex-col gap-6 text-center menu"
+    id="menu-overlay"
+    class="absolute inset-0 bg-steel-950/70 opacity-0 transition-opacity duration-300 ease-out group-data-[open=true]:opacity-100"
   >
-    <button id="closeModal" class="absolute top-3 right-3">
-      <img src={close.src} alt="Cerrar" class="w-6 h-6" />
-    </button>
-
-    <a href="/" class="text-md text-neutral-700 font-[500]">Inicio</a>
-    <a href="/about-us" class="text-md text-neutral-700 font-[500]"
-      >Sobre Nosotros</a
-    >
-    <a href="/design" class="text-md text-neutral-700 font-[500]">Diseño</a>
-    <a href="/projects" class="text-md text-neutral-700 font-[500]">Proyectos</a>
-    <a href="/contact" class="text-md text-neutral-700 font-[500]">Contactanos</a>
   </div>
-</nav>
 
-<style>
-  .menu {
-    transform: translateY(-20px);
-    opacity: 0;
-    transition: all 0.3s ease;
-  }
+  <div
+    class="absolute inset-x-0 top-0 max-h-full -translate-y-4 overflow-y-auto border-b-[3px] border-accent-500 bg-steel-950 opacity-0 transition-all duration-300 ease-out group-data-[open=true]:translate-y-0 group-data-[open=true]:opacity-100"
+  >
+    <div class="flex items-center justify-between border-b border-steel-800 px-5 h-16">
+      <span class="plate text-2xs text-steel-300">Menú</span>
+      <button
+        id="menu-close"
+        type="button"
+        aria-label="Cerrar menú"
+        class="-mr-2 flex size-10 items-center justify-center text-steel-200 transition-colors duration-200 hover:text-accent-400"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M5 5l14 14M19 5L5 19" stroke-linecap="square"></path>
+        </svg>
+      </button>
+    </div>
 
-  nav[data-open="true"] {
-    display: flex !important;
-  }
+    <nav aria-label="Navegación móvil">
+      <ul class="flex flex-col">
+        {
+          links.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <li class="border-b border-steel-800">
+                <a
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  class={`flex items-center gap-4 px-5 py-5 font-oswald text-2xl uppercase tracking-display no-underline transition-colors duration-200 hover:no-underline ${
+                    active ? "text-accent-400" : "text-white hover:text-accent-400"
+                  }`}
+                >
+                  <span
+                    class={`h-[3px] w-6 shrink-0 ${active ? "bg-accent-500" : "bg-steel-700"}`}
+                    aria-hidden="true"
+                  />
+                  {link.label}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
 
-  nav[data-open="true"] .menu {
-    transform: translateY(0);
-    opacity: 1;
-  }
-</style>
+    <div class="flex flex-col gap-5 px-5 py-6">
+      <a
+        href={`https://wa.me/${phone}?text=${encoded}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex h-14 items-center justify-center bg-accent-500 font-oswald text-sm uppercase tracking-[0.16em] font-medium text-steel-950 no-underline hover:no-underline"
+      >
+        Solicitar presupuesto
+      </a>
+      <SocialLinks variant="dark" class="justify-center" />
+    </div>
+  </div>
+</div>
 
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const burger = document.getElementById("burger");
+  (() => {
     const menu = document.getElementById("menu");
-    const closeBtn = document.getElementById("closeModal");
+    const burger = document.getElementById("burger");
+    const closeBtn = document.getElementById("menu-close");
+    const overlay = document.getElementById("menu-overlay");
+    if (!menu || !burger || !closeBtn || !overlay) return;
 
-    if (!burger || !menu || !closeBtn) return;
-
-    // Abrir menú
-    burger.addEventListener("click", () => {
+    const open = () => {
       menu.dataset.open = "true";
-      burger.dataset.open = "true";
-    });
+      burger.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    };
 
-    // Cerrar menú
-    closeBtn.addEventListener("click", () => {
+    const close = () => {
       menu.dataset.open = "false";
-      burger.dataset.open = "false";
+      burger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      burger.focus();
+    };
+
+    burger.addEventListener("click", open);
+    closeBtn.addEventListener("click", close);
+    overlay.addEventListener("click", close);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menu.dataset.open === "true") close();
     });
 
-    // También cerramos si el usuario hace clic fuera del modal
-    menu.addEventListener("click", (e) => {
-      if (e.target === menu) {
-        menu.dataset.open = "false";
-        burger.dataset.open = "false";
-      }
+    // El menú es solo para viewports chicos: si se ensancha, se cierra.
+    window.matchMedia("(min-width: 1024px)").addEventListener("change", (e) => {
+      if (e.matches && menu.dataset.open === "true") close();
     });
-  });
+  })();
 </script>
