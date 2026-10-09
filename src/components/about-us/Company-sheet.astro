@@ -1,0 +1,82 @@
+---
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+
+const paragraphs = [
+    "Somos Joaquín Cárdenas y Nicolás Muruzabal, técnicos electromecánicos. Nicolás aporta aproximadamente 18 años de experiencia en el sector y Joaquín, alrededor de 10.",
+    "Nuestra experiencia está en el sector agroindustrial, las instalaciones eléctricas para bombas y el montaje electromecánico: bandejas portacables, cañerías y cableado. Atendemos empresas y particulares.",
+    "Diseñamos y fabricamos tableros de potencia y control a medida, también a partir de planos del cliente. Entregamos planos, diagramas y cableado identificado, con pruebas de funcionamiento y normas IRAM e IEC aplicables al trabajo.",
+    "Trabajamos desde Tandil. El montaje y las visitas se coordinan según ubicación y alcance; fuera de la zona, según acuerdo. Ofrecemos un año de garantía y asistencia postventa.",
+];
+
+const sheet = [
+    {
+        label: "Actividad",
+        value: "Tableros eléctricos y montajes electromecánicos",
+    },
+    { label: "Base de operaciones", value: "Tandil, Buenos Aires" },
+    { label: "Experiencia técnica del equipo", value: "+15 años en el sector" },
+    { label: "Fabricación", value: "A medida del proyecto" },
+    { label: "Montaje y visitas", value: "Según ubicación y acuerdo" },
+    { label: "Clientes", value: "Empresas y particulares" },
+];
+---
+
+<section class="py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <SectionTitle
+            kicker="Quiénes somos"
+            label="Experiencia técnica, atención directa"
+            align="start"
+            class="lg:max-w-[42rem]"
+        />
+
+        <!-- La ficha va primero, pegada al título: es la promesa de la página (la chapa
+         de datos del hero, a ancho completo), no una nota al pie del texto. Cada
+         celda cita esa chapa — valor grande arriba, rótulo grabado abajo — con
+         steel-400 en vez de accent-400 porque a text-2xs el naranja no pasa AA
+         sobre blanco (ver DESIGN-SYSTEM.md §1.1). -->
+        <dl
+            class="mt-10 grid border-t border-steel-200 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3"
+            data-reveal="fade-up"
+            data-reveal-delay="60"
+        >
+            {
+                sheet.map((item, index) => (
+                    <div
+                        class:list={[
+                            "flex flex-col-reverse gap-1.5 border-b border-steel-200 py-6",
+                            index % 2 === 1 && "sm:border-l sm:pl-6",
+                            index % 3 === 0
+                                ? "lg:border-l-0 lg:pl-0"
+                                : "lg:border-l lg:pl-8 2xl:pl-10",
+                        ]}
+                    >
+                        <dt class="plate text-2xs text-steel-400">
+                            {item.label}
+                        </dt>
+                        <dd class="font-oswald text-lg uppercase tracking-[0.02em] text-steel-900 2xl:text-xl">
+                            {item.value}
+                        </dd>
+                    </div>
+                ))
+            }
+        </dl>
+
+        <div
+            class="mt-14 flex max-w-measure flex-col gap-5 text-base leading-relaxed lg:mt-16 lg:text-lg"
+        >
+            {
+                paragraphs.map((p, index) => (
+                    <p
+                        data-reveal="fade-up"
+                        data-reveal-delay={index * 80}
+                        class="leading-7"
+                    >
+                        {p}
+                    </p>
+                ))
+            }
+        </div>
+    </Container>
+</section>

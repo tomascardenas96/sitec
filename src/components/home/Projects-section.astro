@@ -1,27 +1,35 @@
 ---
-import Check from "../../assets/icons/check.svg";
 import { allProjects } from "../../data/projects.js";
 import ProjectCard from "../common/Project-card.astro";
-import SectionTitle from "../ui/SectionTitle.astro";
 import Button from "../ui/Button.astro";
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+
+// Keep a focused home preview; the complete selection lives at /projects.
+const featured = allProjects.slice(0, 3);
 ---
 
-<section class="py-10 2xl:py-14 px-5 md:flex md:flex-col md:items-center">
-  <SectionTitle
-    label="Proyectos Realizados"
-    subtitle="Experiencia, innovación y resultados comprobados en cada uno de nuestros trabajos"
-    hasIcon={true}
-  >
-    <Check class="text-primary-500" slot="icon" />
-  </SectionTitle>
+<section class="py-20 lg:py-28 2xl:py-32">
+  <Container>
+    <div
+      class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16"
+    >
+      <SectionTitle
+        label="Obras realizadas"
+        kicker="Proyectos"
+        subtitle="Tableros y sistemas de control fabricados, montados y puestos en marcha por el equipo."
+        align="start"
+        class="lg:max-w-[38rem]"
+      />
 
-  <div
-    class="mt-8 md:mt-10 flex flex-col md:grid md:grid-cols-[20rem_20rem] gap-4 md:gap-10 lg:hidden"
-  >
-    {
-      allProjects
-        .slice(0, 4)
-        .map((project, index) => (
+      <div class="shrink-0">
+        <Button href="/projects" variant="outline">Ver todas las obras</Button>
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 2xl:gap-8">
+      {
+        featured.map((project, index) => (
           <ProjectCard
             image={project.image}
             title={project.title}
@@ -30,46 +38,7 @@ import Button from "../ui/Button.astro";
             index={index}
           />
         ))
-    }
-  </div>
-
-  <div
-    class="mt-10 hidden grid-cols-3 gap-4 xl:gap-5 grid-rows-2 lg:w-[50rem] xl:w-[60rem] lg:grid 2xl:hidden"
-  >
-    {
-      allProjects
-        .slice(0, 6)
-        .map((project, index) => (
-          <ProjectCard
-            image={project.image}
-            title={project.title}
-            subtitle={project.subtitle}
-            id={project.id}
-            index={index}
-          />
-        ))
-    }
-  </div>
-
-  <div
-    class="mt-16 hidden grid-cols-3 gap-7 2xl:gap-10 gap-y-10 grid-rows-2 w-[67rem] 2xl:grid"
-  >
-    {
-      allProjects
-        .slice(0, 6)
-        .map((project, index) => (
-          <ProjectCard
-            image={project.image}
-            title={project.title}
-            subtitle={project.subtitle}
-            id={project.id}
-            index={index}
-          />
-        ))
-    }
-  </div>
-
-  <div class="flex justify-center h-36 items-center">
-    <Button href="/projects" variant="outline">MÁS PROYECTOS</Button>
-  </div>
+      }
+    </div>
+  </Container>
 </section>

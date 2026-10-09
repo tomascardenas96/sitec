@@ -1,18 +1,20 @@
 ---
 import TitlePage from "../../components/common/Title-page.astro";
 import MainLayout from "../../layouts/Main-layout.astro";
-import ProjectsGallery from "../../components/projects/Projects-gallery.astro";
-import { allProjects } from "../../data/projects.js";
-import PagesSelector from "../../components/projects/Pages-selector.astro";
-const ITEMS_PER_PAGE = 8;
-const firstPageItems = allProjects.slice(0, ITEMS_PER_PAGE);
-const totalPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE);
+import FeaturedWorks from "../../components/projects/Featured-works.astro";
+import WorksRegister from "../../components/projects/Works-register.astro";
+import CtaSection from "../../components/common/Cta-section.astro";
 ---
 
-<MainLayout>
-  <TitlePage title="proyectos" />
-  <ProjectsGallery items={firstPageItems} />
-  <div class="mb-16">
-    <PagesSelector pages={totalPages} currentPage={1} />
-  </div>
+<MainLayout
+  title="Proyectos — BALCA"
+  description="Tableros eléctricos y sistemas de control diseñados, fabricados y montados por BALCA en Tandil, Buenos Aires."
+>
+  <TitlePage
+    title="Proyectos"
+    subtitle="Tableros y sistemas de control diseñados, fabricados y montados por el equipo."
+  />
+  <FeaturedWorks />
+  <WorksRegister />
+  <CtaSection />
 </MainLayout>

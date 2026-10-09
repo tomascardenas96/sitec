@@ -1,40 +1,72 @@
 ---
 interface Props {
-  label: string;
-  subtitle?: string;
-  variant?: "default" | "inverse";
-  hasIcon?: boolean;
-  class?: string;
+    label: string;
+    kicker?: string;
+    subtitle?: string;
+    variant?: "default" | "inverse";
+    align?: "center" | "start";
+    hasIcon?: boolean;
+    class?: string;
 }
 
 const {
-  label,
-  subtitle,
-  variant = "default",
-  hasIcon = false,
-  class: className = "",
+    label,
+    kicker,
+    subtitle,
+    variant = "default",
+    align = "center",
+    hasIcon = false,
+    class: className = "",
 } = Astro.props;
 
-const titleColor    = variant === "inverse" ? "text-white" : "text-primary-500";
-const subtitleColor = variant === "inverse" ? "text-white" : "text-neutral-800";
-const iconColor     = variant === "inverse" ? "text-white" : "text-primary-500";
+const inverse = variant === "inverse";
+
+const titleColor = inverse ? "text-white" : "text-steel-900";
+const subtitleColor = inverse ? "text-steel-200" : "text-steel-500";
+const kickerColor = inverse ? "text-accent-400" : "text-accent-700";
+const iconColor = inverse ? "text-accent-400" : "text-primary-500";
+
+const alignment =
+    align === "start" ? "items-start text-left" : "items-center text-center";
 ---
 
-<div class={`flex flex-col justify-center items-center gap-2 ${className}`}>
-  <div class="flex gap-2 justify-center items-center">
-    {hasIcon && (
-      <div class={`w-6 2xl:w-7 h-6 2xl:h-7 ${iconColor}`} data-reveal="fade-up">
-        <slot name="icon" />
-      </div>
-    )}
-    <h2 class={`text-2xl 2xl:text-2xl font-oswald font-normal ${titleColor}`} data-reveal="fade-up" data-reveal-delay="80">
-      {label}
+<div class={`flex flex-col ${alignment} ${className}`.trim()}>
+    <!-- Marcador de sección: barra de señalización + rótulo grabado. -->
+    <div class="mb-6 flex items-center gap-3">
+        <span
+            class="h-[3px] w-10 bg-accent-500 origin-left"
+            data-reveal="expand-x"
+            data-origin="left"></span>
+        {
+            hasIcon && (
+                <span class={`w-5 h-5 ${iconColor}`}>
+                    <slot name="icon" />
+                </span>
+            )
+        }
+        {
+            kicker && (
+                <span class={`plate text-2xs ${kickerColor}`}>{kicker}</span>
+            )
+        }
+    </div>
+
+    <h2
+        class={`font-oswald uppercase font-medium tracking-display text-4xl lg:text-5xl 2xl:text-6xl ${titleColor}`}
+        data-reveal="fade-up"
+    >
+        {label}
     </h2>
-  </div>
-  {subtitle && (
-    <p class={`text-center font-oswald max-w-[40ch] lg:max-w-full font-light lg:text-sm xl:text-base 2xl:text-lg ${subtitleColor}`} data-reveal="fade-up" data-reveal-delay="160">
-      {subtitle}
-    </p>
-  )}
-  <div class="h-0.5 w-12 bg-accent-500 mt-2 rounded-full" data-reveal="expand-x" data-reveal-delay="240"></div>
+
+    {
+        subtitle && (
+            <p
+                class={`mt-4 text-base lg:text-lg leading-relaxed max-w-measure ${subtitleColor}`}
+                data-reveal="fade-up"
+                data-reveal-delay="80"
+            >
+                {subtitle}
+            </p>
+        )
+    }
 </div>

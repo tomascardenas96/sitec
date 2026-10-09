@@ -1,0 +1,35 @@
+---
+interface Props {
+  variant?: "light" | "dark";
+  class?: string;
+}
+
+const { variant = "light", class: className = "" } = Astro.props;
+
+import { socialNetworks as networks } from "../../data/contact.js";
+
+const tone =
+  variant === "dark"
+    ? "text-steel-300 hover:text-accent-400"
+    : "text-steel-500 hover:text-accent-700";
+---
+
+{networks.length > 0 && <ul class={`flex items-center gap-4 ${className}`.trim()}>
+  {
+    networks.map((network) => (
+      <li>
+        <a
+          href={network.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${network.name} de BALCA`}
+          class={`block transition-colors duration-200 ease-out ${tone}`}
+        >
+          <svg viewBox="0 0 24 24" class="h-[1.15rem] w-[1.15rem]" fill="currentColor" aria-hidden="true">
+            <path d={network.path} />
+          </svg>
+        </a>
+      </li>
+    ))
+  }
+</ul>}

@@ -1,58 +1,43 @@
 ---
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/about-us", label: "Sobre Nosotros" },
+  { href: "/design", label: "Diseño" },
+  { href: "/projects", label: "Proyectos" },
+  { href: "/contact", label: "Contacto" },
+];
+
+const isActive = (href) =>
+  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
 ---
 
-<ul
-  id="main-menu"
-  class="font-oswald hidden gap-4 xl:gap-5 text-sm xl:text-[.93rem] 2xl:text-lg lg:flex h-8 items-center"
->
-  <li
-    class={`py-1 ${currentPath === "/" ? "border-b-2 border-accent-400" : ""}`}
-  >
-    <a href="/" class="hover:text-neutral-400 text-inherit transition">Inicio</a>
-  </li>
-
-  <li
-    class={`py-1 ${currentPath === "/about-us" ? "border-b-2 border-accent-400" : ""}`}
-  >
-    <a href="/about-us" class="hover:text-neutral-400 text-inherit transition"
-      >Sobre Nosotros</a
-    >
-  </li>
-
-  <li
-    class={`py-1 ${currentPath === "/design" ? "border-b-2 border-accent-400" : ""}`}
-  >
-    <a href="/design" class="hover:text-neutral-400 text-inherit transition"
-      >Diseño</a
-    >
-  </li>
-
-  <li
-    class={`py-1 ${currentPath === "/projects" ? "border-b-2 border-accent-400" : ""}`}
-  >
-    <a href="/projects" class="hover:text-neutral-400 text-inherit transition"
-      >Proyectos</a
-    >
-  </li>
-
-  <li
-    class={`py-1 ${currentPath === "/contact" ? "border-b-2 border-accent-400" : ""}`}
-  >
-    <a href="/contact" class="hover:text-neutral-400 text-inherit transition"
-      >Contacto</a
-    >
-  </li>
+<ul class="flex items-center gap-6 xl:gap-8">
+  {
+    links.map((link) => {
+      const active = isActive(link.href);
+      return (
+        <li>
+          <a
+            href={link.href}
+            aria-current={active ? "page" : undefined}
+            class={`group relative block py-2 font-oswald text-sm uppercase tracking-[0.1em] no-underline transition-colors duration-200 hover:no-underline 2xl:text-base ${
+              active
+                ? "text-steel-900"
+                : "text-steel-500 hover:text-steel-900"
+            }`}
+          >
+            {link.label}
+            <span
+              class={`absolute bottom-0 left-0 h-[3px] w-full origin-left bg-accent-500 transition-transform duration-200 ease-out group-hover:scale-x-100 ${
+                active ? "scale-x-100" : "scale-x-0"
+              }`}
+              aria-hidden="true"
+            />
+          </a>
+        </li>
+      );
+    })
+  }
 </ul>
-
-<script is:inline>
-  const currentPath = window.location.pathname.replace(/\/$/, "");
-  const menuLinks = document.querySelectorAll("#main-menu li a");
-
-  menuLinks.forEach((link) => {
-    const href = link.getAttribute("href").replace(/\/$/, "");
-    if (href === currentPath) {
-      link.parentElement.classList.add("border-b-2", "border-accent-400");
-    }
-  });
-</script>

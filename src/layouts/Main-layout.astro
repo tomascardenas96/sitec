@@ -1,10 +1,19 @@
 ---
 import Footer from "../components/common/Footer.astro";
 import Header from "../components/common/Header.astro";
-import MidBar from "../components/common/Mid-bar.astro";
 import TopBar from "../components/common/Top-bar.astro";
 import WhatsappBtn from "../components/common/WhatsappBtn.astro";
 import "../styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "BALCA — Tableros eléctricos y montajes industriales",
+  description = "Fabricación de tableros eléctricos industriales y montajes electromecánicos en Tandil. Diseño, construcción, montaje y puesta en marcha bajo normas IRAM e IEC.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -14,28 +23,41 @@ import "../styles/globals.css";
       document.documentElement.classList.add("js-reveal");
     </script>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>Sitec - Montajes electricos</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0A0F16" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content="es_AR" />
+    <title>{title}</title>
   </head>
-  <body>
-    <div class="h-7 2xl:h-9 hidden lg:block"></div>
-    <MidBar />
-    <div class="h-[4.5rem] lg:hidden"></div>
-    <TopBar class="hidden" />
+  <body class="bg-white">
+    <a
+      href="#contenido"
+      class="plate text-xs sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-accent-500 focus:text-steel-950 focus:px-4 focus:py-3"
+    >
+      Saltar al contenido
+    </a>
+
+    <TopBar />
     <Header />
-    <slot />
-    <WhatsappBtn />
+
+    <main id="contenido">
+      <slot />
+    </main>
+
     <Footer />
+    <WhatsappBtn />
+
     <script>
       import "../scripts/reveal.js";
     </script>

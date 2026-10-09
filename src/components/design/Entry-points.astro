@@ -1,0 +1,78 @@
+---
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+
+// Los tres caminos ya están afirmados en el sitio: faqs.js #4 ("fabricamos
+// tableros completamente personalizados a partir de planos o especificaciones
+// técnicas") y Company-sheet.astro ("estudiamos el requerimiento, definimos
+// componentes y protecciones..."). No agrega alcance nuevo.
+const entryPoints = [
+    {
+        label: "Camino 1",
+        title: "Con tus planos",
+        description:
+            "Fabricamos a partir de los planos y especificaciones técnicas que nos envíes.",
+    },
+    {
+        label: "Camino 2",
+        title: "Con una especificación",
+        description:
+            "Nos das los requerimientos técnicos y armamos el diseño y la documentación.",
+    },
+    {
+        label: "Camino 3",
+        title: "Desde cero",
+        description:
+            "Relevamos la necesidad del proyecto y proponemos la solución completa.",
+    },
+];
+---
+
+<section class="py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <SectionTitle
+            kicker="Cómo empezamos"
+            label="Tres formas de arrancar un proyecto"
+            align="start"
+            class="lg:max-w-[42rem]"
+        />
+
+        <p
+            class="mt-8 max-w-measure text-base leading-relaxed text-steel-500 lg:text-lg"
+            data-reveal="fade-up"
+        >
+            Diseñamos y fabricamos según las necesidades del proyecto.
+            El punto de partida cambia según la información disponible;
+            el montaje se acuerda según ubicación y alcance.
+        </p>
+
+        <dl
+            class="mt-10 grid border-t border-steel-200 sm:grid-cols-3 lg:mt-12"
+            data-reveal="fade-up"
+            data-reveal-delay="80"
+        >
+            {
+                entryPoints.map((item, index) => (
+                    <div
+                        class:list={[
+                            "flex flex-col-reverse gap-3 border-b border-steel-200 py-7",
+                            index > 0 && "sm:border-l sm:pl-6 lg:pl-8 2xl:pl-10",
+                        ]}
+                    >
+                        <dt class="plate text-2xs text-steel-400">
+                            {item.label}
+                        </dt>
+                        <dd>
+                            <p class="font-oswald text-lg uppercase tracking-display text-steel-900 2xl:text-xl">
+                                {item.title}
+                            </p>
+                            <p class="mt-2 text-sm leading-relaxed text-steel-500">
+                                {item.description}
+                            </p>
+                        </dd>
+                    </div>
+                ))
+            }
+        </dl>
+    </Container>
+</section>

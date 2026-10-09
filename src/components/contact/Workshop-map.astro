@@ -1,0 +1,65 @@
+---
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import { channels } from "../../data/contact.js";
+
+const address = channels.find((c) => c.kind === "address");
+---
+
+<section class="bg-steel-900 py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <div
+            class="grid gap-10 lg:grid-cols-[1fr_1.3fr] lg:items-end lg:gap-16 2xl:gap-20"
+        >
+            <div>
+                <SectionTitle
+                    kicker="Dónde estamos"
+                    label="El taller"
+                    variant="inverse"
+                    align="start"
+                />
+                <p class="mt-6 font-oswald text-lg uppercase tracking-[0.04em] text-white">
+                    {address?.value}
+                </p>
+                <a
+                    href={address?.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group mt-4 inline-flex items-center gap-2 no-underline hover:no-underline"
+                >
+                    <span class="plate text-2xs text-accent-400 transition-colors duration-200 group-hover:text-accent-300">
+                        Cómo llegar
+                    </span>
+                    <svg
+                        viewBox="0 0 24 24"
+                        class="h-3.5 w-3.5 shrink-0 text-accent-500 transition-transform duration-200 ease-out group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        aria-hidden="true"
+                    >
+                        <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="square" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- El mapa en gris no rompe la paleta de acero; recupera color
+                 al pasar el mouse o al llegar por teclado. -->
+            <div
+                class="border border-white/20 p-1"
+                data-reveal="fade-up"
+                data-reveal-delay="80"
+            >
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.7664877087377!2d-59.169859323305126!3d-37.29526740458503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959121bc7c7f0223%3A0x7a8d0045b0274fca!2sFigueroa%202367%2C%20B7000%20Tandil%2C%20Provincia%20de%20Buenos%20Aires!5e1!3m2!1sen!2sar!4v1765039491657!5m2!1sen!2sar"
+                    title="Ubicación del taller de BALCA en Tandil"
+                    class="h-[16rem] w-full grayscale-[0.85] contrast-[1.05] transition-[filter] duration-500 hover:grayscale-0 focus:grayscale-0 lg:h-[18rem]"
+                    style="border:0;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+            </div>
+        </div>
+    </Container>
+</section>

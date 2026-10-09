@@ -1,59 +1,13 @@
-import Task from "../assets/icons/task.png";
-import Box from "../assets/icons/new-product.png";
-import Factory from "../assets/icons/electric-factory.png";
-import Support from "../assets/icons/technical-support.png";
-
-import Analysis from "../assets/icons/analysis.png";
-import Design from "../assets/icons/design.png";
-import Follow from "../assets/icons/follow.png";
-import Technical from "../assets/icons/technical.png";
-import Testing from "../assets/icons/testing.png";
-
-// Para pagina "/"
 export const shortFlow = [
-  {
-    icon: Task,
-    title: "Estudio y planificación de instalaciones eléctricas industriales",
-  },
-  {
-    icon: Box,
-    title: "Desarrollo de tableros eléctricos y sistemas de distribución",
-  },
-  {
-    icon: Factory,
-    title: "Montajes electromecánicos a medida",
-  },
-  {
-    icon: Support,
-    title: "Asesoramiento técnico para optimizar consumos",
-  },
+  { title: "Diseño y planificación", description: "Definimos el tablero de potencia o control según las necesidades del proyecto.", deliverable: "Planos y diagramas eléctricos" },
+  { title: "Fabricación de tableros", description: "Armado a medida, cableado y verificación antes de la entrega.", deliverable: "Cableado identificado y pruebas de funcionamiento" },
+  { title: "Montajes electromecánicos", description: "Bandejas portacables, cañerías y cableado. El montaje se coordina según ubicación y alcance.", deliverable: "Instalación en obra según lo acordado" },
+  { title: "Asistencia y postventa", description: "Soporte al electricista instalador y visitas previamente acordadas. Mantenimiento preventivo según el trabajo.", deliverable: "Un año de garantía y atención personalizada" },
 ];
-
-// Para pagina "/design"
 export const longFlow = [
-  {
-    title: "Análisis de necesidades",
-    subtitle: "Revisamos los requerimientos del cliente y del proyecto",
-    icon: Analysis.src,
-  },
-  {
-    title: "Diseño conceptual",
-    subtitle: "Elaboramos planos y diagramas preliminares",
-    icon: Design.src,
-  },
-  {
-    title: "Entrega y seguimiento",
-    subtitle: "Entregamos documentación y brindamos soporte post-venta",
-    icon: Follow.src,
-  },
-  {
-    title: "Desarrollo técnico",
-    subtitle: "Definimos especificaciones, componentes y materiales",
-    icon: Technical.src,
-  },
-  {
-    title: "Validación y pruebas",
-    subtitle: "Aseguramos cumplimiento de normas y funcionalidad",
-    icon: Testing.src,
-  },
+  { title: "Análisis de necesidades", subtitle: "Revisamos el uso, la ubicación y los requerimientos del proyecto.", deliverable: "Alcance del trabajo acordado" },
+  { title: "Diseño del tablero", subtitle: "Elaboramos el diseño o trabajamos a partir de planos del cliente.", deliverable: "Planos y diagramas eléctricos" },
+  { title: "Armado y cableado", subtitle: "Fabricamos el tablero de potencia o control a medida.", deliverable: "Tablero armado y cableado identificado" },
+  { title: "Verificación", subtitle: "Realizamos pruebas de funcionamiento antes de entregar.", deliverable: "Pruebas y revisión según normas IRAM e IEC aplicables" },
+  { title: "Entrega y asistencia", subtitle: "Entregamos la documentación y coordinamos montaje y soporte según el proyecto.", deliverable: "Documentación técnica y asistencia postventa" },
 ];

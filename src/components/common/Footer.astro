@@ -1,79 +1,123 @@
 ---
-import Logo from "../../assets/sitec-no-bg.png";
-import Facebook from "../../assets/icons/facebook.svg";
-import Instagram from "../../assets/icons/instagram.svg";
-import Linkedin from "../../assets/icons/linkedin.svg";
+import Container from "../ui/Container.astro";
+import SocialLinks from "./Social-links.astro";
 import { phone, encoded } from "../../data/whatsapp.js";
 
-const socialStyles =
-  "size-10 lg:size-8 rounded-full overflow-hidden object-cover flex justify-center items-center shadow-md bg-white";
+const year = new Date().getFullYear();
+
+const sections = [
+  { href: "/", label: "Inicio" },
+  { href: "/about-us", label: "Sobre Nosotros" },
+  { href: "/design", label: "Diseño" },
+  { href: "/projects", label: "Proyectos" },
+  { href: "/contact", label: "Contacto" },
+];
+
+import { phones } from "../../data/contact.js";
 ---
 
-<footer
-  class="h-[37rem] lg:h-[26.5rem] px-8 pt-8 relative z-10 bg-[rgb(52,65,71)] text-white font-light md:flex lg:flex-col md:justify-center lg:justify-start lg:items-center"
->
-  <div
-    class="lg:w-[50rem] xl:w-[60rem] 2xl:w-[65rem] md:max-w-[42.5rem] lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] lg:grid lg:grid-cols-[1fr_15rem] lg:justify-between lg:gap-10 lg:gap-y-4 lg:grid-rows-[10rem_7rem]"
-  >
-    <div>
-      <img src={Logo.src} alt="logo white" class="w-28" />
+<footer class="bg-steel-950 text-steel-200">
+  <!-- Franja de señalización: el mismo motivo que cierra el bloque de contacto. -->
+  <div class="hazard h-2" aria-hidden="true"></div>
 
-      <p class="text-sm lg:max-w-[50ch] lg:leading-6">
-        Soluciones eléctricas y electromecánicas de calidad, desde el diseño
-        hasta el montaje y puesta en marcha de tableros. Trabajamos bajo todas
-        las normas de seguridad vigentes.
-      </p>
-    </div>
-
-    <div>
-      <h1 class="font-oswald text-xl mt-10 lg:mt-6 mb-5">Secciones</h1>
-
-      <ul class="text-base lg:text-sm font-oswald flex flex-col gap-2 lg:gap-3">
-        <li>
-          <a href="/" class="text-white"> INICIO </a>
-        </li>
-        <li>
-          <a href="/about-us" class="text-white"> SOBRE NOSOTROS </a>
-        </li>
-        <li>
-          <a href="/design" class="text-white"> DISEÑO </a>
-        </li>
-        <li>
-          <a href="/projects" class="text-white"> PROYECTOS </a>
-        </li>
-        <li>
-          <a href="/contact" class="text-white"> CONTACTO </a>
-        </li>
-        <li>
-          <a href={`https://wa.me/${phone}?text=${encoded}`} class="text-white">
-            PRESUPUESTO
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="flex flex-col gap-4 md:mt-10 lg:mt-3">
-      <h1 class="hidden font-oswald text-xl md:inline">Redes Sociales</h1>
-      <div class="flex justify-center md:justify-start gap-2 mt-11 md:mt-0">
-        <div class={`${socialStyles}`}>
-          <Facebook class="w-5 lg:w-4 h-5 lg:h-4" />
+  <Container class="py-14 lg:py-20">
+    <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
+      <div class="flex flex-col items-start gap-6">
+        <!-- Chapa de identificación: el logo vive sobre su placa, como en el gabinete. -->
+        <div class="bg-white px-5 py-4">
+          <img
+            src="/balca-logo.svg"
+            alt="BALCA, instalaciones eléctricas integrales y montajes industriales"
+            width="1000"
+            height="400"
+            loading="lazy"
+            decoding="async"
+            class="h-11 w-auto"
+          />
         </div>
-        <div class={`${socialStyles}`}>
-          <Instagram class="w-5 lg:w-4 h-5 lg:h-4" />
-        </div>
-        <div class={`${socialStyles}`}>
-          <Linkedin class="object-cover w-5 lg:w-4 h-5 lg:h-4" />
-        </div>
+
+        <p class="max-w-[46ch] text-sm leading-relaxed text-steel-300">
+          Soluciones eléctricas y electromecánicas de calidad, desde el diseño
+          hasta la fabricación de tableros de potencia y control. Montajes en Tandil
+          y alrededores; otros destinos según acuerdo.
+        </p>
+
+        <SocialLinks variant="dark" />
+      </div>
+
+      <nav aria-labelledby="footer-secciones">
+        <h2 id="footer-secciones" class="plate mb-6 text-2xs text-accent-400">
+          Secciones
+        </h2>
+        <ul class="flex flex-col">
+          {
+            sections.map((section) => (
+              <li class="border-b border-steel-800">
+                <a
+                  href={section.href}
+                  class="block py-3 font-oswald text-sm uppercase tracking-[0.1em] text-steel-200 no-underline transition-colors duration-200 hover:text-accent-400 hover:no-underline"
+                >
+                  {section.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="plate mb-6 text-2xs text-accent-400">Contacto</h2>
+
+        <dl class="flex flex-col gap-5 text-sm">
+          <div>
+            <dt class="plate text-2xs text-steel-300">Taller</dt>
+            <dd class="mt-1 leading-relaxed text-steel-200">
+              Figueroa 2367<br />Tandil, Buenos Aires
+            </dd>
+          </div>
+          <div>
+            <dt class="plate text-2xs text-steel-300">Teléfonos</dt>
+            <dd class="mt-1 flex flex-col gap-1">
+              {
+                phones.map((p) => (
+                  <a
+                    href={p.href}
+                    class="text-steel-200 no-underline transition-colors duration-200 hover:text-accent-400"
+                  >
+                    {p.label}
+                  </a>
+                ))
+              }
+            </dd>
+          </div>
+        </dl>
+
+        <a
+          href={`https://wa.me/${phone}?text=${encoded}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-7 inline-flex h-12 items-center border-2 border-steel-700 px-6 font-oswald text-xs uppercase tracking-[0.16em] text-white no-underline transition-colors duration-200 ease-out hover:border-accent-500 hover:bg-accent-500 hover:text-steel-950 hover:no-underline"
+        >
+          Pedir presupuesto
+        </a>
       </div>
     </div>
-  </div>
+  </Container>
 
-  <div class="hidden lg:flex justify-center h-16 w-full mt-6">
-    <div
-      class="w-[50rem] xl:w-[60rem] 2xl:w-[65rem] max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] border-t flex items-center justify-between text-xs text-grey-500"
+  <div class="border-t border-steel-800">
+    <Container
+      class="flex flex-col gap-2 py-6 text-2xs text-steel-300 sm:flex-row sm:items-center sm:justify-between"
     >
-      <p>Copyright © 2025 - All rights reserved</p>
-      <p>Tomás Cárdenas - https://www.tomascardenas.me</p>
-    </div>
+      <p>© {year} BALCA — Todos los derechos reservados</p>
+      <p>
+        Sitio por <a
+          href="https://www.tomascardenas.me"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-steel-300 no-underline transition-colors duration-200 hover:text-accent-400"
+          >Tomás Cárdenas</a
+        >
+      </p>
+    </Container>
   </div>
 </footer>

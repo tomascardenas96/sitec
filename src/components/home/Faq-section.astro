@@ -1,30 +1,29 @@
 ---
+import Container from "../ui/Container.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
-import Question from "../../assets/icons/question.svg";
-import { faqList } from "../../data/faqs";
+import { faqList } from "../../data/Faqs.js";
 import FaqCard from "./Faq-card.astro";
 ---
 
-<section class="py-10 2xl:py-28 pt-14 pb-24 2xl:pb-28 px-5 ">
-  <SectionTitle
-    label="Preguntas Frecuentes"
-    subtitle="Respondemos las consultas más frecuentes de nuestros clientes"
-    hasIcon={true}
-  >
-    <Question class="text-primary-500" slot="icon" />
-  </SectionTitle>
-
-  <div class="mt-10 flex flex-col gap-4 md:items-center">
-    {
-      faqList.map((faq, index) => (
-        <FaqCard
-          key={`faq-${faq.id}`}
-          question={faq.question}
-          answer={faq.answer}
-          id={faq.id}
-          index={index}
+<section class="py-20 lg:py-28 2xl:py-32">
+  <Container>
+    <div class="grid gap-12 lg:grid-cols-[22rem_1fr] lg:gap-20 2xl:grid-cols-[26rem_1fr]">
+      <div class="lg:sticky lg:top-32 lg:self-start">
+        <SectionTitle
+          label="Preguntas frecuentes"
+          kicker="Antes de escribirnos"
+          subtitle="Las consultas que más nos llegan sobre fabricación, montaje y normativa."
+          align="start"
         />
-      ))
-    }
-  </div>
+      </div>
+
+      <div class="border-t border-steel-200">
+        {
+          faqList.map((faq, index) => (
+            <FaqCard question={faq.question} answer={faq.answer} index={index} />
+          ))
+        }
+      </div>
+    </div>
+  </Container>
 </section>

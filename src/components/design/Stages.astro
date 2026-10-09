@@ -1,10 +1,36 @@
 ---
-import { longFlow } from "../../data/design-flow";
-import StageCard from "./Stage-card.astro";
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import ProcessRow from "../common/Process-row.astro";
+import { longFlow } from "../../data/design-flow.js";
 ---
 
-<section
-  class="flex md:grid xl:flex flex-col xl:flex-row xl:justify-center xl:items-center md:grid-cols-2 gap-6 xl:gap-0 2xl:gap-4 py-12 xl:py-0 px-8 xl:p-0 xl:h-[19.5rem] 2xl:h-[19rem]"
->
-  {longFlow.map((item, index) => <StageCard item={item} index={index} />)}
+<!-- Es el pago de la promesa de la home: Design-section.astro linkea acá con
+     "Ver el proceso completo". Acá va la taxonomía larga (5 etapas), no las
+     4 líneas de servicio de shortFlow. -->
+<section class="bg-steel-900 py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <SectionTitle
+            label="Las cinco etapas de un proyecto"
+            kicker="Cómo trabajamos"
+            subtitle="Todo tablero recorre las mismas etapas, desde el análisis inicial hasta el soporte post-venta."
+            variant="inverse"
+            align="start"
+            class="lg:max-w-[48rem]"
+        />
+
+        <ol role="list" class="mt-10 border-t border-white/15 lg:mt-12">
+            {
+                longFlow.map((item, index) => (
+                    <ProcessRow
+                        step={String(index + 1).padStart(2, "0")}
+                        title={item.title}
+                        description={item.subtitle}
+                        deliverable={item.deliverable}
+                        index={index}
+                    />
+                ))
+            }
+        </ol>
+    </Container>
 </section>

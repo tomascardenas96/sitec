@@ -1,0 +1,75 @@
+---
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import { components } from "../../data/components.js";
+import { glyphs } from "../../data/glyphs.js";
+---
+
+<section class="py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <SectionTitle
+            kicker="Qué fabricamos"
+            label="Tableros de potencia y control"
+            align="start"
+            class="lg:max-w-[42rem]"
+        />
+
+        <div
+            class="mt-12 grid border-t border-steel-200 lg:mt-16 lg:grid-cols-2"
+            data-reveal="fade-up"
+            data-reveal-delay="80"
+        >
+            {
+                components.map((item, index) => (
+                    <div
+                        class:list={[
+                            "flex items-start gap-5 border-b border-steel-200 py-8",
+                            index % 2 === 1 && "lg:border-l lg:pl-10 2xl:pl-12",
+                        ]}
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            class="h-9 w-9 shrink-0 text-accent-500"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="square"
+                            aria-hidden="true"
+                        >
+                            {glyphs[item.glyph].map((d) => (
+                                <path d={d} />
+                            ))}
+                        </svg>
+                        <div>
+                            <h3 class="font-oswald text-xl font-medium uppercase tracking-display text-steel-900">
+                                {item.title}
+                            </h3>
+                            <p class="mt-2 max-w-measure text-sm leading-relaxed text-steel-500 lg:text-base">
+                                {item.subtitle}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+
+        <a
+            href="/projects"
+            class="group mt-2 flex items-center justify-between gap-6 border-b border-steel-200 py-6 no-underline transition-colors duration-200 ease-out hover:no-underline lg:py-7"
+        >
+            <span class="font-oswald text-lg uppercase tracking-[0.12em] text-steel-900 transition-colors duration-200 group-hover:text-accent-700 lg:text-xl">
+                Ver las obras realizadas
+            </span>
+            <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5 shrink-0 text-accent-500 transition-transform duration-200 ease-out group-hover:translate-x-1.5 lg:h-6 lg:w-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="square" />
+            </svg>
+        </a>
+    </Container>
+</section>

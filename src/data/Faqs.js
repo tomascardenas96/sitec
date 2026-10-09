@@ -1,38 +1,9 @@
 export const faqList = [
-  {
-    id: 1,
-    question: "¿Qué tipos de tableros eléctricos fabrican?",
-    answer:
-      "Fabricamos tableros de distribución, comando, automatización, transferencia, tableros para motores, PLC, y tableros personalizados según las necesidades de cada proyecto.",
-  },
-  {
-    id: 2,
-    question: "¿Trabajan solo con empresas o también con particulares?",
-    answer:
-      "Trabajamos tanto con empresas como con particulares. Nos adaptamos a cada tipo de cliente ofreciendo soluciones eléctricas seguras y a medida.",
-  },
-  {
-    id: 3,
-    question: "¿Realizan el montaje en obra o solo entregan el tablero?",
-    answer:
-      "Podemos encargarnos tanto de la fabricación como del montaje e instalación en obra. El servicio depende de las necesidades y alcance del proyecto.",
-  },
-  {
-    id: 4,
-    question: "¿Pueden hacer tableros personalizados según planos del cliente?",
-    answer:
-      "Sí, fabricamos tableros completamente personalizados a partir de planos o especificaciones técnicas proporcionadas por el cliente, garantizando calidad y cumplimiento normativo.",
-  },
-  {
-    id: 5,
-    question: "¿Cumplen con normas de seguridad eléctrica?",
-    answer:
-      "Sí, todos nuestros tableros se diseñan y construyen bajo las normas vigentes de seguridad eléctrica (IEC, IRAM y otras aplicables), priorizando la confiabilidad y la protección del usuario.",
-  },
-  {
-    id: 6,
-    question: "¿Ofrecen mantenimiento o servicio post-venta?",
-    answer:
-      "Sí, brindamos mantenimiento preventivo y correctivo, además de asistencia técnica post-venta para asegurar el correcto funcionamiento de nuestros tableros a lo largo del tiempo.",
-  },
+  { id: 1, question: "¿Qué tipos de tableros fabrican?", answer: "Diseñamos y fabricamos tableros de potencia y control, distribución de baja tensión, transferencia entre generador y red, y control y protección de motores. También hacemos tableros a medida según planos o especificaciones del cliente." },
+  { id: 2, question: "¿Trabajan con empresas y particulares?", answer: "Sí. Atendemos empresas y particulares, con experiencia en el sector agroindustrial, sistemas eléctricos de bombeo y montaje electromecánico." },
+  { id: 3, question: "¿Realizan montajes y en qué zona trabajan?", answer: "Trabajamos en Tandil y alrededores. Coordinamos montajes, bandejas portacables, cañerías y cableado según el alcance y la ubicación. Los trabajos fuera de la zona se acuerdan según distancia, disponibilidad y presupuesto." },
+  { id: 4, question: "¿Qué documentación entregan?", answer: "Entregamos planos, diagramas eléctricos e identificación de cables, y realizamos pruebas de funcionamiento antes de la entrega. También fabricamos a partir de planos del cliente." },
+  { id: 5, question: "¿Qué normas aplican?", answer: "Trabajamos según las normas IRAM e IEC aplicables a cada proyecto. Los requisitos técnicos se definen según el tipo de tablero y su uso." },
+  { id: 6, question: "¿Ofrecen garantía y servicio postventa?", answer: "Los trabajos cuentan con un año de garantía. Brindamos asistencia al electricista instalador y coordinamos visitas según ubicación y necesidad. El mantenimiento preventivo depende del trabajo; los componentes tienen la garantía de su fabricante cuando corresponde. Consulte las condiciones de garantía al solicitar el presupuesto." },
+  { id: 7, question: "¿Qué medios y condiciones de pago ofrecen?", answer: "Aceptamos efectivo, transferencia y cheques sujetos a aceptación. Los pagos suelen organizarse por etapas completadas, según el proyecto y la provisión de materiales. Las condiciones se acuerdan al presupuestar." },
 ];

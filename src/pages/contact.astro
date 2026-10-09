@@ -1,22 +1,18 @@
 ---
 import TitlePage from "../components/common/Title-page.astro";
 import MainLayout from "../layouts/Main-layout.astro";
-import Information from "../components/contact/Information.astro";
-import Map from "../components/contact/Map.astro";
-import MoreInfo from "../components/contact/More-info.astro";
+import QuoteForm from "../components/contact/Quote-form.astro";
+import WorkshopMap from "../components/contact/Workshop-map.astro";
 ---
 
-<MainLayout>
-  <TitlePage title="contactanos" />
-  <div
-    class="max-w-[35rem] lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[63rem] lg:h-[28rem] xl:h-[32rem] 2xl:h-[32rem] lg:flex lg:items-center lg:justify-center mx-auto"
-  >
-    <div
-      class="lg:w-full lg:grid lg:grid-cols-[1fr_1.3fr] lg:justify-between lg:items-center lg:gap-24 xl:gap-40 2xl:gap-48"
-    >
-      <Information />
-      <Map />
-    </div>
-  </div>
-  <MoreInfo />
+<MainLayout
+  title="Contacto — BALCA"
+  description="Pedí un presupuesto para tu tablero eléctrico o escribinos por WhatsApp, teléfono o e-mail. Taller en Figueroa 2367, Tandil, Buenos Aires."
+>
+  <TitlePage
+    title="Contacto"
+    subtitle="Contanos qué necesitás y te armamos el presupuesto. También podés escribirnos directo por WhatsApp, teléfono o e-mail."
+  />
+  <QuoteForm />
+  <WorkshopMap />
 </MainLayout>

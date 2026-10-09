@@ -1,0 +1,339 @@
+{
+  "scope": "Curated assets only; no website integration. Folder-derived identifiers are not verified public project titles or technical claims.",
+  "processing": {
+    "format": "webp",
+    "quality": 82,
+    "effort": 6,
+    "maximumLongEdge": 1600,
+    "autoOrient": true,
+    "upscale": false,
+    "crop": false,
+    "metadata": "Stripped from derived images; originals untouched."
+  },
+  "summary": {
+    "sourceCount": 39,
+    "uniqueSourceCount": 37,
+    "selectedCount": 11,
+    "selectedProjectGroups": 6,
+    "originalBytes": 59625573,
+    "outputBytes": 2221938,
+    "reductionPercent": 96.27,
+    "originalIntegrity": "All source SHA-256 hashes match before and after conversion."
+  },
+  "selected": [
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260720_133435260_HDR_AE.jpg",
+      "originalSha256": "995d472d840aabf5026cc3fa0716b9c200f31759e9518a1ba7046b41cae66ddd",
+      "originalWidth": 4080,
+      "originalHeight": 3072,
+      "originalBytes": 8257276,
+      "output": "src/assets/images/projects/swine-facility/interior-overview.webp",
+      "width": 1600,
+      "height": 1205,
+      "bytes": 336314,
+      "rationale": "Landscape overview adds installation context rather than another cabinet close-up."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260805_170131749_HDR_AE.jpg",
+      "originalSha256": "50c978b767991cbf3f7296c7cd384fe516baff434a55c2d9e49e00f21a3fa66e",
+      "originalWidth": 3072,
+      "originalHeight": 4080,
+      "originalBytes": 8047696,
+      "output": "src/assets/images/projects/swine-facility/central-aisle.webp",
+      "width": 1205,
+      "height": 1600,
+      "bytes": 283118,
+      "rationale": "Centered aisle view complements the wider interior photograph."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero acometida T3 para tambo y riego pivot/1790631510342.png",
+      "originalSha256": "3a8ebf128c946c47294088fa8c2a0568824ac9270e1b85cacf2c409f3d47736b",
+      "originalWidth": 896,
+      "originalHeight": 1190,
+      "originalBytes": 1593675,
+      "output": "src/assets/images/projects/dairy-irrigation-supply-panel/interior.webp",
+      "width": 896,
+      "height": 1190,
+      "bytes": 109780,
+      "rationale": "Clear, front-facing cabinet interior; stronger than the empty cabinet and low-resolution exterior."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero conmutación generador-red eléctrica/IMG_20260521_145351011_AE.jpg",
+      "originalSha256": "3ebd115ea25e2a00dd083e534f3fc3a0847a16e98867cbebd09afa998205d9b1",
+      "originalWidth": 3072,
+      "originalHeight": 4080,
+      "originalBytes": 7418244,
+      "output": "src/assets/images/projects/generator-grid-switching-panel/installation-overview.webp",
+      "width": 1205,
+      "height": 1600,
+      "bytes": 291736,
+      "rationale": "Wide installation context with the enclosure and surrounding equipment; avoids unfinished-stage repeats."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero control bomba sumergible 2/IMG_20251017_094152348_AE.jpg",
+      "originalSha256": "c296e519d2c503bf6134d862487974e27833fad2eab8007019b5acfad4bdcbb8",
+      "originalWidth": 3072,
+      "originalHeight": 4080,
+      "originalBytes": 6949855,
+      "output": "src/assets/images/projects/submersible-pump-control-panel/interior.webp",
+      "width": 1205,
+      "height": 1600,
+      "bytes": 206804,
+      "rationale": "Installed cabinet interior pairs with the front view of the same source-folder project."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero control bomba sumergible 2/IMG_20251017_094213262_AE.jpg",
+      "originalSha256": "4860551b2d98700c7b09c4abb979b31f5616466b8da113246d404095661018c1",
+      "originalWidth": 3072,
+      "originalHeight": 4080,
+      "originalBytes": 6521116,
+      "output": "src/assets/images/projects/submersible-pump-control-panel/front.webp",
+      "width": 1205,
+      "height": 1600,
+      "bytes": 144448,
+      "rationale": "Front-facing controls provide a complementary exterior view."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero distribucion y control tambo la chavense/1790631439505.png",
+      "originalSha256": "b6d687d02a1defa84ce0212362a440f62a994b99369474d0e7957d8b2feddd2d",
+      "originalWidth": 1195,
+      "originalHeight": 896,
+      "originalBytes": 1804181,
+      "output": "src/assets/images/projects/dairy-distribution-control-panel/interior.webp",
+      "width": 1195,
+      "height": 896,
+      "bytes": 140468,
+      "rationale": "Landscape view shows both door wiring and cabinet interior in one image."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero distribucion y control tambo la chavense/1790631453284.png",
+      "originalSha256": "7f99413b5718bf54430325e0c297e0a5d62726234590715b88017e2b6629b327",
+      "originalWidth": 880,
+      "originalHeight": 1206,
+      "originalBytes": 1591093,
+      "output": "src/assets/images/projects/dairy-distribution-control-panel/front.webp",
+      "width": 880,
+      "height": 1206,
+      "bytes": 87896,
+      "rationale": "Installed exterior complements the interior without using the small duplicate-angle image."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260625_093220053_HDR_AE.jpg",
+      "originalSha256": "35748dd199332565c0dfa4449c4c2eefcc8db04372b3279b28e90b448b011a46",
+      "originalWidth": 3072,
+      "originalHeight": 4080,
+      "originalBytes": 7451992,
+      "output": "src/assets/images/projects/swine-finishing-control-panels/assembly-detail.webp",
+      "width": 1205,
+      "height": 1600,
+      "bytes": 286450,
+      "rationale": "Relatively straight assembly-stage view shows panel layout clearly."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260708_143825538_HDR_AE.jpg",
+      "originalSha256": "c32f85cfbb5da08a75c2b208ab20b32a50da77e6a8fe77ce553be6fe07aa38d7",
+      "originalWidth": 3072,
+      "originalHeight": 4080,
+      "originalBytes": 6445582,
+      "output": "src/assets/images/projects/swine-finishing-control-panels/installed-interior.webp",
+      "width": 1205,
+      "height": 1600,
+      "bytes": 214062,
+      "rationale": "Installed close-up offers useful wiring detail distinct from the assembly-stage view."
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260730_095234043_AE.jpg",
+      "originalSha256": "439bc56f177a70a1dfd428a09072643652c108b92a01aea1d4d0e45a20cf60f0",
+      "originalWidth": 2448,
+      "originalHeight": 3264,
+      "originalBytes": 3544863,
+      "output": "src/assets/images/projects/swine-finishing-control-panels/installation-overview.webp",
+      "width": 1200,
+      "height": 1600,
+      "bytes": 120862,
+      "rationale": "Installed multi-enclosure overview adds scale and complements the detail photographs."
+    }
+  ],
+  "exactDuplicates": [
+    [
+      "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125732203_HDR_AE.jpg",
+      "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125732203_HDR_AE(1).jpg"
+    ],
+    [
+      "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125844718_HDR_AE.jpg",
+      "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125844718_HDR_AE(1).jpg"
+    ]
+  ],
+  "omittedGroups": [
+    {
+      "folder": "Tablero distribucion residencial",
+      "reason": "Single view adds less visual variety than the selected detailed cabinet pairs."
+    },
+    {
+      "folder": "Tablero para bombas sumergibles",
+      "reason": "Overlaps the selected pump-control project; avoids repetitive presentation."
+    },
+    {
+      "folder": "Tambo robot",
+      "reason": "All six images are only 384 by 512 pixels; request original-resolution copies before considering large gallery use."
+    }
+  ],
+  "originalChecksums": [
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125732203_HDR_AE.jpg",
+      "sha256": "ac9bc55b59abbee966d8def5b5d68e13ecebf4918c83c9ad611d1201a6f3ec98"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125732203_HDR_AE(1).jpg",
+      "sha256": "ac9bc55b59abbee966d8def5b5d68e13ecebf4918c83c9ad611d1201a6f3ec98"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125740129_HDR_AE.jpg",
+      "sha256": "2d28d5b1d7f6645f2e9d3f6b3a61ab494c95a87fff2253e6a60e3f0b4ad35f37"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125844718_HDR_AE.jpg",
+      "sha256": "29e90b3195ae16ff70cb68b52c42300c2cf6a3972fb24aebb5240f2e0b2c4584"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260715_125844718_HDR_AE(1).jpg",
+      "sha256": "29e90b3195ae16ff70cb68b52c42300c2cf6a3972fb24aebb5240f2e0b2c4584"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260720_133350557_HDR_AE.jpg",
+      "sha256": "25792dcb146713a34b20f749ca2bb1b1f000d7ea6a2d6405befa77515ce36eb7"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260720_133421891_HDR_AE.jpg",
+      "sha256": "95d15cb9251cc68d0b9308985847b23e83564e52be88f6b7ee584d643b28ae17"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260720_133435260_HDR_AE.jpg",
+      "sha256": "995d472d840aabf5026cc3fa0716b9c200f31759e9518a1ba7046b41cae66ddd"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Criadero porcino/IMG_20260805_170131749_HDR_AE.jpg",
+      "sha256": "50c978b767991cbf3f7296c7cd384fe516baff434a55c2d9e49e00f21a3fa66e"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero acometida T3 para tambo y riego pivot/1790631498718.png",
+      "sha256": "ea03fc1f93407b7633da6acd461e1128bb885efd5538c0e159091bbebb4ff5f9"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero acometida T3 para tambo y riego pivot/1790631510342.png",
+      "sha256": "3a8ebf128c946c47294088fa8c2a0568824ac9270e1b85cacf2c409f3d47736b"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero acometida T3 para tambo y riego pivot/1790633960676.png",
+      "sha256": "39adc379a9448786c7c5a4427f7a9aa599280c27e652304d35e2b1bc1e9f7f8f"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero conmutación generador-red eléctrica/IMG_20260507_102228171_HDR_AE.jpg",
+      "sha256": "0155bd31e67c5df6da5ab07a718d7a2bd0d4f376c96fa4ed7becf63984774d55"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero conmutación generador-red eléctrica/IMG_20260507_102245292_AE.jpg",
+      "sha256": "0bc22ab0e88fe9259cbfa74cda49e1f56f2dc9a74c3457bda52e98e7fe914ef5"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero conmutación generador-red eléctrica/IMG_20260513_145704163_HDR_AE.jpg",
+      "sha256": "29f4f966544076b8d37a55f7f34bf4353c55a2bca493d2ecd987be4df4b82cde"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero conmutación generador-red eléctrica/IMG_20260521_145341674_AE.jpg",
+      "sha256": "2c64f928272c93747f10f1c65cec6c0260fd1e5a540777f8e92376f69eba402a"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero conmutación generador-red eléctrica/IMG_20260521_145351011_AE.jpg",
+      "sha256": "3ebd115ea25e2a00dd083e534f3fc3a0847a16e98867cbebd09afa998205d9b1"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero control bomba sumergible 2/IMG_20250911_120011937_AE.jpg",
+      "sha256": "670a180bb1da60539c935aed241cd83f25a72ca2ccc6e418eb33f41ac8e9f8b8"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero control bomba sumergible 2/IMG_20251017_094152348_AE.jpg",
+      "sha256": "c296e519d2c503bf6134d862487974e27833fad2eab8007019b5acfad4bdcbb8"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero control bomba sumergible 2/IMG_20251017_094213262_AE.jpg",
+      "sha256": "4860551b2d98700c7b09c4abb979b31f5616466b8da113246d404095661018c1"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero distribucion residencial/IMG_20260618_145852864_AE.jpg",
+      "sha256": "7c9141614aa32e8349eaebb6aad9951de350810c63faececcad6f98790df2681"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero distribucion y control tambo la chavense/1790631439505.png",
+      "sha256": "b6d687d02a1defa84ce0212362a440f62a994b99369474d0e7957d8b2feddd2d"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero distribucion y control tambo la chavense/1790631453284.png",
+      "sha256": "7f99413b5718bf54430325e0c297e0a5d62726234590715b88017e2b6629b327"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero distribucion y control tambo la chavense/1790632603008.png",
+      "sha256": "6cafee03a322738396d1acd710752fcc632312975e98e767dc36da0e9f86c088"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero para bombas sumergibles/IMG_20250912_103347619_AE.jpg",
+      "sha256": "af2cd6e8032c3bac3cef56222a3f78730f9f147e7452649d6cac18f2fb2a1e05"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tablero para bombas sumergibles/IMG_20251106_113746914_AE.jpg",
+      "sha256": "86aac58dbe2fab43be13003a2f3a3ed129bb5dc183e3503d6ebb0b1f084a26f9"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260625_092610169_HDR_AE.jpg",
+      "sha256": "0abda124d291bef97dda7fd215daca21279fc48b5ddab4e01bf002601fef546e"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260625_093212401_HDR_AE.jpg",
+      "sha256": "82301d06d42936d48fbd2b33ea4718f3a5becf322fae52ed5ddba2b485fe5f67"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260625_093220053_HDR_AE.jpg",
+      "sha256": "35748dd199332565c0dfa4449c4c2eefcc8db04372b3279b28e90b448b011a46"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260706_165446990_AE.jpg",
+      "sha256": "a5bbb07898479c8a1e753a46d3d727bbc1511035b8ac204b48de359f151571c1"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260708_110134793_HDR_AE.jpg",
+      "sha256": "ceeac6c00b470171af1218be61e01ea07fb49383bff58f8b816907aa9ed6e81a"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260708_143825538_HDR_AE.jpg",
+      "sha256": "c32f85cfbb5da08a75c2b208ab20b32a50da77e6a8fe77ce553be6fe07aa38d7"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tableros de control para sala de engorde porcino/IMG_20260730_095234043_AE.jpg",
+      "sha256": "439bc56f177a70a1dfd428a09072643652c108b92a01aea1d4d0e45a20cf60f0"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tambo robot/1790709439097.png",
+      "sha256": "d457184ca1e7f98459d4a5e56b9572d44855df109beaaee5daed872098a94760"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tambo robot/1790709444574.png",
+      "sha256": "d4cd9bede680fb0685485a82a1f396a7ea113746f95c2a6aaf6a040c8e3c7aa8"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tambo robot/1790709450775.png",
+      "sha256": "48911600c1e5af542e84999054e99cc92e81cca3da80bebcbc0c215194cf2252"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tambo robot/1790709458441.png",
+      "sha256": "3bb980a571a77a8a9d99e9f05f1a73378a8ddbce8e47e21c9e4e3c88544cfd8c"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tambo robot/1790709463888.png",
+      "sha256": "160385ff9d48355279e65c5cbe1fe5313d12b089135604a9e0614d22bc8fe914"
+    },
+    {
+      "source": "materiales/Imagenes tableros/Tambo robot/1790709469517.png",
+      "sha256": "d523ecfeabaf1b2c2f1d4fca363ed6d394c3f4a6342f77c786829c4bfa7b42fe"
+    }
+  ]
+}

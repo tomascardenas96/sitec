@@ -1,0 +1,33 @@
+---
+import { allProjects } from "../../data/projects.js";
+import ProjectCard from "../common/Project-card.astro";
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+
+const featured = allProjects.slice(0, 3);
+---
+
+<section class="py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <SectionTitle
+            kicker="Obras destacadas"
+            label="Lo que sale del taller"
+            align="start"
+            class="lg:max-w-[42rem]"
+        />
+
+        <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 2xl:gap-8">
+            {
+                featured.map((project, index) => (
+                    <ProjectCard
+                        image={project.image}
+                        title={project.title}
+                        subtitle={project.subtitle}
+                        id={project.id}
+                        index={index}
+                    />
+                ))
+            }
+        </div>
+    </Container>
+</section>

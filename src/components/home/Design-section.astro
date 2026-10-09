@@ -1,49 +1,64 @@
 ---
-import texture from "../../assets/images/textura.png";
-import Rocket from "../../assets/icons/rocket.svg";
+import Container from "../ui/Container.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
 import { shortFlow } from "../../data/design-flow.js";
-import DesignCard from "./Design-card.astro";
+import ProcessRow from "../common/Process-row.astro";
 ---
 
-<section
-  class="mt-3 py-10 2xl:py-14 lg:pb-20 2xl:pb-28 px-2 bg-cover md:flex md:flex-col md:items-center"
-  style={`background-image: url('${texture.src}')`}
->
-  <SectionTitle
-    label="Diseño de Proyectos"
-    subtitle="Transformando ideas en soluciones eléctricas confiables y eficientes"
-    variant="inverse"
-    hasIcon={true}
-  >
-    <Rocket slot="icon" />
-  </SectionTitle>
+<!-- La lista cierra con una regla, así que abajo va menos aire que arriba. -->
+<section class="bg-steel-900 pb-14 pt-20 lg:pb-20 lg:pt-28 2xl:pb-24 2xl:pt-32">
+    <Container>
+        <!-- Es la única sección de fondo oscuro que usa SectionTitle: sin
+             `inverse` el h2 sale steel-900 sobre steel-900, o sea invisible. -->
+        <SectionTitle
+            label="Del estudio inicial a la puesta en marcha"
+            kicker="Qué hacemos"
+            subtitle="Diseño y fabricación a medida, con montaje y asistencia coordinados según el proyecto y su ubicación."
+            variant="inverse"
+            align="start"
+            class="lg:max-w-[48rem]"
+        />
 
-  <div
-    class="grid
-          grid-cols-2
-          lg:grid-cols-4
-          grid-rows-2
-          lg:grid-rows-1
-          gap-y-6
-          md:gap-x-16
-          lg:gap-x-2
-          mt-8
-          md:mt-10
-          px-5
-          lg:px-0
-          md:max-w-[43.75rem]
-          lg:max-w-[50rem]
-          xl:max-w-[60rem]
-          2xl:max-w-[63rem]
-          xl:w-[60rem]
-          2xl:w-[63rem]
-          xl:py-2"
-  >
-    {
-      shortFlow.map((item, index) => (
-        <DesignCard description={item.title} icon={item.icon} index={index} />
-      ))
-    }
-  </div>
+        <!-- Filas, no columnas: la secuencia se lee hacia abajo, como el trabajo.
+             `role="list"` porque el reset de Tailwind quita el marcador y Safari
+             deja de anunciar la lista cuando eso pasa. -->
+        <ol role="list" class="mt-10 border-t border-white/15 lg:mt-12">
+            {
+                shortFlow.map((item, index) => (
+                    <ProcessRow
+                        step={String(index + 1).padStart(2, "0")}
+                        title={item.title}
+                        description={item.description}
+                        deliverable={item.deliverable}
+                        index={index}
+                    />
+                ))
+            }
+        </ol>
+
+        <!-- La cadena termina en la acción, no en un botón suelto arriba.
+             El rótulo va en blanco: el naranja señaliza con la flecha, no con
+             un titular de 25px, que era el único bloque de texto grande en
+             naranja del home. -->
+        <a
+            href="/design"
+            class="group flex items-center justify-between gap-6 border-b border-white/15 py-6 no-underline transition-colors duration-200 ease-out hover:no-underline lg:py-7"
+        >
+            <span
+                class="font-oswald text-lg uppercase tracking-[0.12em] text-white transition-colors duration-200 group-hover:text-accent-400 lg:text-xl"
+            >
+                Ver el proceso completo
+            </span>
+            <svg
+                viewBox="0 0 24 24"
+                class="h-5 w-5 shrink-0 text-accent-500 transition-transform duration-200 ease-out group-hover:translate-x-1.5 lg:h-6 lg:w-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+            >
+                <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="square"></path>
+            </svg>
+        </a>
+    </Container>
 </section>

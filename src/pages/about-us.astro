@@ -1,20 +1,22 @@
 ---
 import MainLayout from "../layouts/Main-layout.astro";
 import TitlePage from "../components/common/Title-page.astro";
-import Description from "../components/about-us/Description.astro";
+import CompanySheet from "../components/about-us/Company-sheet.astro";
+import Workshop from "../components/about-us/Workshop.astro";
 import Values from "../components/about-us/Values.astro";
-import Professionals from "../components/about-us/Professionals.astro";
-import Invitation from "../components/about-us/Invitation.astro";
+import CtaSection from "../components/common/Cta-section.astro";
 ---
 
-<MainLayout>
-  <TitlePage title="sobre nosotros" />
-  <div
-    class="md:max-w-[768px] lg:max-w-[50rem] xl:max-w-[60rem] 2xl:max-w-[65rem] md:flex md:flex-col md:justify-self-center"
-  >
-    <Description />
-    <Values />
-    <Professionals />
-    <Invitation />
-  </div>
+<MainLayout
+  title="Sobre nosotros — BALCA"
+  description="Equipo de técnicos electromecánicos con más de 15 años de experiencia en el sector. Diseño y fabricación de tableros a medida en Tandil."
+>
+  <TitlePage
+    title="Sobre nosotros"
+    subtitle="Diseño, fabricación y montaje electromecánico de tableros eléctricos industriales, con base en Tandil, Buenos Aires."
+  />
+  <CompanySheet />
+  <Workshop />
+  <Values />
+  <CtaSection />
 </MainLayout>

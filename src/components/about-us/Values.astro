@@ -1,18 +1,39 @@
 ---
 import SectionTitle from "../ui/SectionTitle.astro";
-import Diamond from "../../assets/icons/diamond.svg";
+import Container from "../ui/Container.astro";
 import { values } from "../../data/values.js";
-import ValueCard from "./Value-card.astro";
 ---
 
-<section class="px-8 2xl:px-0 mt-10 lg:mt-16 xl:mt-20">
-  <SectionTitle label="Nuestros Valores" hasIcon={true}>
-    <Diamond slot="icon" />
-  </SectionTitle>
+<section class="py-20 lg:py-28 2xl:py-32">
+  <Container>
+    <SectionTitle kicker="Cómo trabajamos" label="Nuestros valores" align="start" class="lg:max-w-[42rem]" />
 
-  <div
-    class="border-t border-b py-7 lg:py-9 flex md:grid flex-col md:grid-cols-2 xl:grid-cols-3 gap-8 mt-6 xl:mt-8 2xl:mt-10"
-  >
-    {values.map((value, index) => <ValueCard value={value} index={index} />)}
-  </div>
+    <div
+      class="mt-12 grid border-t border-steel-200 sm:grid-cols-2 lg:mt-16"
+      data-reveal="fade-up"
+      data-reveal-delay="80"
+    >
+      {
+        values.map((value, index) => (
+          <div
+            class:list={[
+              "border-b border-steel-200 py-7",
+              index % 2 === 1 && "sm:border-l sm:pl-6",
+              index % 2 === 0
+                ? "lg:border-l-0 lg:pl-0"
+                : "lg:border-l lg:pl-8 2xl:pl-10",
+            ]}
+          >
+            <span class="block h-[3px] w-8 bg-accent-500" aria-hidden="true" />
+            <h3 class="mt-5 font-oswald text-lg font-medium uppercase tracking-display text-steel-900 2xl:text-xl">
+              {value.title}
+            </h3>
+            <p class="mt-2 max-w-measure text-sm leading-relaxed text-steel-500 lg:text-base">
+              {value.subtitle}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
 </section>

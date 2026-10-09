@@ -1,8 +1,18 @@
-# Balca Design System
+# BALCA Design System
 
-Sistema de diseño del sitio Balca. Centraliza tokens (colores, tipografía, espaciado) y componentes base reutilizables.
+Sistema de diseño del sitio BALCA. Centraliza tokens (colores, tipografía, espaciado) y componentes base reutilizables.
 
-**Stack:** Astro + Tailwind 3.4. Todos los tokens viven en `tailwind.config.mjs`. Los componentes base están en `src/components/ui/`.
+**Stack:** Astro + Tailwind 3.4. Todos los tokens viven en `tailwind.config.mjs`. Los componentes base están en `src/components/ui/`. Las pocas clases que no se pueden expresar como utilidades viven en `@layer components` de `src/styles/globals.css`.
+
+## 0. La dirección: "Tablero"
+
+El lenguaje visual sale del objeto que fabrica la empresa, no de una estética genérica de "industrial":
+
+- **Cantos vivos.** Las superficies grandes no llevan radio. El radio queda para controles chicos.
+- **Reglas, no tarjetas.** La estructura de página es una grilla de hairlines (como una planilla técnica o un plano de tablero), no una fila de tarjetas con ícono.
+- **Acero + señalización.** Superficies `steel-900/950` para los bloques oscuros; `accent-500` (naranja) solo donde hay que señalizar: CTA, marcador de sección, estado activo.
+- **Chapa grabada.** Los rótulos chicos van en Oswald caja alta con tracking ancho (clase `.plate`), como el grabado de una chapa de identificación.
+- **Una sola elevación.** O borde o sombra, nunca los dos en la misma pieza.
 
 ---
 
@@ -10,58 +20,49 @@ Sistema de diseño del sitio Balca. Centraliza tokens (colores, tipografía, esp
 
 ### 1.1 Colores
 
-Toda la paleta se consume vía clases utilitarias de Tailwind (`text-primary-500`, `bg-accent-400`, `border-neutral-200`, etc.).
-
 #### Primary — Teal corporativo
 
-Color principal de marca. Usado en títulos, bordes, íconos, botones outline y links.
+Color de marca heredado del logo. Se usa en links de acción dentro de contenido y acentos secundarios.
 
-| Token         | Hex       | Uso típico                               |
-| ------------- | --------- | ---------------------------------------- |
-| `primary-50`  | `#EAF3F1` | Fondos sutiles, hover de botones ghost   |
-| `primary-100` | `#CCE0DC` | —                                        |
-| `primary-200` | `#9AC2BA` | —                                        |
-| `primary-300` | `#67A498` | —                                        |
-| `primary-400` | `#4D8E81` | —                                        |
-| `primary-500` | `#35796F` | **Base.** Títulos, bordes, íconos, links |
-| `primary-600` | `#2C6359` | Hover de primary-500                     |
-| `primary-700` | `#234D45` | Estados activos                          |
-| `primary-800` | `#1A3832` | —                                        |
-| `primary-900` | `#11241F` | —                                        |
+| Token         | Hex       | Uso típico                             |
+| ------------- | --------- | -------------------------------------- |
+| `primary-500` | `#35796F` | **Base.** Links de contenido, "ver ficha" |
+| `primary-600` | `#2C6359` | Hover de primary-500                   |
+| `primary-700` | `#234D45` | Estados activos                        |
 
-#### Accent — Naranja
+(La escala completa 50–900 sigue definida en el config.)
 
-Color secundario de marca. Usado en CTAs principales y para marcar el ítem activo del menú.
+#### Accent — Naranja de señalización
 
-| Token        | Hex       | Uso típico                          |
-| ------------ | --------- | ----------------------------------- |
-| `accent-50`  | `#FDF1E4` | —                                   |
-| `accent-100` | `#FBDFC0` | —                                   |
-| `accent-200` | `#F8C28A` | —                                   |
-| `accent-300` | `#F5AC65` | —                                   |
-| `accent-400` | `#F29E4C` | **Base.** Underline del menú activo |
-| `accent-500` | `#E48322` | Gradiente CTA (inicio)              |
-| `accent-600` | `#C76E1B` | —                                   |
-| `accent-700` | `#A76420` | Gradiente CTA (fin)                 |
-| `accent-800` | `#7A4A18` | —                                   |
-| `accent-900` | `#4E2F10` | —                                   |
+Color de acción. **Nunca se usa como color de texto chico sobre blanco** (no llega a 4.5:1): para eso está `accent-700`.
 
-#### Neutral — Grises
+| Token        | Hex       | Uso típico                                             |
+| ------------ | --------- | ------------------------------------------------------ |
+| `accent-400` | `#F29E4C` | Hover del CTA; rótulos `.plate` sobre acero            |
+| `accent-500` | `#E48322` | **Base.** Fondo del CTA, marcador de sección, hazard   |
+| `accent-600` | `#C76E1B` | Estado `:active` del CTA                               |
+| `accent-700` | `#A76420` | Naranja como **texto** sobre blanco (4.69:1)           |
 
-Escala de grises consolidada (antes había 5+ grises sueltos).
+> Sobre `accent-500` el texto va en `steel-950`, no en blanco. Blanco sobre naranja da 2.8:1 y no pasa AA.
 
-| Token         | Hex       | Uso típico                                                       |
-| ------------- | --------- | ---------------------------------------------------------------- |
-| `neutral-50`  | `#F7F7F7` | Fondos muy suaves                                                |
-| `neutral-100` | `#EDEDED` | Fondos de sección                                                |
-| `neutral-200` | `#C7C7C7` | Bordes claros, texto sobre fondos oscuros                        |
-| `neutral-300` | `#A6A6A6` | —                                                                |
-| `neutral-400` | `#808080` | Texto sobre hover de links del header                            |
-| `neutral-500` | `#6F6F6F` | Bordes y texto secundario                                        |
-| `neutral-600` | `#464646` | **Body text default**                                            |
-| `neutral-700` | `#363636` | Texto del menú móvil, énfasis                                    |
-| `neutral-800` | `#262626` | Subtítulos del SectionTitle, texto enfático                      |
-| `neutral-900` | `#131C27` | Fondo de testimonios (dark cards), texto bold dentro de párrafos |
+#### Steel — Superficies oscuras
+
+Escala derivada de los dos oscuros que ya tenía el sitio (`#131C27` de las tarjetas, `#344147` del footer).
+
+| Token       | Hex       | Uso típico                                           |
+| ----------- | --------- | ---------------------------------------------------- |
+| `steel-50`  | `#EEF1F3` | Fondo de sección claro (testimonios)                 |
+| `steel-200` | `#B3BFC7` | Bordes claros; texto secundario sobre acero (10.3:1) |
+| `steel-300` | `#8A9AA6` | Rótulos `.plate` sobre acero (6.7:1)                 |
+| `steel-400` | `#5F7280` | Texto secundario **solo sobre claro** (4.97:1)       |
+| `steel-500` | `#44565F` | Texto de párrafo secundario sobre blanco (7.67:1)    |
+| `steel-700` | `#26333D` | **Body text default** (12.9:1)                       |
+| `steel-900` | `#131C27` | Superficie oscura de sección                         |
+| `steel-950` | `#0A0F16` | Hero, footer, texto sobre naranja                    |
+
+> `steel-400` no pasa AA sobre `steel-900/950` (3.87:1). Sobre acero usar `steel-300` o más claro.
+
+`neutral-*` queda para las páginas internas que todavía no se rediseñaron. En código nuevo, usar `steel-*`.
 
 #### Semánticos
 
@@ -74,233 +75,170 @@ Escala de grises consolidada (antes había 5+ grises sueltos).
 
 ### 1.2 Tipografía
 
-**Familias** (cargadas vía Google Fonts en `src/layouts/Main-layout.astro`):
+| Token           | Familia               | Uso                                        |
+| --------------- | --------------------- | ------------------------------------------ |
+| `font-oswald`   | Oswald, sans-serif    | Display, títulos, botones, rótulos `.plate` |
+| `font-openSans` | Open Sans, sans-serif | Body text (default en `<body>`)            |
 
-| Token           | Familia               | Uso                               |
-| --------------- | --------------------- | --------------------------------- |
-| `font-oswald`   | Oswald, sans-serif    | Títulos, botones, texto destacado |
-| `font-openSans` | Open Sans, sans-serif | Body text (default en `<body>`)   |
+**Escala.** `2xs` a `4xl` son la escala heredada (texto). `5xl` a `8xl` son la escala **display**, pensada para Oswald condensada a tamaño de cartel:
 
-**Escala** (todos los valores son `[font-size, line-height]`):
+| Token       | Tamaño            | Line-height |
+| ----------- | ----------------- | ----------- |
+| `text-2xs`  | 0.65rem (10.4px)  | 0.9rem      |
+| `text-xs`   | 0.75rem (12px)    | 1rem        |
+| `text-sm`   | 0.85rem (13.6px)  | 1.15rem     |
+| `text-base` | 1rem (16px)       | 1.35rem     |
+| `text-lg`   | 1.1rem (17.6px)   | 1.4rem      |
+| `text-xl`   | 1.25rem (20px)    | 1.5rem      |
+| `text-2xl`  | 1.6rem (25.6px)   | 1.9rem      |
+| `text-3xl`  | 1.8rem (28.8px)   | 2.1rem      |
+| `text-4xl`  | 2.2rem (35.2px)   | 2.5rem      |
+| `text-5xl`  | 2.75rem (44px)    | 1.04        |
+| `text-6xl`  | 3.5rem (56px)     | 1.0         |
+| `text-7xl`  | 4.5rem (72px)     | 0.96        |
+| `text-8xl`  | 5.75rem (92px)    | 0.92        |
 
-| Token       | Tamaño           | Line-height |
-| ----------- | ---------------- | ----------- |
-| `text-2xs`  | 0.65rem (10.4px) | 0.9rem      |
-| `text-xs`   | 0.75rem (12px)   | 1rem        |
-| `text-sm`   | 0.85rem (13.6px) | 1.15rem     |
-| `text-base` | 1rem (16px)      | 1.35rem     |
-| `text-lg`   | 1.1rem (17.6px)  | 1.4rem      |
-| `text-xl`   | 1.25rem (20px)   | 1.5rem      |
-| `text-2xl`  | 1.6rem (25.6px)  | 1.9rem      |
-| `text-3xl`  | 1.8rem (28.8px)  | 2.1rem      |
-| `text-4xl`  | 2.2rem (35.2px)  | 2.5rem      |
+**Tracking:**
 
-> Nota: la escala sobrescribe los defaults de Tailwind para ajustarse al diseño existente. Si necesitás un tamaño no contemplado, agregalo al config en lugar de usar `text-[Xrem]`.
+| Token              | Valor     | Uso                                    |
+| ------------------ | --------- | -------------------------------------- |
+| `tracking-display` | `-0.02em` | Todos los títulos en Oswald            |
+| `tracking-plate`   | `0.22em`  | Rótulos grabados (lo aplica `.plate`)  |
 
-### 1.3 Bordes, sombras, gradientes
+**Medida de línea:** `max-w-measure` (68ch) para párrafos. `text-base`/`text-lg` + `leading-relaxed` en body copy.
 
-| Token               | Valor                                                         |
-| ------------------- | ------------------------------------------------------------- |
-| `rounded-sm`        | `0.2rem`                                                      |
-| `rounded` (default) | `0.375rem`                                                    |
-| `rounded-lg`        | `0.75rem`                                                     |
-| `rounded-full`      | `9999px`                                                      |
-| `shadow-card`       | `0 2px 8px rgba(0,0,0,.08)` — tarjetas e íconos en círculo    |
-| `shadow-elevated`   | `0 8px 24px rgba(0,0,0,.12)` — botón primario                 |
-| `bg-cta-gradient`   | `linear-gradient(to right, #E48322, #A76420)` — CTA principal |
+### 1.3 Layout
+
+| Token          | Valor  | Uso                                      |
+| -------------- | ------ | ---------------------------------------- |
+| `max-w-shell`  | `88rem` | Ancho de la grilla (lo aplica `Container`) |
+| `max-w-measure`| `68ch`  | Ancho de párrafo                          |
+
+### 1.4 Sombras, motion
+
+| Token                    | Valor                                  | Uso                              |
+| ------------------------ | -------------------------------------- | -------------------------------- |
+| `shadow-card`            | `0 2px 8px rgba(0,0,0,.08)`            | Legacy (páginas internas)        |
+| `shadow-elevated`        | `0 8px 24px rgba(0,0,0,.12)`           | Header en scroll, botón flotante |
+| `shadow-panel`           | `8px 8px 0 0 rgba(19,28,39,0.10)`      | Desplazamiento duro, sin halo    |
+| `ease-out`               | `cubic-bezier(0.22, 1, 0.36, 1)`       | Curva única del sitio            |
+| `animate-plate-in`       | fade + rise 700ms                      | Entrada del hero y del title-page |
+| `animate-rule-in`        | scaleX 900ms                           | Trazado de reglas                |
+
+### 1.5 Clases de `globals.css`
+
+| Clase     | Qué hace                                                                 |
+| --------- | ------------------------------------------------------------------------ |
+| `.plate`  | Oswald + caja alta + `tracking-plate`. Para rótulos chicos.               |
+| `.hazard` | Franja de señalización diagonal naranja/acero. **Motivo de marca: solo en el borde superior del footer.** |
+| `.field`  | Campo de formulario: borde `steel-200`, sin radio, oscurece a `steel-900` en foco. Usado por el formulario de `/contact`. |
 
 ---
 
 ## 2. Componentes UI
 
-Todos viven en `src/components/ui/`.
+### 2.1 `<Container>`
 
-### 2.1 `<Button>`
-
-```ts
-interface Props {
-  variant?: "primary" | "outline" | "floating" | "ghost"; // default: "outline"
-  size?: "sm" | "md" | "lg"; // default: "md"
-  href?: string; // si está, renderiza <a>; si no, <button>
-  target?: string; // pasalo cuando href apunta afuera
-  fullWidth?: boolean; // default: false
-  class?: string; // escape hatch para clases extra
-}
-```
-
-**Variantes:**
-
-| Variant    | Look                                              | Uso                                                  |
-| ---------- | ------------------------------------------------- | ---------------------------------------------------- |
-| `primary`  | Gradiente naranja, texto blanco, shadow-elevated  | CTA principal (ej. "SOLICITAR PRESUPUESTO" del Hero) |
-| `outline`  | Borde primary-500, texto primary-500, shadow-card | Acción secundaria ("VER MÁS", "MÁS PROYECTOS")       |
-| `floating` | Círculo verde fijo bottom-right                   | Botón WhatsApp persistente                           |
-| `ghost`    | Sin fondo, hover suave en primary-50              | Acciones discretas                                   |
-
-**Ejemplo:**
-
-```astro
----
-import Button from "../components/ui/Button.astro";
----
-
-<Button href="/about-us" variant="outline">VER MÁS</Button>
-
-<Button href="https://wa.me/..." target="blank" variant="primary" size="lg">
-  SOLICITAR PRESUPUESTO
-</Button>
-
-<Button variant="ghost" size="sm">Cancelar</Button>
-```
-
-### 2.2 `<Card>`
-
-Tarjeta base composable con slots nombrados.
+Envoltorio de grilla. Todo bloque de página va adentro de uno.
 
 ```ts
 interface Props {
-  variant?: "bordered" | "elevated" | "minimal"; // default: "minimal"
-  align?: "start" | "center"; // default: "start"
-  iconBg?: boolean; // fondo primary-500 detrás del media slot
-  iconRounded?: boolean; // hace el contenedor del media slot circular
+  as?: "div" | "section" | "header" | "footer" | "nav"; // default: "div"
+  width?: "shell" | "measure"; // default: "shell"
   class?: string;
 }
 ```
 
-**Slots:**
+### 2.2 `<Button>`
 
-| Slot      | Para                          |
-| --------- | ----------------------------- |
-| `media`   | Ícono o imagen a la izquierda |
-| `header`  | Título                        |
-| `body`    | Texto principal               |
-| (default) | Contenido adicional debajo    |
-
-**Ejemplo (Value-card):**
-
-```astro
-<Card align="start">
-  <div slot="media">
-    <Success class="w-7 h-7" />
-  </div>
-  <h3 slot="header" class="font-oswald text-primary-500 font-semibold">
-    SEGURIDAD
-  </h3>
-  <p slot="body" class="text-sm text-neutral-800/60">
-    Priorizamos la seguridad en cada proyecto.
-  </p>
-</Card>
+```ts
+interface Props {
+  variant?: "primary" | "solidDark" | "outline" | "outlineLight" | "ghost" | "floating";
+  size?: "sm" | "md" | "lg"; // default: "md"
+  href?: string;   // si está, renderiza <a>; si no, <button>
+  target?: string; // con "_blank" agrega rel="noopener noreferrer" solo
+  label?: string;  // aria-label cuando el contenido es un ícono
+  fullWidth?: boolean;
+  class?: string;
+}
 ```
 
-**Ejemplo (Info-card con ícono en círculo de color):**
-
-```astro
-<Card align="start">
-  <div slot="media" class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center shadow-card">
-    <img src={icon.src} alt={title} class="w-5 h-5" />
-  </div>
-  <h3 slot="header" class="font-oswald text-primary-500 text-lg">{title}</h3>
-  <p slot="body" class="text-sm">{firstLine}</p>
-</Card>
-```
-
-> El Card base sirve para layouts horizontales simples (ícono + texto). Para tarjetas con grids responsive complejos (Stage-card, Component-card, Professional-card) se mantiene el markup propio usando los tokens del DS.
+| Variant        | Look                                       | Usar sobre         |
+| -------------- | ------------------------------------------ | ------------------ |
+| `primary`      | Bloque naranja, texto `steel-950`          | Claro y acero      |
+| `solidDark`    | Bloque `steel-950`, texto blanco           | Naranja y claro    |
+| `outline`      | Borde 2px `steel-900`                      | Claro y naranja    |
+| `outlineLight` | Borde 2px `white/60`                       | Acero y foto       |
+| `ghost`        | Texto sin caja                             | Claro              |
+| `floating`     | Cuadrado verde (WhatsApp)                  | Fijo               |
 
 ### 2.3 `<SectionTitle>`
 
-Encabezado de sección estandarizado.
-
 ```ts
 interface Props {
-  label: string; // título principal
-  subtitle?: string; // subtítulo opcional
+  label: string;
+  kicker?: string;    // rótulo .plate arriba del título
+  subtitle?: string;
   variant?: "default" | "inverse"; // default: "default"
-  hasIcon?: boolean; // si true, renderiza slot "icon"
+  align?: "center" | "start";      // default: "center"
+  hasIcon?: boolean;  // legacy: slot "icon" (páginas internas)
   class?: string;
 }
 ```
 
-**Variantes:**
+Renderiza el marcador de sección (barra naranja de 3px + kicker), el título display y el subtítulo. En home se usa `align="start"`.
 
-| Variant   | Color                                     | Usar sobre                                                    |
-| --------- | ----------------------------------------- | ------------------------------------------------------------- |
-| `default` | Título primary-500, subtítulo neutral-800 | Fondos claros                                                 |
-| `inverse` | Título y subtítulo blancos                | Fondos oscuros (testimonios, secciones con `bg-cover` oscuro) |
+### 2.4 `<Process-row>` (`common/`)
 
-**Ejemplo:**
+Fila numerada para secuencias sobre fondo `steel-900`: numeral grande + título/descripción + `deliverable` opcional (tercera columna en desktop, se oculta si no se pasa). La usan `home/Design-section.astro` (`shortFlow`, 4 pasos con entregable) y `design/Stages.astro` (`longFlow`, 5 etapas). Va dentro de un `<ol role="list">`.
 
-```astro
----
-import SectionTitle from "../components/ui/SectionTitle.astro";
-import Diamond from "../assets/icons/diamond.svg";
----
+### 2.5 `<Register-row>` (`projects/`)
 
-<SectionTitle label="Nuestros Valores" hasIcon={true}>
-  <Diamond slot="icon" />
-</SectionTitle>
-
-<SectionTitle
-  label="Testimonios de Clientes"
-  subtitle="Experiencia, innovación y resultados comprobados"
-  variant="inverse"
-  hasIcon={true}
->
-  <Like slot="icon" />
-</SectionTitle>
-```
+Fila de planilla para el catálogo completo de obras: `N.º` + título + descripción + flecha, como una fila de `Project-card` pero en formato de lista, no de tarjeta. La usa `projects/Works-register.astro`.
 
 ---
 
 ## 3. Convenciones
 
-### 3.1 Cómo usar el sistema en un componente nuevo
-
-1. **Colores:** usar tokens (`text-primary-500`, `bg-neutral-100`, etc.). Nunca hex hardcodeado en clases.
-2. **Tipografía:** usar la escala (`text-xs` a `text-4xl`) y `font-oswald` / `font-openSans`. Nunca `text-[1.3rem]`.
-3. **Botones, títulos y tarjetas simples:** usar los componentes de `src/components/ui/`. Crear variantes en el componente si falta una.
-4. **Layouts/grids complejos:** se permite markup propio, pero los colores y tipografía deben venir del DS.
-
-### 3.2 Cómo extender el sistema
-
-**Agregar un color nuevo:** editar `tailwind.config.mjs` → `theme.extend.colors`. Mantener la convención de escalas 50–900 para colores con múltiples tonos.
-
-**Agregar una variante de botón:** editar `src/components/ui/Button.astro`, agregar la key al `variantClasses` y al type de `variant`.
-
-**Agregar un tamaño tipográfico:** editar `theme.extend.fontSize` con `[size, line-height]`. Si necesitás un tamaño puntual y único, usá `text-[Xrem]` como excepción, pero documentalo.
-
-### 3.3 Uso en CSS global
-
-`@apply` con tokens custom (ej. `primary-500`) puede fallar en `globals.css` por orden de generación del JIT. Cuando se usen tokens en CSS global, preferir la función `theme()`:
+1. **Colores:** siempre tokens. Nunca hex hardcodeado ni `text-[#333]`.
+2. **Tipografía:** siempre la escala. Para display usar `5xl`–`8xl` + `tracking-display`.
+3. **Contraste:** verificar contra la tabla de arriba antes de elegir un gris sobre acero.
+4. **Radio:** las superficies grandes van sin radio. No agregar `rounded-*` a secciones ni tarjetas.
+5. **Elevación:** borde **o** sombra, nunca los dos.
+6. **`@apply` con tokens custom en `globals.css` puede fallar por orden del JIT.** Usar la función `theme()`:
 
 ```css
-a {
-  color: theme("colors.primary.500");
-}
-```
-
-en lugar de:
-
-```css
-a {
-  @apply text-primary-500; /* puede fallar en dev server */
-}
+a { color: theme("colors.primary.500"); }
 ```
 
 ---
 
 ## 4. Antipatrones — evitar
 
-| ❌ Mal                                      | ✅ Bien                                                           | Por qué                                                                                      |
-| ------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `class={`text-[${color}]`}`                 | Props discretas (`variant="default" \| "inverse"`) + map estático | Tailwind no purga clases construidas en runtime — quedan sin aplicar en producción           |
-| `text-[#35796F]`                            | `text-primary-500`                                                | Cambios de marca requieren editar 30+ archivos                                               |
-| `text-[1.3rem]` (suelto)                    | `text-xl`                                                         | Inconsistencia en la escala visual                                                           |
-| `<button><a href>...</a></button>`          | `<Button href="...">`                                             | HTML inválido — `<a>` no puede ser hijo de `<button>`                                        |
-| `import logo from "/public/balca-logo.svg"` | `<img src="/balca-logo.svg">` directo                             | Astro sirve `public/` como estáticos; importarlos hace que Vite los procese innecesariamente |
+| ❌ Mal                                       | ✅ Bien                                    | Por qué                                                                     |
+| -------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------- |
+| `class={`text-[${color}]`}`                  | Props discretas + map estático              | Tailwind no purga clases construidas en runtime                             |
+| `text-[#35796F]`                             | `text-primary-500`                          | Cambios de marca requieren editar 30+ archivos                              |
+| Texto blanco sobre `accent-500`              | `text-steel-950` sobre `accent-500`         | 2.8:1 no pasa AA                                                            |
+| `text-steel-400` sobre `steel-900`           | `text-steel-300`                            | 3.87:1 no pasa AA                                                           |
+| Fila de tarjetas ícono + título + texto      | Grilla de reglas                            | Es la estructura genérica que este rediseño reemplazó                       |
+| Fondo de grilla decorativo                   | Superficie plana                            | Sin un plano real debajo es papel pintado                                   |
+| `<button><a href>...</a></button>`           | `<Button href="...">`                       | HTML inválido                                                               |
+| `import logo from "/public/..."`             | `<img src="/balca-logo.svg">`               | Astro sirve `public/` como estáticos                                        |
+| `<img src={img.src}>` para fotos grandes     | `<Image>` de `astro:assets`                 | Sin optimizar, el hero pesaba 2.4MB (ahora 96KB)                            |
 
 ---
 
 ## 5. Pendientes conocidos
 
-- **Logo (`public/balca-logo.svg`):** pesa 469KB porque tiene un PNG embebido en base64 con entidades XML. SVGO no puede parsearlo. Pedir al diseñador un export vectorial limpio (target: <20KB) o reemplazar por PNG/WebP optimizado.
-- **Contraste WCAG:** `neutral-500` (#6F6F6F) sobre blanco da 4.51:1 (AA al límite). Si algún subtítulo se ve débil, subir a `neutral-600`.
+- **Logo (`public/balca-logo.svg`):** 469KB, tiene un PNG embebido en base64. Además es oscuro sobre claro, por eso en el footer va sobre una chapa blanca. Pedir un export vectorial limpio (target: <20KB) y, si se puede, una versión monocromática blanca para superficies de acero.
+- **Foto del hero:** es stock genérico. Las fotos de obra (`src/assets/images/home/proyects/`) son reales y se ven mucho mejor; conviene reemplazarla por una foto propia del taller en formato apaisado.
+- **Testimonios:** el copy de `src/data/testimonials.js` es **propuesto**, no real. No publicar sin citas y autorización de cada cliente. Si el array queda vacío, la sección no se renderiza.
+- **Catálogo de proyectos:** las 24 entradas de `projects.js` reciclan 3 fotos. Home y `/projects` ("Obras destacadas") muestran solo esas 3; el resto del catálogo se presenta como planilla de texto (`projects/Works-register.astro`) en vez de grilla de tarjetas, para no repetir las mismas 3 fotos 8 veces cada una.
+- **`email.falso@sitec.com`, `/sitec-instagram` y los teléfonos** en `src/data/contact.js`: placeholders heredados del sitio anterior (marca "SITEC"), marcados con `TODO` en el archivo. Reemplazar por los datos reales de BALCA antes de publicar `/contact`.
+- **URLs de redes sociales** en `Social-links.astro`: apuntan a los dominios genéricos.
+- **`longFlow.deliverable`** en `design-flow.js` (usado por `/design`): copy compuesto a partir de material existente, mismo criterio que `shortFlow.deliverable` — conviene que lo valide alguien de la empresa antes de publicar.
+- **Páginas internas** (`design`, `contact`, `projects`, `404`): ya rediseñadas en el lenguaje "Tablero", junto con `/about-us` y `/`. No queda ninguna página con el sistema viejo.
+- **`professionals.js` y `src/assets/images/professionals/*.png`:** huérfanos desde el rediseño de `/about-us` — la sección de equipo con bios lorem ipsum se reemplazó por "El taller" (capacidades reales, sin caras inventadas). Quedan sin borrar por si más adelante se arma una sección de equipo con datos reales.
+- **Copy de "Quiénes somos" en `Company-sheet.astro`:** compuesto a partir de contenido que ya existía en el sitio (Hero, About-section, faqs, design-flow). No inventa alcance nuevo, pero conviene que lo valide alguien de la empresa antes de publicar — mismo criterio que el copy del Hero.
+- **`/projects/1`–`/projects/4`** ya no existen: la paginación se eliminó junto con el bug que generaba una página 4 vacía. El catálogo completo vive en `/projects`, sin paginar.

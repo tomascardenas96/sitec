@@ -1,0 +1,183 @@
+---
+import Container from "../ui/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import Button from "../ui/Button.astro";
+import { components } from "../../data/components.js";
+import { channels, hours } from "../../data/contact.js";
+import { phone } from "../../data/whatsapp.js";
+
+const workTypes = [
+    ...components.map((c) => c.title),
+    "Montaje electromecánico",
+    "Mantenimiento y postventa",
+    "Otro",
+];
+---
+
+<section class="py-20 lg:py-28 2xl:py-32">
+    <Container>
+        <div class="grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+            <div>
+                <SectionTitle
+                    kicker="Pedido de presupuesto"
+                    label="Contanos qué necesitás"
+                    align="start"
+                />
+
+                <!-- Sin backend: el form arma el mensaje y abre WhatsApp. Con
+                     `action`/`method` propios funciona igual sin JS, solo que
+                     sin el texto precargado. -->
+                <form
+                    data-quote-form
+                    data-phone={phone}
+                    action={`https://wa.me/${phone}`}
+                    method="get"
+                    target="_blank"
+                    class="mt-10 flex flex-col gap-6"
+                >
+                    <div>
+                        <label for="nombre" class="plate text-2xs text-steel-400">
+                            Nombre o empresa
+                        </label>
+                        <input
+                            id="nombre"
+                            name="nombre"
+                            type="text"
+                            autocomplete="name"
+                            required
+                            class="field mt-2"
+                        />
+                    </div>
+
+                    <div>
+                        <label for="tipo" class="plate text-2xs text-steel-400">
+                            Tipo de trabajo
+                        </label>
+                        <select id="tipo" name="tipo" required class="field mt-2">
+                            {
+                                workTypes.map((type) => (
+                                    <option value={type}>{type}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="localidad" class="plate text-2xs text-steel-400">
+                            Localidad
+                        </label>
+                        <input
+                            id="localidad"
+                            name="localidad"
+                            type="text"
+                            autocomplete="address-level2"
+                            required
+                            class="field mt-2"
+                        />
+                    </div>
+
+                    <div>
+                        <label for="detalle" class="plate text-2xs text-steel-400">
+                            Qué necesitás
+                        </label>
+                        <textarea
+                            id="detalle"
+                            name="detalle"
+                            rows="5"
+                            required
+                            class="field mt-2 resize-none"
+                        ></textarea>
+                    </div>
+
+                    <p class="text-sm leading-relaxed text-steel-500">Todos los campos son obligatorios. La localidad nos permite evaluar el montaje. Al continuar se abrirá WhatsApp con el pedido; revise el mensaje y envíelo allí.</p>
+
+                    <Button type="submit" variant="primary" size="lg" fullWidth>
+                        Continuar en WhatsApp
+                    </Button>
+                </form>
+            </div>
+
+            <div>
+                <p class="plate text-2xs text-steel-400">Canales directos</p>
+                <div class="mt-4 border-t border-steel-200">
+                    {
+                        channels.map((c) => (
+                            <a
+                                href={c.href}
+                                target={c.href.startsWith("http") ? "_blank" : undefined}
+                                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                class="group flex flex-col items-start justify-between gap-2 border-b border-steel-200 py-4 no-underline transition-colors duration-200 ease-out hover:no-underline"
+                            >
+                                <span class="plate text-2xs text-steel-400">{c.label}</span>
+                                <span class="flex min-w-0 items-center gap-2 break-all font-oswald text-base text-steel-900 transition-colors duration-200 group-hover:text-accent-700 lg:text-lg">
+                                    {c.value}
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        class="h-4 w-4 shrink-0 text-accent-500 transition-transform duration-200 ease-out group-hover:translate-x-1"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M4 12h15M13 6l6 6-6 6" stroke-linecap="square" />
+                                    </svg>
+                                </span>
+                            </a>
+                        ))
+                    }
+                    <div class="flex items-center justify-between gap-4 border-b border-steel-200 py-4">
+                        <span class="plate text-2xs text-steel-400">Medios de pago</span>
+                        <span class="font-oswald text-base text-steel-900 lg:text-lg">
+                            Efectivo y transferencia
+                        </span>
+                    </div>
+                </div>
+
+                <p class="mt-4 text-sm leading-relaxed text-steel-500">Cheques sujetos a aceptación. Pagos por etapas según el proyecto y la provisión de materiales.</p>
+                <p class="mt-4 text-sm leading-relaxed text-steel-500">Montajes y visitas en Tandil y alrededores. Otros destinos según distancia, disponibilidad y acuerdo.</p>
+
+                <div class="mt-10">
+                    <p class="plate text-2xs text-steel-400">Horarios de atención</p>
+                    <dl class="mt-3 flex flex-col gap-2">
+                        {
+                            hours.map((h) => (
+                                <div class="flex items-baseline justify-between gap-4 text-sm text-steel-600">
+                                    <dt>{h.label}</dt>
+                                    <dd class="font-oswald text-steel-900">{h.value}</dd>
+                                </div>
+                            ))
+                        }
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>
+
+<script>
+    const form = document.querySelector("[data-quote-form]");
+
+    form?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(form as HTMLFormElement);
+        const phone = (form as HTMLElement).dataset.phone;
+
+        const message = [
+            "Hola BALCA, quisiera pedir un presupuesto.",
+            "",
+            `Nombre / empresa: ${data.get("nombre")}`,
+            `Tipo de trabajo: ${data.get("tipo")}`,
+            data.get("localidad") ? `Localidad: ${data.get("localidad")}` : null,
+            "",
+            `${data.get("detalle")}`,
+        ]
+            .filter((line) => line !== null)
+            .join("\n");
+
+        window.open(
+            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+            "_blank",
+            "noopener"
+        );
+    });
+</script>

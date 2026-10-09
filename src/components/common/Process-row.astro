@@ -1,0 +1,54 @@
+---
+interface Props {
+    step: string;
+    title: string;
+    description: string;
+    deliverable?: string;
+    index?: number;
+}
+
+const { step, title, description, deliverable, index = 0 } = Astro.props;
+---
+
+<!-- Densidad de chapa: la fila respira como las celdas de datos del hero
+     (py-5/py-6), no como una tarjeta. -->
+<li
+    class={`grid grid-cols-[3rem_1fr] gap-x-5 gap-y-3 border-b border-white/15 py-6 lg:gap-x-8 lg:py-7 2xl:gap-x-10 2xl:py-8 ${deliverable ? "lg:grid-cols-[4.5rem_1fr_16rem] 2xl:grid-cols-[5.5rem_1fr_18rem]" : "lg:grid-cols-[4.5rem_1fr] 2xl:grid-cols-[5.5rem_1fr]"}`}
+    data-reveal="fade-up"
+    data-reveal-delay={index * 80}
+>
+    <!-- Designación estampada, como la numeración de circuito en la puerta.
+         El <ol> ya comunica la posición, así que el numeral es decorativo. -->
+    <p
+        class="pt-1 font-oswald text-3xl font-medium leading-none text-steel-400 lg:text-4xl 2xl:text-5xl"
+        aria-hidden="true"
+    >
+        {step}
+    </p>
+
+    <div>
+        <h3
+            class="font-oswald text-xl font-medium uppercase tracking-display lg:text-2xl 2xl:text-3xl"
+        >
+            {title}
+        </h3>
+        <p
+            class="mt-2 max-w-measure text-sm leading-relaxed text-steel-300 lg:text-base"
+        >
+            {description}
+        </p>
+    </div>
+
+    <!-- En angosto cae bajo el texto, alineado a la misma columna; en ancho
+         vuelve a la tercera columna de la misma fila. -->
+    {
+        deliverable && (
+            <div class="col-start-2 lg:col-start-3 lg:row-start-1 lg:border-l lg:border-white/15 lg:pl-8 2xl:pl-10">
+                <p class="plate text-2xs text-accent-400">Entregable</p>
+                <p class="mt-1.5 text-sm leading-relaxed text-steel-200">
+                    {deliverable}
+                </p>
+            </div>
+        )
+    }
+</li>
