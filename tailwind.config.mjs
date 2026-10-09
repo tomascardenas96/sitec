@@ -32,10 +32,10 @@ export default {
       },
       fontSize: {
         "2xs": ["0.65rem", "0.9rem"],
-        "xs":  ["0.75rem", "1rem"],
-        "sm":  ["0.85rem", "1.15rem"],
-        "base":["1rem",    "1.35rem"],
-        "lg":  ["1.1rem",  "1.4rem"],
+        "xs":  ["0.75rem", "1.1rem"],
+        "sm":  ["0.85rem", "1.25rem"],
+        "base":["1rem",    "1.45rem"],
+        "lg":  ["1.1rem",  "1.5rem"],
         "xl":  ["1.25rem", "1.5rem"],
         "2xl": ["1.6rem",  "1.9rem"],
         "3xl": ["1.8rem",  "2.1rem"],
@@ -45,6 +45,10 @@ export default {
         "6xl": ["3.5rem",  "1.0"],
         "7xl": ["4.5rem",  "0.96"],
         "8xl": ["5.75rem", "0.92"],
+      },
+      lineHeight: {
+        relaxed: "1.7",
+        7: "1.85rem",
       },
       letterSpacing: {
         display: "-0.02em",

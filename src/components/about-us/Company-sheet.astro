@@ -2,29 +2,23 @@
 import Container from "../ui/Container.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
 
-// Copy compuesto a partir de material que ya existe en el sitio (About-section.astro,
-// Hero.astro, faqs.js, design-flow.js). No inventa alcance nuevo; conviene que lo
-// valide alguien de la empresa antes de publicar. El primer párrafo evita repetir la
-// bajada de Title-page (misma pantalla, un scroll más abajo): ahí ya dice "diseño,
-// fabricación y montaje"; acá el foco es la trayectoria y a quién atiende.
 const paragraphs = [
-    "Más de 15 años de trayectoria en la industria eléctrica, brindando soluciones a industrias, comercios, obras y proyectos particulares.",
-    "El trabajo entra por la ingeniería y sale por la puesta en marcha: estudiamos el requerimiento, definimos componentes y protecciones, armamos y cableamos el tablero, lo montamos en obra y lo dejamos funcionando. También fabricamos a partir de planos y especificaciones del cliente.",
-    "Todo se construye bajo normas IRAM e IEC 61439, con componentes de primeras marcas y controles en cada etapa. Después de la entrega seguimos disponibles: mantenimiento preventivo y correctivo, y asistencia técnica post-venta.",
+    "Somos Joaquín Cárdenas y Nicolás Muruzabal, técnicos electromecánicos. Nicolás aporta aproximadamente 18 años de experiencia en el sector y Joaquín, alrededor de 10.",
+    "Nuestra experiencia está en el sector agroindustrial, las instalaciones eléctricas para bombas y el montaje electromecánico: bandejas portacables, cañerías y cableado. Atendemos empresas y particulares.",
+    "Diseñamos y fabricamos tableros de potencia y control a medida, también a partir de planos del cliente. Entregamos planos, diagramas y cableado identificado, con pruebas de funcionamiento y normas IRAM e IEC aplicables al trabajo.",
+    "Trabajamos desde Tandil. El montaje y las visitas se coordinan según ubicación y alcance; fuera de la zona, según acuerdo. Ofrecemos un año de garantía y asistencia postventa.",
 ];
 
-// Ficha de empresa: solo datos que ya existen en el sitio (Hero.astro, Main-layout.astro,
-// About-section.astro, faqs.js). Cero dato inventado.
 const sheet = [
     {
         label: "Actividad",
         value: "Tableros eléctricos y montajes electromecánicos",
     },
     { label: "Base de operaciones", value: "Tandil, Buenos Aires" },
-    { label: "Experiencia", value: "+15 años" },
-    { label: "Normas de fabricación", value: "IRAM · IEC 61439" },
-    { label: "Alcance del servicio", value: "Diseño → Puesta en marcha" },
-    { label: "Clientes", value: "Industria, comercio, obra y particulares" },
+    { label: "Experiencia técnica del equipo", value: "+15 años en el sector" },
+    { label: "Fabricación", value: "A medida del proyecto" },
+    { label: "Montaje y visitas", value: "Según ubicación y acuerdo" },
+    { label: "Clientes", value: "Empresas y particulares" },
 ];
 ---
 
@@ -32,7 +26,7 @@ const sheet = [
     <Container>
         <SectionTitle
             kicker="Quiénes somos"
-            label="Más de 15 años en el tablero"
+            label="Experiencia técnica, atención directa"
             align="start"
             class="lg:max-w-[42rem]"
         />

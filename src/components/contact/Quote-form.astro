@@ -9,6 +9,7 @@ import { phone } from "../../data/whatsapp.js";
 const workTypes = [
     ...components.map((c) => c.title),
     "Montaje electromecánico",
+    "Mantenimiento y postventa",
     "Otro",
 ];
 ---
@@ -63,13 +64,14 @@ const workTypes = [
 
                     <div>
                         <label for="localidad" class="plate text-2xs text-steel-400">
-                            Localidad <span class="text-steel-300">(opcional)</span>
+                            Localidad
                         </label>
                         <input
                             id="localidad"
                             name="localidad"
                             type="text"
                             autocomplete="address-level2"
+                            required
                             class="field mt-2"
                         />
                     </div>
@@ -87,8 +89,10 @@ const workTypes = [
                         ></textarea>
                     </div>
 
+                    <p class="text-sm leading-relaxed text-steel-500">Todos los campos son obligatorios. La localidad nos permite evaluar el montaje. Al continuar se abrirá WhatsApp con el pedido; revise el mensaje y envíelo allí.</p>
+
                     <Button type="submit" variant="primary" size="lg" fullWidth>
-                        Enviar por WhatsApp
+                        Continuar en WhatsApp
                     </Button>
                 </form>
             </div>
@@ -102,10 +106,10 @@ const workTypes = [
                                 href={c.href}
                                 target={c.href.startsWith("http") ? "_blank" : undefined}
                                 rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                                class="group flex items-center justify-between gap-4 border-b border-steel-200 py-4 no-underline transition-colors duration-200 ease-out hover:no-underline"
+                                class="group flex flex-col items-start justify-between gap-2 border-b border-steel-200 py-4 no-underline transition-colors duration-200 ease-out hover:no-underline"
                             >
                                 <span class="plate text-2xs text-steel-400">{c.label}</span>
-                                <span class="flex items-center gap-2 font-oswald text-base text-steel-900 transition-colors duration-200 group-hover:text-accent-700 lg:text-lg">
+                                <span class="flex min-w-0 items-center gap-2 break-all font-oswald text-base text-steel-900 transition-colors duration-200 group-hover:text-accent-700 lg:text-lg">
                                     {c.value}
                                     <svg
                                         viewBox="0 0 24 24"
@@ -124,10 +128,13 @@ const workTypes = [
                     <div class="flex items-center justify-between gap-4 border-b border-steel-200 py-4">
                         <span class="plate text-2xs text-steel-400">Medios de pago</span>
                         <span class="font-oswald text-base text-steel-900 lg:text-lg">
-                            Todos los medios
+                            Efectivo y transferencia
                         </span>
                     </div>
                 </div>
+
+                <p class="mt-4 text-sm leading-relaxed text-steel-500">Cheques sujetos a aceptación. Pagos por etapas según el proyecto y la provisión de materiales.</p>
+                <p class="mt-4 text-sm leading-relaxed text-steel-500">Montajes y visitas en Tandil y alrededores. Otros destinos según distancia, disponibilidad y acuerdo.</p>
 
                 <div class="mt-10">
                     <p class="plate text-2xs text-steel-400">Horarios de atención</p>

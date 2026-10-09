@@ -7,16 +7,14 @@ import { phone, encoded } from "../../data/whatsapp.js";
 
 // Datos de chapa: cada uno sale de contenido que ya existía en el sitio.
 const plate = [
-    { value: "+15 años", label: "En instalaciones industriales" },
-    { value: "IRAM · IEC 61439", label: "Normas de fabricación" },
-    { value: "Diseño → Puesta en marcha", label: "Alcance del servicio" },
+    { value: "+15 años", label: "Experiencia técnica del equipo" },
+    { value: "Fabricación a medida", label: "Potencia y control" },
+    { value: "Diseño · Fabricación · Montaje", label: "Según el alcance acordado" },
     { value: "Tandil, Bs. As.", label: "Base de operaciones" },
 ];
 ---
 
-<section
-    class="relative flex min-h-[38rem] flex-col justify-end overflow-hidden bg-steel-950 lg:min-h-[30rem] 2xl:min-h-[40rem] text-white"
->
+<section class="relative flex min-h-[38rem] flex-col justify-end overflow-hidden bg-steel-950 lg:min-h-[30rem] 2xl:min-h-[35rem] text-white">
     <Image
         src={heroImage}
         alt=""
@@ -32,19 +30,15 @@ const plate = [
     <div
         class="absolute inset-0 bg-gradient-to-r from-steel-950 via-steel-950/85 to-steel-950/55"
         aria-hidden="true"
-    >
-    </div>
+    ></div>
     <div
         class="absolute inset-0 bg-gradient-to-t from-steel-950/90 via-steel-950/10 to-steel-950/45"
         aria-hidden="true"
-    >
-    </div>
+    ></div>
 
     <Container class="relative z-10 flex flex-1 items-center py-16 lg:py-0">
         <div class="w-full max-w-[46rem]">
-            <div
-                class="flex items-center gap-4 animate-plate-in motion-reduce:animate-none"
-            >
+            <div class="flex items-center gap-4 animate-plate-in motion-reduce:animate-none">
                 <span class="h-[3px] w-12 bg-accent-500"></span>
                 <p class="plate text-2xs text-accent-400 2xl:text-xs">
                     Tableros eléctricos industriales
@@ -52,7 +46,7 @@ const plate = [
             </div>
 
             <h1
-                class="mt-7 max-w-[19ch] leading-4 font-oswald text-4xl font-medium uppercase tracking-display animate-plate-in motion-reduce:animate-none sm:text-3xl lg:text-4xl xl:text-5xl"
+                class="mt-7 max-w-[19ch] !leading-[3.6rem] font-oswald text-4xl/none sm:text-3xl/none lg:text-4xl/none xl:text-5xl/none font-medium uppercase tracking-display animate-plate-in motion-reduce:animate-none"
                 style="animation-delay: 90ms"
             >
                 Soluciones eléctricas integrales y montajes industriales
@@ -90,28 +84,25 @@ const plate = [
     <div class="relative z-10 border-t border-white/20 bg-steel-950/70">
         <Container>
             <dl class="grid grid-cols-2 lg:grid-cols-4">
-                {
-                    plate.map((item, index) => (
-                        <div
-                            class:list={[
-                                "py-5 lg:py-6",
-                                index % 2 === 1 &&
-                                    "border-l border-white/15 pl-5",
-                                index > 1 &&
-                                    "border-t border-white/15 lg:border-t-0",
-                                index > 0 &&
-                                    "lg:border-l lg:border-white/15 lg:pl-6 xl:pl-8",
-                            ]}
-                        >
-                            <dt class="font-oswald text-base uppercase tracking-[0.04em]  lg:text-lg">
-                                {item.value}
-                            </dt>
-                            <dd class="plate mt-1.5 text-2xs text-accent-400">
-                                {item.label}
-                            </dd>
-                        </div>
-                    ))
-                }
+                {plate.map((item, index) => (
+                    <div
+                        class:list={[
+                            "py-5 lg:py-6",
+                            index % 2 === 1 && "border-l border-white/15 pl-5",
+                            index > 1 &&
+                                "border-t border-white/15 lg:border-t-0",
+                            index > 0 &&
+                                "lg:border-l lg:border-white/15 lg:pl-6 xl:pl-8",
+                        ]}
+                    >
+                        <dt class="font-oswald text-base uppercase tracking-[0.04em] lg:text-lg">
+                            {item.value}
+                        </dt>
+                        <dd class="plate mt-1.5 text-2xs text-accent-400">
+                            {item.label}
+                        </dd>
+                    </div>
+                ))}
             </dl>
         </Container>
     </div>

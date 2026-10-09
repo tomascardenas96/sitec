@@ -100,6 +100,20 @@
   }
 }
 
+/* Keep reading and heading rhythm stable when responsive font utilities change. */
+main p:not(.plate):not(.font-oswald) {
+  line-height: 1.9;
+}
+
+/* Project descriptions already use a more generous leading-8 on small screens. */
+main p:not(.plate):not(.font-oswald).leading-8 {
+  line-height: 2.1;
+}
+
+.font-oswald:is(h1, h2, h3, h4, h5, h6):not(.plate) {
+  line-height: max(1.3em, 1.6rem);
+}
+
 /* Scroll reveal */
 [data-reveal] {
   transition:

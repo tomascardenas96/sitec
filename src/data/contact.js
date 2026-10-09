@@ -1,49 +1,15 @@
 import { phone } from "./whatsapp.js";
-
-// TODO: email.falso@sitec.com y /sitec-instagram son placeholders heredados
-// del sitio anterior (marca "SITEC"). Reemplazar por los datos reales de
-// BALCA antes de publicar. Los teléfonos también son los que ya mostraba el
-// sitio (Top-bar.astro, Footer.astro) — confirmar si son los reales.
+export const phones = [
+  { label: "249 424-7544", href: "tel:+5492494247544" },
+  { label: "249 457-6143", href: "tel:+5492494576143" },
+];
 export const channels = [
-  {
-    kind: "whatsapp",
-    label: "WhatsApp",
-    value: "+54 9 2281 37-8525",
-    href: `https://wa.me/${phone}`,
-  },
-  {
-    kind: "phone",
-    label: "Teléfono",
-    value: "(2494) - 123456",
-    href: "tel:+542494123456",
-  },
-  {
-    kind: "phone",
-    label: "Teléfono",
-    value: "(2494) - 789987",
-    href: "tel:+542494789987",
-  },
-  {
-    kind: "email",
-    label: "E-mail",
-    value: "email.falso@sitec.com",
-    href: "mailto:email.falso@sitec.com",
-  },
-  {
-    kind: "instagram",
-    label: "Instagram",
-    value: "/sitec-instagram",
-    href: "https://instagram.com/sitec-instagram",
-  },
-  {
-    kind: "address",
-    label: "Taller",
-    value: "Figueroa 2367, Tandil",
-    href: "https://www.google.com/maps/search/?api=1&query=Figueroa+2367+Tandil",
-  },
+  { kind: "whatsapp", label: "WhatsApp", value: phones[0].label, href: `https://wa.me/${phone}` },
+  { kind: "phone", label: "Teléfono principal", value: phones[0].label, href: phones[0].href },
+  { kind: "phone", label: "Teléfono adicional", value: phones[1].label, href: phones[1].href },
+  { kind: "email", label: "Correo electrónico", value: "balcaelectromecanica@gmail.com", href: "mailto:balcaelectromecanica@gmail.com" },
+  { kind: "address", label: "Taller", value: "Figueroa 2367, Tandil", href: "https://www.google.com/maps/search/?api=1&query=Figueroa+2367+Tandil" },
 ];
-
-export const hours = [
-  { label: "Lunes a viernes", value: "8:00 a 17:00 hs." },
-  { label: "Sábados", value: "8:00 a 13:00 hs." },
-];
+export const hours = [{ label: "Lunes a viernes", value: "7:00 a 17:00 hs." }];
+// Publish only confirmed company profiles, with name, href and SVG path.
+export const socialNetworks = [];

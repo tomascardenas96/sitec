@@ -9,7 +9,7 @@ import { values } from "../../data/values.js";
     <SectionTitle kicker="Cómo trabajamos" label="Nuestros valores" align="start" class="lg:max-w-[42rem]" />
 
     <div
-      class="mt-12 grid border-t border-steel-200 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3"
+      class="mt-12 grid border-t border-steel-200 sm:grid-cols-2 lg:mt-16"
       data-reveal="fade-up"
       data-reveal-delay="80"
     >
@@ -19,7 +19,7 @@ import { values } from "../../data/values.js";
             class:list={[
               "border-b border-steel-200 py-7",
               index % 2 === 1 && "sm:border-l sm:pl-6",
-              index % 3 === 0
+              index % 2 === 0
                 ? "lg:border-l-0 lg:pl-0"
                 : "lg:border-l lg:pl-8 2xl:pl-10",
             ]}

@@ -1,26 +1,6 @@
 export const values = [
-  {
-    title: "seguridad",
-    subtitle: "Cumplimos normas IRAM y protocolos de seguridad",
-  },
-  {
-    title: "calidad",
-    subtitle: "Componentes de primeras marcas, procesos controlados",
-  },
-  {
-    title: "compromiso",
-    subtitle: "Atención personalizada para cada proyecto",
-  },
-  {
-    title: "responsabilidad",
-    subtitle: "Cumplimos plazos y nos hacemos cargo de cada proyecto",
-  },
-  {
-    title: "sostenibilidad",
-    subtitle: "Procesos eficientes y respetuosos con el medio ambiente",
-  },
-  {
-    title: "innovación",
-    subtitle: "Soluciones a medida para la industria moderna",
-  },
+  { title: "Confianza", subtitle: "Comunicación directa con quienes realizan el trabajo." },
+  { title: "Responsabilidad", subtitle: "Acompañamiento desde la consulta hasta la entrega." },
+  { title: "Eficacia", subtitle: "Soluciones enfocadas en las necesidades de cada instalación." },
+  { title: "Atención personalizada", subtitle: "Diseño a medida y un alcance acordado para cada proyecto." },
 ];
