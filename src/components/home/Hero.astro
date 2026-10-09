@@ -83,13 +83,12 @@ const plate = [
     <!-- Chapa de datos al pie del gabinete. -->
     <div class="relative z-10 border-t border-white/20 bg-steel-950/70">
         <Container>
-            <dl class="grid grid-cols-2 lg:grid-cols-4">
+            <dl class="grid grid-cols-1 lg:grid-cols-4">
                 {plate.map((item, index) => (
                     <div
                         class:list={[
                             "py-5 lg:py-6",
-                            index % 2 === 1 && "border-l border-white/15 pl-5",
-                            index > 1 &&
+                            index > 0 &&
                                 "border-t border-white/15 lg:border-t-0",
                             index > 0 &&
                                 "lg:border-l lg:border-white/15 lg:pl-6 xl:pl-8",
