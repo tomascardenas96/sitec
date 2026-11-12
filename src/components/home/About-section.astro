@@ -25,7 +25,7 @@ const span = "font-semibold text-steel-900";
         <div class="mt-8 flex flex-col gap-5 text-base leading-relaxed lg:text-lg">
           <p class="max-w-measure" data-reveal="fade-up">
             En <span class={span}>BALCA</span> nos especializamos en la fabricación
-            y el diseño de tableros de potencia y control, ofreciendo soluciones
+            y el diseño de tableros de potencia, control y medición, ofreciendo soluciones
             <span class={span}>seguras</span>, <span class={span}
               >eficientes</span
             > y <span class={span}>adaptadas</span> a cada necesidad.
@@ -45,8 +45,11 @@ const span = "font-semibold text-steel-900";
           data-reveal-delay="140"
         >
           {
-            components.map((item) => (
-              <li class="flex items-center gap-3 border-b border-steel-200 py-3 font-oswald text-sm uppercase tracking-[0.08em] text-steel-900">
+            components.map((item, index) => (
+              <li class:list={[
+                "flex items-center gap-3 border-b border-steel-200 py-3 font-oswald text-sm uppercase tracking-[0.08em] text-steel-900",
+                components.length % 2 === 1 && index === components.length - 1 && "sm:col-span-2",
+              ]}>
                 <svg
                   viewBox="0 0 24 24"
                   class="h-4 w-4 shrink-0 text-accent-500"

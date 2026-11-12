@@ -9,7 +9,7 @@ import { glyphs } from "../../data/glyphs.js";
     <Container>
         <SectionTitle
             kicker="Qué fabricamos"
-            label="Tableros de potencia y control"
+            label="Tableros eléctricos a medida"
             align="start"
             class="lg:max-w-[42rem]"
         />
@@ -25,6 +25,7 @@ import { glyphs } from "../../data/glyphs.js";
                         class:list={[
                             "flex items-start gap-5 border-b border-steel-200 py-8",
                             index % 2 === 1 && "lg:border-l lg:pl-10 2xl:pl-12",
+                            components.length % 2 === 1 && index === components.length - 1 && "lg:col-span-2",
                         ]}
                     >
                         <svg

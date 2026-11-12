@@ -10,6 +10,12 @@ export const glyphs = {
   ],
   motor: ["M3 7h12v10H3z", "M15 12h6", "M6 7V4.5h4V7"],
   transfer: ["M7 3v5", "M17 3v5", "M12 21v-6", "M12 15l-5-6"],
+  measurement: [
+    "M4 3h16v18H4z",
+    "M7 13a5 5 0 0 1 10 0",
+    "M12 13l3-3",
+    "M8 17h8",
+  ],
   plc: ["M3 5h18v14H3z", "M9 5v14", "M15 5v14", "M5.5 8.5h1.5"],
   plug: ["M3 16h4", "M7 16l10-7", "M17 16h4", "M17 14v4"],
 };
