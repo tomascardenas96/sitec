@@ -7,10 +7,12 @@
     "dev": "astro dev",
     "dev:host": "astro dev --host",
     "build": "astro build",
+    "test:seo": "npm run build && node --test scripts/test-seo.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^6.0.2",
     "@heroicons/react": "^2.2.0",
     "astro": "^5.14.1",
