@@ -8,7 +8,6 @@ export const glyphs = {
     "M12 10.6V8",
     "M8 17.5h8",
   ],
-  motor: ["M3 7h12v10H3z", "M15 12h6", "M6 7V4.5h4V7"],
   transfer: ["M7 3v5", "M17 3v5", "M12 21v-6", "M12 15l-5-6"],
   measurement: [
     "M4 3h16v18H4z",
